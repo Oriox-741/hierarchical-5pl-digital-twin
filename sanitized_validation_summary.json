@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-07-06T20:25:02.320973+00:00",
+  "file_count": 669,
+  "total_size": 43057586,
+  "forbidden_suffix_files": [],
+  "protected_path_files": [],
+  "db_files": [],
+  "checkpoint_files": [],
+  "missing_readme_links": [],
+  "missing_gitignore_patterns": [],
+  "ci_forbidden_terms": [],
+  "secret_scan_blockers": 0,
+  "protected_mismatches": [],
+  "long_paths_over_240_chars_count": 0,
+  "long_paths_over_240_chars_sample": [],
+  "all_checks_pass": true
+}

@@ -1,0 +1,5 @@
+# Text normalization
+* text=auto
+
+# Git LFS is intentionally not configured for checkpoints or raw data.
+# Large sensitive artifacts must remain outside Git.

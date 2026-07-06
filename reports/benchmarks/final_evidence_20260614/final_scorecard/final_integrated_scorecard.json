@@ -1,0 +1,136 @@
+{
+  "classification": "FINAL_INTEGRATED_SCORECARD_READY_WITH_LIMITATIONS",
+  "generated_at_utc": "2026-06-14T04:17:51.261020+00:00",
+  "scores": [
+    {
+      "company_data_dependency": "yes",
+      "dimension": "simulator-production readiness",
+      "final_score": 4.7,
+      "limiter": "company telemetry still absent",
+      "overclaim_warning": "Do not call this live deployment proof.",
+      "previous_score": 4.6,
+      "reason": "Hierarchical v1 active/copy-promoted; gates and residual watch passed.",
+      "strongest_evidence": "internal gate and production audits"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "old-production comparison",
+      "final_score": 4.6,
+      "limiter": "synthetic scenario comparator",
+      "overclaim_warning": "Do not claim real-world superiority.",
+      "previous_score": 4.5,
+      "reason": "Equal-budget old-production comparison passed.",
+      "strongest_evidence": "20260611 equal-budget residual-watch eval"
+    },
+    {
+      "company_data_dependency": "yes",
+      "dimension": "multi-seed robustness",
+      "final_score": 4.2,
+      "limiter": "not company telemetry replay",
+      "overclaim_warning": "No global SOTA claim.",
+      "previous_score": 4.1,
+      "reason": "Multi-seed package exists from SOTA/full completion sprint.",
+      "strongest_evidence": "multi-seed robustness benchmark root"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "runtime latency",
+      "final_score": 4.7,
+      "limiter": "hardware dependent",
+      "overclaim_warning": "Not a production SLA guarantee.",
+      "previous_score": 4.6,
+      "reason": "CPU inference is low-latency and replay policy loads succeeded.",
+      "strongest_evidence": "runtime latency repeated benchmark and replay smoke"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "rule-based baseline maturity",
+      "final_score": 4.5,
+      "limiter": "simulator baselines only",
+      "overclaim_warning": "No claim that rules are industry optimal.",
+      "previous_score": 4.3,
+      "reason": "Continuous-aware full rule benchmark supersedes bounded smoke.",
+      "strongest_evidence": "5120 episode continuous-aware benchmark"
+    },
+    {
+      "company_data_dependency": "yes",
+      "dimension": "inventory/reorder external evidence",
+      "final_score": 4.5,
+      "limiter": "company reorder economics absent",
+      "overclaim_warning": "No no-reorder economic safety claim.",
+      "previous_score": 4.5,
+      "reason": "gym-invmgmt and MABIM evidence remain strong.",
+      "strongest_evidence": "inventory/MABIM reports"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "route/stochastic public evidence",
+      "final_score": 4.4,
+      "limiter": "stochastic raw fields missing",
+      "overclaim_warning": "No full 5PL route optimality claim.",
+      "previous_score": 4.3,
+      "reason": "PyVRP/OR-Tools/Amazon/SVRP geometry broaden route evidence.",
+      "strongest_evidence": "route reference reports"
+    },
+    {
+      "company_data_dependency": "yes",
+      "dimension": "fleet/dispatch external evidence",
+      "final_score": 4.2,
+      "limiter": "Chicago/OpenMines blockers and no company contracts",
+      "overclaim_warning": "No secondary-fleet economics claim.",
+      "previous_score": 4.1,
+      "reason": "HVFHV, FleetPy, SF taxi, and NYC TLC strengthen analog evidence.",
+      "strongest_evidence": "fleet dispatch upgrade sprint"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "public historical replay maturity",
+      "final_score": 4.45,
+      "limiter": "no propensities/rewards/full trajectories",
+      "overclaim_warning": "Descriptive proxy replay only.",
+      "previous_score": 4.35,
+      "reason": "Replay expanded to LaDe 31,415, HVFHS 100k, Olist 96,476.",
+      "strongest_evidence": "large replay reports"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "company-data validation readiness",
+      "final_score": 4.45,
+      "limiter": "no private extract ingested",
+      "overclaim_warning": "No company validation claim.",
+      "previous_score": 4.35,
+      "reason": "Synthetic harness plus company bridge define the path.",
+      "strongest_evidence": "company replay bridge and request package"
+    },
+    {
+      "company_data_dependency": "yes",
+      "dimension": "SOTA pathway maturity",
+      "final_score": 4.45,
+      "limiter": "external blockers and no company OPE",
+      "overclaim_warning": "Frame as pathway, not global SOTA.",
+      "previous_score": 4.3,
+      "reason": "Integrated across gates, baselines, public analogs, replay, blockers.",
+      "strongest_evidence": "SOTA pathway and final scorecard"
+    },
+    {
+      "company_data_dependency": "partial/no",
+      "dimension": "thesis/advisor defensibility",
+      "final_score": 4.75,
+      "limiter": "citation placeholders remain",
+      "overclaim_warning": "Do not overstate literature novelty.",
+      "previous_score": 4.6,
+      "reason": "Final packages distinguish simulator, public proxy, and company requirements.",
+      "strongest_evidence": "final advisor/thesis docs"
+    },
+    {
+      "company_data_dependency": "yes",
+      "dimension": "real-world deployment readiness",
+      "final_score": 3.25,
+      "limiter": "no company replay/OPE/live telemetry",
+      "overclaim_warning": "Not live TMS/WMS/ERP ready.",
+      "previous_score": 3.2,
+      "reason": "Protected production artifact exists but no company/live integration.",
+      "strongest_evidence": "production handoff and ops bundles"
+    }
+  ]
+}

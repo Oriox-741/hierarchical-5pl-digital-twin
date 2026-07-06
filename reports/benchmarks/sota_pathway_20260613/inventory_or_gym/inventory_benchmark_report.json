@@ -1,0 +1,62 @@
+{
+  "benchmark_metadata": {
+    "benchmark": "inventory_reorder_gym_invmgmt",
+    "env_id": "GymInvMgmt/Serial-v0",
+    "episodes": 20,
+    "max_steps": 30,
+    "or_gym_status": "or-gym install blocked on gym<=0.19 metadata build under Python 3.12",
+    "seed": 42,
+    "source": "gym-invmgmt"
+  },
+  "decision": "INVENTORY_REORDER_BENCHMARK_READY",
+  "policy_summaries": [
+    {
+      "max_backlog": 0.0,
+      "mean_backlog": 0.0,
+      "mean_inventory": 16922.963333333333,
+      "mean_order_quantity": 3715.345,
+      "mean_step_cost": 576.7713666666667,
+      "no_backlog_step_rate": 1.0,
+      "policy_name": "base_stock_order_up_to",
+      "steps": 600,
+      "total_cost": 346062.82,
+      "total_reward": -346062.82
+    },
+    {
+      "max_backlog": 0.0,
+      "mean_backlog": 0.0,
+      "mean_inventory": 9305.878333333334,
+      "mean_order_quantity": 1920.0,
+      "mean_step_cost": 393.31635,
+      "no_backlog_step_rate": 1.0,
+      "policy_name": "conservative_reorder",
+      "steps": 600,
+      "total_cost": 235989.81,
+      "total_reward": -235989.81
+    },
+    {
+      "max_backlog": 0.0,
+      "mean_backlog": 0.0,
+      "mean_inventory": 31625.878333333334,
+      "mean_order_quantity": 6240.0,
+      "mean_step_cost": 1336.51635,
+      "no_backlog_step_rate": 1.0,
+      "policy_name": "aggressive_reorder",
+      "steps": 600,
+      "total_cost": 801909.81,
+      "total_reward": -801909.81
+    },
+    {
+      "max_backlog": 0.0,
+      "mean_backlog": 0.0,
+      "mean_inventory": 38916.73536595908,
+      "mean_order_quantity": 7219.425557093695,
+      "mean_step_cost": 1572.6625131752066,
+      "no_backlog_step_rate": 1.0,
+      "policy_name": "project_heuristic_continuous_reorder",
+      "steps": 600,
+      "total_cost": 943597.507905124,
+      "total_reward": -943597.507905124
+    }
+  ]
+}

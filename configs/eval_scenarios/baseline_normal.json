@@ -1,0 +1,34 @@
+{
+  "scenario_id": "baseline_normal",
+  "name": "Baseline Normal Operations",
+  "description": "Production-like baseline for validating the 3M candidate under normal 5PL operating conditions.",
+  "seeds": [42, 43, 44],
+  "episode_count": 3,
+  "environment_overrides": {
+    "service_level_target": 0.95,
+    "rolling_demand_probability": 0.35,
+    "rolling_demand_max_orders_per_step": 2,
+    "urgent_order_probability": 0.25
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "service_level_target": "Baseline SLA target remains production-like.",
+    "rolling_demand_probability": "Baseline rolling demand probability remains production-like."
+  },
+  "expected_behavior": "Balanced dispatch and hold decisions, high dispatch success, high service level, low true lateness, no fake dispatch credit, and no route/customer feasibility regression.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_no_vehicle_available": false,
+    "fail_on_stuck_assigned_in_transit_orders": true,
+    "fail_on_nan_inf": true,
+    "min_dispatch_success_per_attempt": 0.70,
+    "min_service_level": 0.93,
+    "max_true_lateness_pressure": 0.05,
+    "min_delivered_delta": 0.45,
+    "max_action_24_25_concentration_warn": 0.40,
+    "max_action_24_25_concentration_fail": 0.40,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

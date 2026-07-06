@@ -1,0 +1,328 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- verification-before-completion
+- requesting-code-review
+
+CODEX PROJE Step 1 now-work execution goal.
+
+Objective:
+Execute only the safe, useful, immediately available Step 1 documentation and
+specification work for the current hierarchical v1 1M production state. Do not
+train, evaluate, gate, download datasets, mutate registry, mutate production,
+mutate baselines, mutate DB, mutate checkpoints, edit existing eval outputs, or
+create training configs.
+
+Execute this goal exactly. If any protected hash drifts, any forbidden process
+is running, or any instruction conflicts with current project evidence, stop and
+report.
+
+Current production state:
+- logical_model_id: joint_torch_v5_prod_hierarchical_v1_1m_20260611
+- architecture: hierarchical_v1
+- init: flat_teacher_distillation_v1
+- contract: physical_reality_v5_route_candidate_visibility
+- obs/action: 73/48
+- status: active registry + production promoted + handoff + final audit clean
+- residual watches: accepted for monitoring
+- equal-budget residual-watch gate: PASS
+- Amazon small-sample route proxy: READY
+- company data still required for secondary_fleet and reorder economics
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+- Do not implement model code changes unless explicitly approved in a new task.
+- Do not validate secondary_fleet or reorder economics with public route-only
+  data beyond documenting limitations.
+
+Allowed writes only:
+1. docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md
+2. docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+3. docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md
+4. docs/runbooks/20260611_hierarchical_v1_artifact_health_report_spec.md
+5. docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+6. docs/runs/20260611_step1_now_work_completion_report.md
+7. docs/00_PROJECT_DASHBOARD.md update only for links/status
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260611_step1_now_executable_work_plan.md
+- docs/runs/20260611_full_project_chronology_and_future_roadmap.md
+- docs/plans/20260611_codex_project_future_strategy_plan.md
+- docs/runbooks/20260611_hierarchical_v1_production_monitoring_runbook.md
+- docs/releases/20260611_hierarchical_v1_1m_production_handoff.md
+- docs/runs/20260611_final_production_state_readonly_audit.md
+- docs/runs/20260611_hierarchical_v1_equal_budget_residual_watch_eval.md
+- docs/plans/20260611_real_world_calibration_and_validation_plan.md
+- docs/runs/20260611_public_route_proxy_validation_readiness.md
+- docs/runs/20260611_amazon_last_mile_small_sample_analysis.md
+- scripts/real_world_calibration/README.md
+- models/registry/active_models.json
+- models/registry/models.jsonl
+- models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+
+Pre-write verification:
+1. Verify none of the allowed output docs already exists unless the task is
+   explicitly continuing a prior incomplete Step 1 run. If one exists, inspect
+   it and avoid overwriting unrelated user work.
+2. Record SHA256 hashes for:
+   - models/registry/active_models.json
+   - models/registry/models.jsonl
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+3. Record protected path profiles for:
+   - models/baselines
+   - db
+   - models/checkpoints
+   - models/production
+   - models/eval
+4. Scan for train/eval/gate/AWS download processes.
+
+PowerShell pre-write hash command:
+
+Get-FileHash -Algorithm SHA256 -LiteralPath @(
+  'models\registry\active_models.json',
+  'models\registry\models.jsonl',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\joint_torch_latest.pt',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\production_manifest.json'
+) | ForEach-Object { "$($_.Hash)  $($_.Path)" }
+
+PowerShell protected path profile command:
+
+$paths = @('models\baselines','db','models\checkpoints','models\production','models\eval')
+foreach ($path in $paths) {
+  if (Test-Path -LiteralPath $path) {
+    $items = Get-ChildItem -LiteralPath $path -Recurse -File -Force
+    $bytes = ($items | Measure-Object -Property Length -Sum).Sum
+    if ($null -eq $bytes) { $bytes = 0 }
+    "$path files=$($items.Count) bytes=$bytes"
+  } else {
+    "$path MISSING"
+  }
+}
+
+PowerShell process scan command:
+
+$self = $PID
+$matches = Get-CimInstance Win32_Process | Where-Object {
+  $_.ProcessId -ne $self -and $_.CommandLine -and ($_.CommandLine -match 'train_joint|evaluate_real_world_scenarios|check_long_run_gate|offline_scenarios|aws s3 sync|aws s3 cp')
+}
+if ($matches) {
+  $matches | Select-Object ProcessId,Name,CommandLine | Format-List
+} else {
+  'NO_TRAIN_EVAL_GATE_OR_AWS_DOWNLOAD_PROCESS'
+}
+
+Exact task order:
+
+Task 1: Create monitoring KPI dictionary.
+Write docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md.
+Include:
+- current production context
+- action decode for 24 and 32
+- equal-budget baselines for route action 32 and mixed action 24
+- service by scenario
+- lateness
+- dispatch success
+- no-current by action
+- no-unassigned by action
+- failed-noop by action
+- route failure by action
+- no-vehicle by action
+- already-assigned by action
+- top action concentration
+- action 24 rate
+- action 32 rate
+- secondary_fleet rate
+- reorder none rate
+- each metric's definition, numerator, denominator, source, aggregation grain,
+  warning threshold, escalation threshold, and caveats
+- explicit note that secondary_fleet and reorder economics need company data
+Final section classification:
+STEP1_MONITORING_KPI_DICTIONARY_READY
+
+Task 2: Create monitoring report spec.
+Write docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md.
+Include:
+- report purpose
+- intended read-only scope
+- required metadata
+- JSON schema
+- per-scenario metrics block
+- per-action metrics block
+- residual-watch block
+- protected state block
+- alert levels
+- example report skeleton
+- final classifications
+Final section classification:
+STEP1_MONITORING_REPORT_SPEC_READY
+
+Task 3: Create company data request package.
+Write docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md.
+Include:
+- purpose and non-goals
+- current model/action context
+- order fields
+- route fields
+- fleet fields
+- inventory fields
+- cost fields
+- dispatch failure fields
+- join keys
+- privacy/access assumptions
+- validation questions for action 24
+- validation questions for action 32
+- what Amazon public sample supports
+- what company data must validate
+- minimum viable first extract
+- stop conditions
+Final section classification:
+STEP1_COMPANY_DATA_REQUEST_PACKAGE_READY
+
+Task 4: Create artifact health report spec.
+Write docs/runbooks/20260611_hierarchical_v1_artifact_health_report_spec.md.
+Include:
+- active registry checks
+- candidate/active row checks
+- production manifest checks
+- expected production file hashes
+- runtime smoke checklist
+- protected path profile checks
+- process scan
+- dashboard consistency checks
+- failure classifications
+- exact future read-only command snippets if useful
+Final section classification:
+STEP1_ARTIFACT_HEALTH_REPORT_SPEC_READY
+
+Task 5: Create model lifecycle governance runbook.
+Write docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md.
+Include:
+- approval gate matrix
+- allowed mutation templates
+- forbidden operations
+- registry candidate registration rules
+- active registry activation rules
+- production copy/promotion rules
+- baseline update rules
+- DB mutation rules
+- checkpoint mutation rules
+- eval output rules
+- rollback path
+- no-blind-training policy
+- trigger-based training policy
+- exact-resume requirements
+- independent review requirements
+- final classifications
+Final section classification:
+STEP1_MODEL_LIFECYCLE_GOVERNANCE_READY
+
+Task 6: Create Step 1 completion report.
+Write docs/runs/20260611_step1_now_work_completion_report.md.
+Include:
+- executive summary
+- files created
+- protected no-mutation proof
+- current production state
+- Step 1 deliverable summary
+- project-memory/truth-source index
+- obsolete/superseded warning notes
+- verification commands and results
+- independent reviewer verdict
+- deferred Step 2 candidates
+- explicit no-training/no-eval/no-protected-mutation statement
+Final classification one of:
+STEP1_NOW_WORK_COMPLETE_SAFE
+STEP1_NOW_WORK_NEEDS_FIXES
+STEP1_NOW_WORK_BLOCKED
+
+Task 7: Update dashboard.
+Update docs/00_PROJECT_DASHBOARD.md only to add links/status for:
+- docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+- docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md
+- docs/runbooks/20260611_hierarchical_v1_artifact_health_report_spec.md
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+- docs/runs/20260611_step1_now_work_completion_report.md
+
+Post-write verification:
+1. Verify all allowed output files exist.
+2. Verify required sections exist in each new file.
+3. Verify dashboard links if dashboard was updated.
+4. Verify no train/eval/gate/AWS download process is running.
+5. Verify protected hashes match the pre-write hashes.
+6. Verify protected path profiles match the pre-write profiles except for
+   documentation files outside protected paths.
+7. Verify recent modified files are limited to the allowed output docs and, if
+   the editor touches it, harmless workspace metadata. Do not rely on git if it
+   is unavailable.
+
+PowerShell file existence check:
+
+$expected = @(
+  'docs\runbooks\20260611_hierarchical_v1_monitoring_kpi_dictionary.md',
+  'docs\runbooks\20260611_hierarchical_v1_monitoring_report_spec.md',
+  'docs\runbooks\20260611_hierarchical_v1_company_data_request_package.md',
+  'docs\runbooks\20260611_hierarchical_v1_artifact_health_report_spec.md',
+  'docs\runbooks\20260611_codex_model_lifecycle_governance_runbook.md',
+  'docs\runs\20260611_step1_now_work_completion_report.md',
+  'docs\00_PROJECT_DASHBOARD.md'
+)
+foreach ($path in $expected) {
+  if (Test-Path -LiteralPath $path) { "EXISTS $path" } else { "MISSING $path" }
+}
+
+Independent review requirement:
+After writing and verifying the Step 1 deliverables, spawn one gpt-5.5
+read-only reviewer. Reviewer scope:
+- read the Step 1 plan
+- read every Step 1 deliverable
+- read dashboard update
+- inspect supporting reports if needed
+- do not edit files
+- do not train
+- do not run offline eval
+- do not run long-run gate
+- do not download datasets
+- do not mutate registry, production, baselines, DB, checkpoints, or existing
+  eval outputs
+
+Reviewer must return exactly one verdict line:
+STEP1_NOW_WORK_APPROVED
+STEP1_NOW_WORK_NEEDS_FIXES
+STEP1_NOW_WORK_BLOCKED
+
+If reviewer returns NEEDS_FIXES:
+- apply only the requested documentation fixes,
+- re-run focused section/hashes/process verification,
+- re-review.
+
+If reviewer returns BLOCKED:
+- stop and classify the goal as STEP1_NOW_WORK_BLOCKED.
+
+Final output required:
+- files changed
+- Step 1 deliverables created
+- tests/verifications run and results
+- reviewer verdict
+- protected no-mutation proof
+- deferred Step 2 candidates
+- exact statement that no training/eval/gate/download/protected mutation ran
+- final classification exactly one:
+  STEP1_NOW_WORK_COMPLETE_SAFE
+  STEP1_NOW_WORK_NEEDS_FIXES
+  STEP1_NOW_WORK_BLOCKED

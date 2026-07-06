@@ -1,0 +1,101 @@
+{
+  "benchmark_metadata": {
+    "benchmark": "pyvrp_route_reference",
+    "data_dir": "data\\public\\route_benchmarks_20260613",
+    "instance_count": 8,
+    "route_only_caveat": "PyVRP validates route solver references only, not full 5PL dispatch/fleet/reorder control.",
+    "successful_instances": 5,
+    "time_limit_seconds": 2.0
+  },
+  "decision": "PYVRP_ROUTE_REFERENCE_READY",
+  "results": [
+    {
+      "error": null,
+      "family": "cvrplib_cvrp",
+      "feasible": true,
+      "instance": "A-n32-k5.vrp",
+      "objective": 773.0,
+      "path": "data\\public\\route_benchmarks_20260613\\cvrplib\\A-n32-k5.vrp",
+      "routes_used": 5,
+      "runtime_seconds": 2.01382759999251,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "family": "cvrplib_cvrp",
+      "feasible": true,
+      "instance": "A-n33-k5.vrp",
+      "objective": 650.0,
+      "path": "data\\public\\route_benchmarks_20260613\\cvrplib\\A-n33-k5.vrp",
+      "routes_used": 5,
+      "runtime_seconds": 2.014566400030162,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "family": "cvrplib_cvrp",
+      "feasible": true,
+      "instance": "A-n33-k6.vrp",
+      "objective": 726.0,
+      "path": "data\\public\\route_benchmarks_20260613\\cvrplib\\A-n33-k6.vrp",
+      "routes_used": 6,
+      "runtime_seconds": 2.016977899998892,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "family": "cvrplib_cvrp",
+      "feasible": true,
+      "instance": "A-n34-k5.vrp",
+      "objective": 767.0,
+      "path": "data\\public\\route_benchmarks_20260613\\cvrplib\\A-n34-k5.vrp",
+      "routes_used": 5,
+      "runtime_seconds": 2.0148508999845944,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "family": "cvrplib_cvrp",
+      "feasible": true,
+      "instance": "A-n36-k5.vrp",
+      "objective": 789.0,
+      "path": "data\\public\\route_benchmarks_20260613\\cvrplib\\A-n36-k5.vrp",
+      "routes_used": 5,
+      "runtime_seconds": 2.011158599983901,
+      "status": "success"
+    },
+    {
+      "error": "RuntimeError: Instance does not conform to the VRPLIB format.",
+      "family": "vrptw_reference",
+      "feasible": false,
+      "instance": "C1_2_1.TXT",
+      "objective": null,
+      "path": "data\\public\\route_benchmarks_20260613\\pyvrp_extracted_vrptw\\C1_2_1.TXT",
+      "routes_used": null,
+      "runtime_seconds": 0.008517799957189709,
+      "status": "blocked"
+    },
+    {
+      "error": "RuntimeError: Instance does not conform to the VRPLIB format.",
+      "family": "vrptw_reference",
+      "feasible": false,
+      "instance": "C1_2_2.TXT",
+      "objective": null,
+      "path": "data\\public\\route_benchmarks_20260613\\pyvrp_extracted_vrptw\\C1_2_2.TXT",
+      "routes_used": null,
+      "runtime_seconds": 0.007447200012393296,
+      "status": "blocked"
+    },
+    {
+      "error": "RuntimeError: Instance does not conform to the VRPLIB format.",
+      "family": "vrptw_reference",
+      "feasible": false,
+      "instance": "C1_2_3.TXT",
+      "objective": null,
+      "path": "data\\public\\route_benchmarks_20260613\\pyvrp_extracted_vrptw\\C1_2_3.TXT",
+      "routes_used": null,
+      "runtime_seconds": 0.009337000024970621,
+      "status": "blocked"
+    }
+  ]
+}

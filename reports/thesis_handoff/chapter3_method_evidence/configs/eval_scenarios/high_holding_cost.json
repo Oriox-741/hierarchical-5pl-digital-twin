@@ -1,0 +1,31 @@
+{
+  "scenario_id": "high_holding_cost",
+  "name": "High Holding-Cost Scenario",
+  "description": "Tests whether near-max PPO reorder and safety stock relax when inventory is expensive and stockout risk is controlled.",
+  "seeds": [52, 53, 54],
+  "episode_count": 3,
+  "environment_overrides": {
+    "service_level_target": 0.95,
+    "holding_cost_multiplier": 2.25,
+    "excess_inventory_penalty_multiplier": 2.0,
+    "planned_replenishment_cost_multiplier": 2.0
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "holding_cost_multiplier": "Raises excess inventory and planned replenishment economics.",
+    "excess_inventory_penalty_multiplier": "Makes oversupply more costly.",
+    "planned_replenishment_cost_multiplier": "Makes planned reorder more expensive."
+  },
+  "expected_behavior": "PPO should reduce unnecessary reorder and safety stock unless stockout risk, lateness, or lead-time uncertainty justifies inventory.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_service_level": 0.90,
+    "max_true_lateness_pressure": 0.08,
+    "max_action_24_25_concentration_warn": 0.40,
+    "max_action_24_25_concentration_fail": 0.40,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

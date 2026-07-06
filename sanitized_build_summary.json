@@ -1,0 +1,19 @@
+{
+  "generated_utc": "2026-07-06T20:18:33.679668+00:00",
+  "publish_dir": "<PROJECT_ROOT>\\reports\\github_publish\\codex-proje-sanitized",
+  "repo_name": "codex-proje-sanitized",
+  "included_count_initial": 1286,
+  "excluded_count_initial": 436,
+  "ambiguous_count_initial": 9,
+  "file_count_after_generation": 1300,
+  "size_after_generation": 50759545,
+  "excluded_counts_by_reason": {
+    "cache_or_environment": 54,
+    "local_inventory_excluded": 1,
+    "blocked_suffix_or_raw_body": 8,
+    "internal_agent_plan_history_excluded": 11,
+    "thesis_binary_or_zip_excluded": 29,
+    "heavy_raw_or_install_process_artifact_excluded": 332,
+    "not_summary_or_too_large": 1
+  }
+}

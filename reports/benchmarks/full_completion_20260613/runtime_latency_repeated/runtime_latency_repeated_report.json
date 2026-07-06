@@ -1,0 +1,510 @@
+{
+  "aggregate_latency_ms": {
+    "max_ms": {
+      "count": 5,
+      "max": 16.204999992623925,
+      "mean": 5.126720003318042,
+      "median": 2.211800019722432,
+      "min": 1.450299983844161,
+      "q25": 1.4768000110052526,
+      "q75": 4.289700009394437,
+      "sd": 6.300071995864829
+    },
+    "mean_ms": {
+      "count": 5,
+      "max": 1.0026320997276343,
+      "mean": 0.8725571602350101,
+      "median": 0.8275222997181118,
+      "min": 0.8000077013857663,
+      "q25": 0.8199580010841601,
+      "q75": 0.912665699259378,
+      "sd": 0.0845375936657032
+    },
+    "min_ms": {
+      "count": 5,
+      "max": 0.7357000140473247,
+      "mean": 0.7316799950785935,
+      "median": 0.7322999881580472,
+      "min": 0.7273000082932413,
+      "q25": 0.7283999584615231,
+      "q75": 0.7347000064328313,
+      "sd": 0.0037285498842189674
+    },
+    "p50_ms": {
+      "count": 5,
+      "max": 0.9088499937206507,
+      "mean": 0.8033700054511428,
+      "median": 0.7631000189576298,
+      "min": 0.7528999703936279,
+      "q25": 0.7550500158686191,
+      "q75": 0.8369500283151865,
+      "sd": 0.06847876222785229
+    },
+    "p95_ms": {
+      "count": 5,
+      "max": 1.537544949678704,
+      "mean": 1.2434809911064801,
+      "median": 1.1846099980175495,
+      "min": 1.0778699972433965,
+      "q25": 1.1387249978724867,
+      "q75": 1.2786550127202643,
+      "sd": 0.17998433040246117
+    },
+    "p99_ms": {
+      "count": 5,
+      "max": 2.1415599965257557,
+      "mean": 1.565499596763402,
+      "median": 1.5144100051838905,
+      "min": 1.2824099854333326,
+      "q25": 1.30140301422216,
+      "q75": 1.587714982451871,
+      "sd": 0.3481508246638173
+    }
+  },
+  "decision": "RUNTIME_LATENCY_REPEATED_BENCHMARK_READY",
+  "load_latency_ms": {
+    "count": 5,
+    "max": 106.85240000020713,
+    "mean": 102.2812399896793,
+    "median": 100.54109996417537,
+    "min": 99.90119998110458,
+    "q25": 100.09550000540912,
+    "q75": 104.01599999750033,
+    "sd": 3.0567561710168563
+  },
+  "metadata": {
+    "benchmark": "runtime_latency_repeated",
+    "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+    "device": "cpu",
+    "iterations_per_run": 1000,
+    "run_count": 5,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ]
+  },
+  "per_run_reports": [
+    {
+      "decision": "RUNTIME_LATENCY_BENCHMARK_READY",
+      "latency_ms": {
+        "count": 1000,
+        "max_ms": 16.204999992623925,
+        "mean_ms": 1.0026320997276343,
+        "min_ms": 0.7357000140473247,
+        "p50_ms": 0.9088499937206507,
+        "p95_ms": 1.537544949678704,
+        "p99_ms": 2.1415599965257557
+      },
+      "load_latency_ms": 104.01599999750033,
+      "prediction_validation": {
+        "sample_predictions": [
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.999893844127655,
+            "continuous_min": 0.23888695240020752,
+            "discrete": 2
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9914501309394836,
+            "continuous_min": -0.2098619043827057,
+            "discrete": 27
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          }
+        ],
+        "unique_discrete_actions": [
+          0,
+          1,
+          2,
+          3,
+          24,
+          25,
+          27,
+          28,
+          29,
+          31,
+          32,
+          33,
+          34,
+          35,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          45,
+          46
+        ],
+        "valid_predictions": 1000
+      },
+      "runtime_metadata": {
+        "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+        "continuous_action_dim": 5,
+        "device": "cpu",
+        "discrete_action_count": 48,
+        "dqn_architecture": "hierarchical_v1",
+        "global_step": 1000000,
+        "hierarchical_init_method": "flat_teacher_distillation_v1",
+        "iterations": 1000,
+        "obs_dim": 73,
+        "seed": 42
+      }
+    },
+    {
+      "decision": "RUNTIME_LATENCY_BENCHMARK_READY",
+      "latency_ms": {
+        "count": 1000,
+        "max_ms": 1.4768000110052526,
+        "mean_ms": 0.8000077013857663,
+        "min_ms": 0.7283999584615231,
+        "p50_ms": 0.7528999703936279,
+        "p95_ms": 1.1387249978724867,
+        "p99_ms": 1.2824099854333326
+      },
+      "load_latency_ms": 100.09550000540912,
+      "prediction_validation": {
+        "sample_predictions": [
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": -0.9519485235214233,
+            "continuous_min": -1.0,
+            "discrete": 2
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9689533710479736,
+            "continuous_min": -0.13431678712368011,
+            "discrete": 43
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          }
+        ],
+        "unique_discrete_actions": [
+          0,
+          1,
+          2,
+          3,
+          24,
+          25,
+          27,
+          28,
+          31,
+          32,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39,
+          40,
+          41,
+          43,
+          44,
+          47
+        ],
+        "valid_predictions": 1000
+      },
+      "runtime_metadata": {
+        "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+        "continuous_action_dim": 5,
+        "device": "cpu",
+        "discrete_action_count": 48,
+        "dqn_architecture": "hierarchical_v1",
+        "global_step": 1000000,
+        "hierarchical_init_method": "flat_teacher_distillation_v1",
+        "iterations": 1000,
+        "obs_dim": 73,
+        "seed": 43
+      }
+    },
+    {
+      "decision": "RUNTIME_LATENCY_BENCHMARK_READY",
+      "latency_ms": {
+        "count": 1000,
+        "max_ms": 1.450299983844161,
+        "mean_ms": 0.8199580010841601,
+        "min_ms": 0.7322999881580472,
+        "p50_ms": 0.7631000189576298,
+        "p95_ms": 1.0778699972433965,
+        "p99_ms": 1.30140301422216
+      },
+      "load_latency_ms": 106.85240000020713,
+      "prediction_validation": {
+        "sample_predictions": [
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9720302820205688,
+            "continuous_min": -0.1461050659418106,
+            "discrete": 43
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9963046908378601,
+            "continuous_min": -0.240508571267128,
+            "discrete": 0
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          }
+        ],
+        "unique_discrete_actions": [
+          0,
+          1,
+          2,
+          3,
+          24,
+          25,
+          27,
+          28,
+          29,
+          32,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39,
+          40,
+          41,
+          43,
+          44,
+          45,
+          46
+        ],
+        "valid_predictions": 1000
+      },
+      "runtime_metadata": {
+        "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+        "continuous_action_dim": 5,
+        "device": "cpu",
+        "discrete_action_count": 48,
+        "dqn_architecture": "hierarchical_v1",
+        "global_step": 1000000,
+        "hierarchical_init_method": "flat_teacher_distillation_v1",
+        "iterations": 1000,
+        "obs_dim": 73,
+        "seed": 44
+      }
+    },
+    {
+      "decision": "RUNTIME_LATENCY_BENCHMARK_READY",
+      "latency_ms": {
+        "count": 1000,
+        "max_ms": 4.289700009394437,
+        "mean_ms": 0.8275222997181118,
+        "min_ms": 0.7273000082932413,
+        "p50_ms": 0.7550500158686191,
+        "p95_ms": 1.1846099980175495,
+        "p99_ms": 1.5144100051838905
+      },
+      "load_latency_ms": 99.90119998110458,
+      "prediction_validation": {
+        "sample_predictions": [
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": -0.845781683921814,
+            "continuous_min": -1.0,
+            "discrete": 2
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.975574254989624,
+            "continuous_min": -0.15683797001838684,
+            "discrete": 24
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          }
+        ],
+        "unique_discrete_actions": [
+          0,
+          1,
+          2,
+          3,
+          24,
+          25,
+          27,
+          28,
+          29,
+          31,
+          32,
+          33,
+          34,
+          35,
+          37,
+          38,
+          40,
+          41,
+          43,
+          45
+        ],
+        "valid_predictions": 1000
+      },
+      "runtime_metadata": {
+        "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+        "continuous_action_dim": 5,
+        "device": "cpu",
+        "discrete_action_count": 48,
+        "dqn_architecture": "hierarchical_v1",
+        "global_step": 1000000,
+        "hierarchical_init_method": "flat_teacher_distillation_v1",
+        "iterations": 1000,
+        "obs_dim": 73,
+        "seed": 45
+      }
+    },
+    {
+      "decision": "RUNTIME_LATENCY_BENCHMARK_READY",
+      "latency_ms": {
+        "count": 1000,
+        "max_ms": 2.211800019722432,
+        "mean_ms": 0.912665699259378,
+        "min_ms": 0.7347000064328313,
+        "p50_ms": 0.8369500283151865,
+        "p95_ms": 1.2786550127202643,
+        "p99_ms": 1.587714982451871
+      },
+      "load_latency_ms": 100.54109996417537,
+      "prediction_validation": {
+        "sample_predictions": [
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9858229756355286,
+            "continuous_min": 0.14838731288909912,
+            "discrete": 2
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9999497532844543,
+            "continuous_min": 0.280487984418869,
+            "discrete": 2
+          },
+          {
+            "continuous_dim": 5,
+            "continuous_max": 0.9940987825393677,
+            "continuous_min": -0.22180308401584625,
+            "discrete": 1
+          }
+        ],
+        "unique_discrete_actions": [
+          0,
+          1,
+          2,
+          3,
+          24,
+          25,
+          27,
+          28,
+          29,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          45,
+          47
+        ],
+        "valid_predictions": 1000
+      },
+      "runtime_metadata": {
+        "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+        "continuous_action_dim": 5,
+        "device": "cpu",
+        "discrete_action_count": 48,
+        "dqn_architecture": "hierarchical_v1",
+        "global_step": 1000000,
+        "hierarchical_init_method": "flat_teacher_distillation_v1",
+        "iterations": 1000,
+        "obs_dim": 73,
+        "seed": 46
+      }
+    }
+  ],
+  "run_count": 5
+}

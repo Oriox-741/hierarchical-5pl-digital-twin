@@ -1,0 +1,78 @@
+{
+  "blockers": [
+    {
+      "blocker": "HTTP 403",
+      "name": "Mendeley planned-vs-actual",
+      "prevents": "planned-vs-actual route comparison",
+      "safe_next_step": "request access or alternative mirror",
+      "sota_impact": "medium",
+      "thesis_impact": "minor thesis blocker; route evidence exists"
+    },
+    {
+      "blocker": "HTTP 503",
+      "name": "Chicago TNP",
+      "prevents": "additional dispatch proxy",
+      "safe_next_step": "retry Socrata later",
+      "sota_impact": "low-medium",
+      "thesis_impact": "not thesis-blocking"
+    },
+    {
+      "blocker": "HTTP 503",
+      "name": "Chicago Taxi",
+      "prevents": "additional fleet/trip proxy",
+      "safe_next_step": "retry Socrata later",
+      "sota_impact": "low-medium",
+      "thesis_impact": "not thesis-blocking"
+    },
+    {
+      "blocker": "Python 3.10/3.11 isolation blocker",
+      "name": "OpenMines",
+      "prevents": "mining dispatch simulator analog",
+      "safe_next_step": "use compatible env",
+      "sota_impact": "medium",
+      "thesis_impact": "not thesis-blocking"
+    },
+    {
+      "blocker": "legacy links 404",
+      "name": "Instacart",
+      "prevents": "inventory/reorder public data",
+      "safe_next_step": "find maintained mirror",
+      "sota_impact": "low-medium",
+      "thesis_impact": "not blocking due Tesco/MABIM/gym evidence"
+    },
+    {
+      "blocker": "Zenodo 403",
+      "name": "M5",
+      "prevents": "demand/inventory public data",
+      "safe_next_step": "manual approved access",
+      "sota_impact": "low-medium",
+      "thesis_impact": "not blocking due other inventory evidence"
+    },
+    {
+      "blocker": "released parquet lacks fields",
+      "name": "SVRPBench stochastic raw fields",
+      "prevents": "stochastic congestion/delay validation",
+      "safe_next_step": "source raw generator or contact authors",
+      "sota_impact": "medium",
+      "thesis_impact": "not thesis-blocking; geometry/dynamic fields exist"
+    },
+    {
+      "blocker": "publication reuse caveat",
+      "name": "LaDe license caveat",
+      "prevents": "publication-grade reuse",
+      "safe_next_step": "manual license review",
+      "sota_impact": "medium",
+      "thesis_impact": "must resolve before formal publication"
+    },
+    {
+      "blocker": "source-build deferred",
+      "name": "CityFlow",
+      "prevents": "traffic/congestion analog",
+      "safe_next_step": "separate source-build sprint",
+      "sota_impact": "low-medium",
+      "thesis_impact": "not thesis-blocking"
+    }
+  ],
+  "classification": "FINAL_EXTERNAL_BLOCKER_REGISTER_READY",
+  "generated_at_utc": "2026-06-14T04:17:51.277068+00:00"
+}

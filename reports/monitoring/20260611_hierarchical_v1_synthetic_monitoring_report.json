@@ -1,0 +1,222 @@
+{
+  "action_metrics": [
+    {
+      "action_id": 24,
+      "already_assigned": 0,
+      "attempts": 20,
+      "decoded_action": "dispatch + shortest + secondary_fleet + none",
+      "dispatch_success": 0.975,
+      "escalation_threshold_crossed": false,
+      "failed_noop": 0,
+      "no_current": 0,
+      "no_unassigned": 0,
+      "no_vehicle": 0,
+      "rate_per_step": 0.2,
+      "reorder_none_rate": 0.2,
+      "route_failure": 0,
+      "scenario_or_regime": "mixed_stress",
+      "secondary_fleet_rate": 0.25,
+      "service_level": 0.96,
+      "warning_threshold_crossed": false
+    },
+    {
+      "action_id": 32,
+      "already_assigned": 0,
+      "attempts": 20,
+      "decoded_action": "dispatch + low_congestion + secondary_fleet + none",
+      "dispatch_success": 0.975609756097561,
+      "escalation_threshold_crossed": false,
+      "failed_noop": 0,
+      "no_current": 0,
+      "no_unassigned": 0,
+      "no_vehicle": 0,
+      "rate_per_step": 0.2,
+      "reorder_none_rate": 0.2,
+      "route_failure": 0,
+      "scenario_or_regime": "route_disruption_congestion",
+      "secondary_fleet_rate": 0.24390243902439024,
+      "service_level": 0.95,
+      "warning_threshold_crossed": false
+    }
+  ],
+  "alerts": [],
+  "decision": {
+    "classification": "MONITORING_REPORT_CLEAN",
+    "reason": "No warning or critical thresholds crossed.",
+    "recommended_action": "Record report; no model action authorized."
+  },
+  "protected_state": {
+    "active_models_hash": "B7C6E79749044B92639B8A27EF38483022FC21D9F0EE08743AF88725E42AA60A",
+    "active_registry_matches_handoff": true,
+    "active_registry_status": "PASS",
+    "artifact_health_classification": "ARTIFACT_HEALTH_CLEAN",
+    "models_jsonl_hash": "935D8BF34ADC8DD956A68FB57581EC860B02D74EC26434DD6C084E63055C38E1",
+    "models_jsonl_status": "PASS",
+    "process_scan_status": "PASS",
+    "production_hash_status": "PASS",
+    "production_joint_hash": "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE",
+    "production_manifest_hash": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A",
+    "production_manifest_matches_handoff": true,
+    "production_manifest_status": "PASS",
+    "protected_path_profile_status": "PASS",
+    "runtime_smoke_status": "PASS",
+    "status": "clean",
+    "train_eval_gate_process_found": false
+  },
+  "report_metadata": {
+    "active_dqn_id": "f87e10d6-479f-44fc-99d1-6925bc9cb346",
+    "active_ppo_id": "17ba1d28-0054-4f7c-ae9a-34cd305ebb89",
+    "continuous_action_dim": 5,
+    "contract": "physical_reality_v5_route_candidate_visibility",
+    "dqn_architecture": "hierarchical_v1",
+    "external_discrete_action_count": 48,
+    "generator_version": "monitoring_report_generator_v1",
+    "hierarchical_init_method": "flat_teacher_distillation_v1",
+    "logical_model_id": "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "monitoring_window_end_utc": "2026-06-11T01:00:00Z",
+    "monitoring_window_start_utc": "2026-06-11T00:00:00Z",
+    "observation_dim": 73,
+    "production_checkpoint": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+    "report_timestamp_utc": "2026-06-11T21:49:01.685820+00:00",
+    "runtime_family": "torch_joint",
+    "source_telemetry_kind": "built_in:clean",
+    "source_telemetry_rows": 2,
+    "synthetic_data": true
+  },
+  "residual_watches": [
+    {
+      "action_id": 32,
+      "baseline_context": "route_disruption_congestion equal-budget seed42 20ep",
+      "current_rate": 0.2,
+      "decision": "info",
+      "equal_budget_baseline_rate": 0.475174,
+      "notes": [],
+      "paired_operational_metrics": {
+        "already_assigned": 0,
+        "failed_noop": 0,
+        "lateness": 2.0,
+        "no_current": 0,
+        "no_unassigned": 0,
+        "no_vehicle": 0,
+        "route_failure": 0,
+        "scenario_or_regime": "route_disruption_congestion",
+        "service_level": 0.95
+      },
+      "watch_id": "route_action_32_concentration"
+    },
+    {
+      "action_id": 24,
+      "baseline_context": "mixed_stress equal-budget seed42 20ep",
+      "current_rate": 0.2,
+      "decision": "info",
+      "equal_budget_baseline_rate": 0.580208,
+      "notes": [],
+      "paired_operational_metrics": {
+        "already_assigned": 0,
+        "failed_noop": 0,
+        "lateness": 2.0,
+        "no_current": 0,
+        "no_unassigned": 0,
+        "no_vehicle": 0,
+        "route_failure": 0,
+        "scenario_or_regime": "mixed_stress",
+        "service_level": 0.96
+      },
+      "watch_id": "mixed_action_24_concentration"
+    },
+    {
+      "action_id": 24,
+      "baseline_context": "material top-action concentration monitor",
+      "current_rate": 0.2,
+      "decision": "info",
+      "equal_budget_baseline_rate": null,
+      "notes": [],
+      "paired_operational_metrics": {
+        "lateness": 2.0,
+        "scenario_or_regime": "mixed_stress",
+        "service_level": 0.96
+      },
+      "watch_id": "top_action_concentration"
+    },
+    {
+      "action_id": 24,
+      "baseline_context": "mixed-success route-failure warning watch",
+      "current_rate": null,
+      "decision": "info",
+      "equal_budget_baseline_rate": null,
+      "notes": [],
+      "paired_operational_metrics": {
+        "route_failure": 0,
+        "scenario_or_regime": "mixed_stress",
+        "service_level": 0.96
+      },
+      "watch_id": "mixed_success_route_failure"
+    },
+    {
+      "action_id": null,
+      "baseline_context": "company fleet/cost data required",
+      "current_rate": 0.25,
+      "decision": "info",
+      "equal_budget_baseline_rate": null,
+      "notes": [
+        "Synthetic/public-route data cannot validate secondary_fleet economics."
+      ],
+      "paired_operational_metrics": {},
+      "watch_id": "secondary_fleet_economics_unvalidated"
+    },
+    {
+      "action_id": null,
+      "baseline_context": "company inventory/cost data required",
+      "current_rate": 0.2,
+      "decision": "info",
+      "equal_budget_baseline_rate": null,
+      "notes": [
+        "Synthetic/public-route data cannot validate reorder-none economics."
+      ],
+      "paired_operational_metrics": {},
+      "watch_id": "reorder_none_economics_unvalidated"
+    }
+  ],
+  "scenario_metrics": [
+    {
+      "already_assigned_per_step": 0.0,
+      "decision_steps": 100,
+      "delivered_per_step": 0.96,
+      "dispatch_rate": 0.8,
+      "dispatch_success": 0.975,
+      "lateness_mean": 2.0,
+      "lateness_p95": 4.0,
+      "no_vehicle_per_step": 0.0,
+      "no_work_per_step": 0.0,
+      "notes": [],
+      "orders": 100,
+      "route_failure_per_step": 0.0,
+      "rows": 1,
+      "scenario_or_regime": "mixed_stress",
+      "service_level": 0.96,
+      "top_action_id": 24,
+      "top_action_share": 0.2,
+      "verdict": "pass"
+    },
+    {
+      "already_assigned_per_step": 0.0,
+      "decision_steps": 100,
+      "delivered_per_step": 0.95,
+      "dispatch_rate": 0.82,
+      "dispatch_success": 0.975609756097561,
+      "lateness_mean": 2.0,
+      "lateness_p95": 5.0,
+      "no_vehicle_per_step": 0.0,
+      "no_work_per_step": 0.0,
+      "notes": [],
+      "orders": 100,
+      "route_failure_per_step": 0.0,
+      "rows": 1,
+      "scenario_or_regime": "route_disruption_congestion",
+      "service_level": 0.95,
+      "top_action_id": 32,
+      "top_action_share": 0.2,
+      "verdict": "pass"
+    }
+  ]
+}

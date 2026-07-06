@@ -1,0 +1,65 @@
+# Secret Scan Reviewed
+
+No concrete secret, credential, risky endpoint, protected artifact, raw data body, DB file, or checkpoint binary pattern was detected.
+
+Reviewed harmless explanatory terms:
+
+- `.gitignore`: .env, SECRET, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `AGENTS.md`: SECRET, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `EXCLUDED_AMBIGUOUS_FILES.md`: SECRET - explanatory policy/test/config text; no concrete secret pattern detected
+- `GITHUB_REPO_PREP_REPORT.md`: SECRET, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `SANITIZED_FILE_MANIFEST.json`: SECRET - explanatory policy/test/config text; no concrete secret pattern detected
+- `SECRET_SCAN_BLOCKERS.md`: SECRET - explanatory policy/test/config text; no concrete secret pattern detected
+- `SECRET_SCAN_REVIEWED.md`: .env, PASSWORD, PRIVATE KEY, SECRET, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `SECURITY.md`: PASSWORD, PRIVATE KEY, SECRET, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `docs/MASTER_PLAN.md`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `docs/plans/20260607_rewardfix_clean_training_and_eval_plan.md`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `docs/plans/20260608_routepremium_mixed_targeted_fix_plan.md`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `docs/plans/20260609_action_quality_reward_instrumentation_patch_plan.md`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `docs/reports/20260614_public_anonymized_logistics_dataset_catalog_tr.md`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `sanitized_validation_summary.json`: SECRET - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/control_room_server.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/fleet_dispatch_upgrade_benchmarks.py`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/inventory_reorder_benchmark.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/production_artifact_health_report.py`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/public_data_expansion_benchmarks.py`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/real_world_calibration/amazon_route_streaming_sampler.py`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `scripts/visual_digital_twin_dashboard.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/disruptions.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/env_5pl.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/inventory_dynamics.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/resources.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/safety_projector.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/act/sim_engine.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/archive_aborted_sb3/evaluate_aborted_models.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/archive_aborted_sb3/train_joint_from_scratch.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/eval/real_world_scenario_arena.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/eval/scenario_overrides.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/check_termination_reason.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/curriculum.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/episode_store.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/fine_tune.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/pretrain_mdp_sanity_check.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/sb3_trace_callback.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/test_agent.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/test_joint_agent.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/train_joint_torch.py`: .env, TOKEN - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/learn/verify_ppo_intelligence.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/orchestration/decision_audit.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/orchestration/policy_service.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/orchestration/runtime_loop.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/orchestration/scenario_runner.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/sense/db_pool.py`: PASSWORD - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/sense/trace_writer.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/shared/constants.py`: PASSWORD - explanatory policy/test/config text; no concrete secret pattern detected
+- `src/think/evaluate_policy.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/act/test_env_step_performance_contract.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/act/test_observation_builder_contract.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/act/test_replenishment_ownership.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/act/test_reward_physics_contract.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/act/test_speed_application_contract.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/eval/test_real_world_scenario_configs.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/eval/test_scenario_overrides.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/learn/test_curriculum_config.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/learn/test_train_joint_curriculum.py`: .env - explanatory policy/test/config text; no concrete secret pattern detected
+- `tests/real_world_calibration/test_amazon_route_streaming_sampler.py`: TOKEN - explanatory policy/test/config text; no concrete secret pattern detected

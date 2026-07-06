@@ -1,0 +1,13 @@
+{
+  "holding_cost": -0.15,
+  "shipping_cost": -0.20,
+  "late_delivery": -0.25,
+  "backlog": -0.35,
+  "stockout": -0.50,
+  "capacity_overflow": -0.40,
+  "service_level": 0.45,
+  "throughput": 0.20,
+  "resilience": 0.25,
+  "safety_potential": -0.60,
+  "cash_conversion_cycle": -0.10
+}

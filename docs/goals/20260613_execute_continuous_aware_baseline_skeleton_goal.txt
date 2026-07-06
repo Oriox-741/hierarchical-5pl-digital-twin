@@ -1,0 +1,147 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+CODEX PROJE continuous-aware rule baseline skeleton uygula.
+
+Objective:
+Implement only the skeleton/library support for continuous-aware rule baselines. Do not run benchmarks, offline eval, or long-run gate. The goal is to make future rule baselines capable of explicit continuous modes while keeping current behavior as the default.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260613_continuous_aware_baseline_plan.md
+- docs/plans/20260613_non_route_benchmark_expansion_plan.md
+- docs/reports/20260613_sota_pathway_for_5pl_decision_control_tr.md
+- docs/runs/20260613_continuous_baseline_and_benchmark_expansion_audit.md
+- src/eval/rule_based_baseline_arena.py
+- src/eval/rule_based_baselines.py
+- tests/eval/test_rule_based_baseline_arena.py
+- tests/eval/test_rule_based_baselines.py
+- src/act/action_projector.py
+- src/act/env_5pl.py
+- src/act/discrete_action_mapper.py
+- src/act/observation_builder.py
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run `src/eval/evaluate_real_world_scenarios.py`.
+- Do not run long-run gate.
+- Do not run `src/eval/long_run_gate.py`.
+- Do not run benchmarks.
+- Do not install dependencies.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate `models/registry/active_models.json`.
+- Do not mutate `models/registry/models.jsonl`.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not overwrite benchmark outputs.
+- Do not write `models/eval`.
+- Do not ingest private company data.
+- Do not create training configs.
+- Do not claim SOTA.
+- Keep contract `physical_reality_v5_route_candidate_visibility`, obs 73, continuous action dim 5, external discrete action count 48.
+
+Allowed writes:
+- src/eval/rule_based_baseline_arena.py
+- tests/eval/test_rule_based_baseline_arena.py
+- docs/runs/20260613_continuous_aware_baseline_skeleton_report.md
+- docs/00_PROJECT_DASHBOARD.md links/status only if useful
+
+Required implementation:
+1. Add a `ContinuousBaselineMode` enum or equivalent strict config with:
+   - `neutral_continuous`
+   - `heuristic_continuous`
+   - `ppo_assisted_continuous`
+   - `oracle_diagnostic_continuous`
+2. Preserve current default behavior as `neutral_continuous`, returning normalized zeros.
+3. Add source-truth documentation that normalized zero projects to midpoint physical controls, not physical no-op.
+4. Add a helper to project heuristic physical targets back into bounded normalized `[-1, 1]` vectors using `ActionProjector` defaults/config.
+5. Add `heuristic_continuous` using current-state signals only:
+   - stock pressure
+   - demand/SLA pressure
+   - route disruption/congestion
+   - vehicle scarcity/capacity shock
+   - lead-time and holding pressure
+6. Add `ppo_assisted_continuous` as an injected-provider seam only. Do not load production checkpoints in this skeleton.
+7. Add `oracle_diagnostic_continuous` metadata as non-deployable and require explicit allow flag if implemented. It must not be used by default.
+8. Extend `build_joint_action_from_rule_decision` to accept continuous mode/config while preserving current call behavior.
+9. Ensure all continuous vectors are shape `(5,)`, finite, and normalized to `[-1, 1]`.
+10. Do not change `env_5pl` physics.
+11. Do not change discrete action ids or `DiscreteActionMapper`.
+
+TDD requirements:
+1. Write failing tests first in `tests/eval/test_rule_based_baseline_arena.py`.
+2. Verify tests fail for the expected missing behavior.
+3. Implement minimal code to pass.
+4. Run focused tests after each meaningful step.
+
+Required tests:
+- `neutral_continuous` returns the existing zero vector of length 5.
+- `ActionProjector` maps the neutral vector to midpoint physical controls; test documents the caveat.
+- `heuristic_continuous` returns finite bounded 5-dim normalized vectors.
+- high stock pressure increases reorder/safety-stock posture versus low pressure.
+- high holding pressure with low inventory risk suppresses reorder posture.
+- useful work/SLA pressure increases dispatch intensity but feasibility can cap it.
+- vehicle scarcity/capacity shock increases capacity buffer posture.
+- route disruption/congestion can increase speed/capacity posture without changing discrete route id.
+- `ppo_assisted_continuous` uses an injected fake provider and rejects bad provider output.
+- `oracle_diagnostic_continuous` is marked non-deployable and disabled unless explicitly allowed.
+- action 24 and action 32 remain legal external actions.
+- fake-env rollout still feeds `EpisodeMetricAccumulator.observe` and writes no outputs.
+- protected output dir refusals remain intact.
+
+Execution order:
+1. Capture protected hashes/profiles for registry, production, baselines, DB, checkpoints, and existing eval outputs.
+2. Write failing tests.
+3. Run the focused tests and confirm expected failure.
+4. Implement minimal skeleton.
+5. Run focused tests.
+6. Run relevant rule-baseline tests.
+7. Run py_compile on touched Python files.
+8. Confirm no train/eval/gate/AWS/private-data process.
+9. Confirm protected hashes/profiles unchanged.
+10. Write `docs/runs/20260613_continuous_aware_baseline_skeleton_report.md`.
+11. Update dashboard links/status only if useful.
+12. Spawn one `gpt-5.5` read-only reviewer.
+
+Verification commands:
+- `python -m unittest tests.eval.test_rule_based_baselines tests.eval.test_rule_based_baseline_arena -v`
+- `python -m py_compile src/eval/rule_based_baselines.py src/eval/rule_based_baseline_arena.py tests/eval/test_rule_based_baselines.py tests/eval/test_rule_based_baseline_arena.py`
+
+Forbidden commands:
+- Do not run `python -m src.eval.evaluate_real_world_scenarios`.
+- Do not run `python -m src.eval.long_run_gate`.
+- Do not run any benchmark command.
+- Do not write `models/eval`.
+- Do not install or download anything.
+
+Independent review:
+Spawn exactly one `gpt-5.5` read-only reviewer after tests. Reviewer must not train, eval, gate, benchmark, mutate registry, mutate production, mutate baselines, mutate DB, mutate checkpoints, edit eval outputs, download data, install dependencies, or ingest private company data.
+
+Reviewer verdict exactly one:
+- CONTINUOUS_AWARE_BASELINE_SKELETON_APPROVED
+- CONTINUOUS_AWARE_BASELINE_SKELETON_NEEDS_FIXES
+- CONTINUOUS_AWARE_BASELINE_SKELETON_BLOCKED
+
+Final output must include:
+- files changed
+- tests run/results
+- continuous mode architecture
+- proof no eval/gate/benchmark ran
+- proof no `models/eval` writes
+- protected no-mutation proof
+- reviewer verdict
+- final classification exactly one:
+  - CONTINUOUS_AWARE_BASELINE_SKELETON_READY
+  - CONTINUOUS_AWARE_BASELINE_SKELETON_NEEDS_FIXES
+  - CONTINUOUS_AWARE_BASELINE_SKELETON_BLOCKED

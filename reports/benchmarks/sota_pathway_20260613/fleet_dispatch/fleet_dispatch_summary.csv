@@ -1,0 +1,2 @@
+﻿"scenario","decision","number_users","served_online_users_percent","average_waiting_time","fleet_utilization_percent","empty_vkm_percent","occupancy"
+"example_pool_irsonly_sc_1","FLEET_DISPATCH_BENCHMARK_READY","93","93","151,99637156199307","74,578577308651035","34,433131561832759","0,7236533450240038"

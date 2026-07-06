@@ -1,0 +1,33 @@
+{
+  "generated_utc": "2026-06-23T00:22:58.352497+00:00",
+  "all_checks_pass": true,
+  "checks": {
+    "required_outputs_present": true,
+    "builder_removed": true,
+    "zip_testzip_ok": true,
+    "zip_entries_match_manifest": true,
+    "zip_has_no_checkpoint_binaries": true,
+    "zip_has_no_episode_metrics": true,
+    "zip_has_no_raw_public_data_bodies": true,
+    "pre_post_diff_zero": true,
+    "current_protected_matches_pre": true,
+    "process_scan_clean": true,
+    "dqn_lr_line_correct": true,
+    "dqn_gamma_line_correct": true,
+    "init_batch_line_correct": true,
+    "target_update_line_correct": true,
+    "reward_demand_action_formula_present": true,
+    "dispatch_feasibility_formula_present": true,
+    "low_congestion_formula_present": true,
+    "safety_constants_present": true,
+    "missing_file_declared": true,
+    "replacement_declared": true,
+    "obs_action_contract_present": true,
+    "exact_resume_present": true
+  },
+  "zip_entry_count": 64,
+  "manifest_entry_count": 64,
+  "zip_size_bytes": 563934,
+  "protected_current_mismatch_count": 0,
+  "protected_current_mismatch_sample": []
+}

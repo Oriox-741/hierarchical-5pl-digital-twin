@@ -1,0 +1,50 @@
+﻿{
+    "logical_model_id":  "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "active_ppo_id":  "17ba1d28-0054-4f7c-ae9a-34cd305ebb89",
+    "active_dqn_id":  "f87e10d6-479f-44fc-99d1-6925bc9cb346",
+    "candidate_ppo_id":  "3befa11c-e853-4d0f-a951-c2fbbb2a9898",
+    "candidate_dqn_id":  "71af6701-ac3a-40f2-bdd9-cc80868d5a1c",
+    "source_paths":  {
+                         "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "<PROJECT_ROOT>\\models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+                         "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "<PROJECT_ROOT>\\models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+                         "joint_torch_latest.pt":  "<PROJECT_ROOT>\\models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt"
+                     },
+    "production_paths":  {
+                             "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "<PROJECT_ROOT>\\models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+                             "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "<PROJECT_ROOT>\\models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+                             "joint_torch_latest.pt":  "<PROJECT_ROOT>\\models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt"
+                         },
+    "sha256":  {
+                   "source":  {
+                                  "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+                                  "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+                                  "joint_torch_latest.pt":  "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE"
+                              },
+                   "production":  {
+                                      "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+                                      "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt":  "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+                                      "joint_torch_latest.pt":  "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE"
+                                  }
+               },
+    "dqn_architecture":  "hierarchical_v1",
+    "hierarchical_init_method":  "flat_teacher_distillation_v1",
+    "contract":  "physical_reality_v5_route_candidate_visibility",
+    "observation_dim":  73,
+    "action_dim":  48,
+    "training_step":  1000000,
+    "eval_verdict":  "PASS",
+    "hard_blocker_status":  "zero",
+    "long_run_gate_verdict":  "PASS",
+    "residual_watches_accepted":  true,
+    "residual_watch_acceptance":  {
+                                      "route_disruption_service_below_production":  "accepted because scenario threshold and long-run gate passed",
+                                      "mixed_stress_service_below_production":  "accepted because scenario threshold and long-run gate passed",
+                                      "top_action_concentration_warnings":  "accepted as nonfatal",
+                                      "mixed_success_route_failure_warnings":  "accepted as nonfatal"
+                                  },
+    "baseline_update":  false,
+    "db_mutation":  false,
+    "registry_mutation":  false,
+    "human_approver":  "egeme",
+    "promotion_timestamp":  "2026-06-11T11:53:41.6830950Z"
+}

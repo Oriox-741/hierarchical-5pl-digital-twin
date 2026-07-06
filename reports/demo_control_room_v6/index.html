@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Çok Katmanlı Dijital İkiz Orkestrasyon Kontrol Odası</title>
+  <link rel="stylesheet" href="/styles.css?v=20260616v6">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Operasyon Kaydı Oynatıcı</p>
+        <h1>Çok Katmanlı Dijital İkiz Orkestrasyon Kontrol Odası</h1>
+      </div>
+      <div class="top-stats">
+        <span><b>Senaryo</b><strong id="topScenario">yükleniyor</strong></span>
+        <span><b>Mod</b><strong id="topMode">Sunum Modu</strong></span>
+        <span><b>Durum</b><strong id="topStatus">Duraklatıldı</strong></span>
+        <span><b>Zaman</b><strong id="topTime">08:00</strong></span>
+        <span><b>Adım</b><strong id="topStep">0</strong></span>
+        <span><b>Model</b><strong>hierarchical_v1_1m</strong></span>
+        <span><b>Bağlantı</b><strong id="connectionStatus">Hazır</strong></span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <h2>Kontrol Odası</h2>
+      <label>Senaryo<select id="scenarioSelect"></select></label>
+      <label>Operasyon Kaydı<select id="traceSelect"></select></label>
+      <label>Mod<select id="modeSelect">
+        <option value="SUNUM_MODU" selected>Sunum Modu / Operasyon Kaydı Oynatıcı</option>
+        <option value="CANLI_SIMULASYON_MODU">Canlı Simülasyon</option>
+        <option value="GUVENLI_GORSEL_DEMO_MODU">Güvenli Görsel Demo</option>
+        <option value="KAMU_REPLAY_MODU">Kamu Replay</option>
+      </select></label>
+      <label>Hız<select id="speedSelect">
+        <option>0.5x</option><option selected>1x</option><option>2x</option><option>5x</option>
+      </select></label>
+      <div class="control-grid">
+        <button id="startBtn">Oynat</button>
+        <button id="pauseBtn">Duraklat</button>
+        <button id="resetBtn">Baştan al</button>
+        <button id="rewindBtn">Geri sar</button>
+        <button id="stepBtn">İleri sar</button>
+      </div>
+      <label class="toggle"><input type="checkbox" id="policyToggle"> Üretim politikasını salt-okunur kullan</label>
+      <p class="boundary" id="presentationNotice">Sunum modu: doğrulanmış simülasyon izi oynatılır; canlı şirket verisi değildir.</p>
+      <p class="boundary warning hidden" id="tabWarning">Birden fazla sekme açık olabilir; sunum için tek sekme kullanın.</p>
+      <p class="boundary error hidden" id="errorPanel"></p>
+      <p class="boundary">Simülatör içi otonom orkestrasyon gösterimidir; canlı şirket dağıtımı iddiası değildir.</p>
+      <p class="boundary">Sunum paketi deterministik izlerle açılır; yerel kontrol odası için start_control_room.bat kullanın.</p>
+    </aside>
+
+    <main class="main-stage">
+      <section class="map-card">
+        <div class="section-head">
+          <div><p class="eyebrow">Dijital İkiz Haritası</p><h2>Operasyon Kaydı Oynatıcı</h2></div>
+          <p id="mapNotice">Harita koordinatları görselleştirme amaçlı sentetik koordinatlardır; gerçek şirket lokasyonu içermez.</p>
+        </div>
+        <div class="playback-strip" aria-label="OPERASYON_KAYDI_OYNATICI zaman çizelgesi">
+          <input id="timelineSlider" type="range" min="0" max="179" value="0">
+          <span id="traceProgress">0 / 179</span>
+        </div>
+        <svg id="mapSvg" viewBox="0 0 100 100" role="img" aria-label="Dijital ikiz operasyon haritası"></svg>
+        <div class="legend">
+          <span class="legend-hub">Hub</span><span class="legend-order">Bekleyen sipariş</span><span class="legend-dispatched">Sevk edilen</span><span class="legend-vehicle">Araç</span><span class="legend-route">Seçili rota</span>
+        </div>
+      </section>
+
+      <section class="decision-panel">
+        <div class="section-head"><div><p class="eyebrow">Karar Akışı</p><h2>Güncel PPO + DQN Kararı</h2></div></div>
+        <article class="action-card">
+          <span id="actionId">DQN 0</span>
+          <h3 id="actionLabel">yükleniyor</h3>
+          <p id="actionWatch"></p>
+        </article>
+        <p id="ppoSource" class="muted-line">PPO kaynağı yükleniyor</p>
+        <div id="ppoBars" class="bars"></div>
+        <div id="ppoHistory" class="ppo-history"></div>
+        <h3>Senaryo Stresi</h3>
+        <div id="stressBars" class="bars compact"></div>
+      </section>
+
+      <section class="bottom-panel">
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="timeline-card">
+          <h3>Olay Akışı</h3>
+          <ul id="eventLog"></ul>
+          <div id="actionHistory" class="chip-row"></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="secondary">
+      <button data-panel="actionsPanel">Aksiyon Sözlüğü</button>
+      <button data-panel="replayPanel">Kamu Replay</button>
+      <button data-panel="evidencePanel">Kanıtlar ve Sınırlar</button>
+    </nav>
+  </div>
+
+  <dialog id="actionsPanel"><button class="close">Kapat</button><h2>48 Aksiyon Sözlüğü</h2><input id="actionSearch" placeholder="Aksiyon ara"><div id="actionCards" class="action-list"></div></dialog>
+  <dialog id="replayPanel"><button class="close">Kapat</button><h2>Kamu Replay</h2><p class="boundary">Kamu replay betimleyici proxy analizdir; nedensel OPE veya şirket verisi doğrulaması değildir.</p><div id="replayStats" class="kpi-grid"></div><div id="replayTop" class="action-list"></div></dialog>
+  <dialog id="evidencePanel"><button class="close">Kapat</button><h2>Kanıtlar ve Sınırlar</h2><ul><li>Dijital ikiz simülasyon ortamıdır.</li><li>PPO+DQN denetleyici simülasyon içinde çalışır.</li><li>Canlı TMS/WMS/ERP entegrasyonu iddia edilmez.</li><li>Şirket verisi doğrulaması iddia edilmez.</li><li>Kamu replay nedensel OPE değildir.</li></ul></dialog>
+  <script src="/app.js?v=20260616v6"></script>
+</body>
+</html>

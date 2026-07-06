@@ -1,0 +1,56 @@
+{
+  "advisor_safe_priority_order": [
+    "production/equal-budget gate evidence",
+    "large public replay and public-data expansions as proxy evidence",
+    "benchmark suite/spec and reproducibility docs",
+    "company-data bridge/requirements",
+    "older bounded/smoke docs only as chronology"
+  ],
+  "classification": "FINAL_TRUTH_SOURCE_INDEX_READY",
+  "generated_at_utc": "2026-06-14T04:17:51.259019+00:00",
+  "latest_truth_sources": {
+    "benchmark_suite_spec": "docs/reports/20260613_codex_5pl_benchmark_suite_spec_tr.md",
+    "final_scorecard": "docs/reports/20260614_final_integrated_benchmark_scorecard_tr.md",
+    "fleet_dispatch": "docs/reports/20260614_fleet_dispatch_score_upgrade_results_tr.md",
+    "historical_replay_large": "docs/reports/20260614_public_replay_large_sample_comparison_tr.md",
+    "internal_production_and_residuals": "docs/runs/20260611_hierarchical_v1_equal_budget_residual_watch_eval.md",
+    "public_data_expansion": "docs/reports/20260614_public_data_expansion_results_tr.md",
+    "sota_pathway": "docs/reports/20260613_sota_pathway_execution_results_tr.md"
+  },
+  "production_truth": {
+    "architecture": "hierarchical_v1",
+    "continuous_dim": 5,
+    "contract": "physical_reality_v5_route_candidate_visibility",
+    "discrete_count": 48,
+    "init": "flat_teacher_distillation_v1",
+    "logical_model_id": "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "obs_dim": 73,
+    "runtime": "torch_joint",
+    "status": "active registry and copy-only promoted production"
+  },
+  "stale_docs_do_not_use_as_final_truth": [
+    "bounded 3 episode rule baseline",
+    "13-route Amazon sample as final truth",
+    "OR-Tools smoke as final truth",
+    "FleetPy single scenario as complete fleet evidence",
+    "SVRPBench fully blocked without later geometry/appear-time nuance",
+    "no historical replay adapter"
+  ],
+  "superseded_by_newer_results": [
+    {
+      "new": "docs/runs/20260614_lade_large_public_replay_report.md",
+      "old": "docs/runs/20260614_lade_public_replay_probe_report.md",
+      "reason": "5k bounded replay superseded by all 31,415-row replay"
+    },
+    {
+      "new": "docs/runs/20260614_nyc_hvfhs_large_public_replay_report.md",
+      "old": "docs/runs/20260614_nyc_hvfhs_public_replay_probe_report.md",
+      "reason": "10k replay superseded by 100k deterministic sample"
+    },
+    {
+      "new": "docs/runs/20260614_olist_large_public_replay_report.md",
+      "old": "docs/runs/20260614_olist_public_replay_probe_report.md",
+      "reason": "5k replay superseded by all feasible delivered rows"
+    }
+  ]
+}

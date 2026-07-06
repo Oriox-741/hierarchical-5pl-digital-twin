@@ -1,0 +1,91 @@
+{
+  "decision": {
+    "classification": "PUBLIC_LARGE_REPLAY_READY_WITH_CAUSAL_LIMITATIONS",
+    "no_causal_counterfactual_claim": true,
+    "no_company_data_claim": true
+  },
+  "dry_run_preflight": {
+    "confidence_distribution": {
+      "high": 31415
+    },
+    "mean_missingness_rate": 0.3051177454274308,
+    "policy_loaded": false,
+    "row_count": 31415
+  },
+  "interpretation_limits": {
+    "counterfactual_reward_available": false,
+    "logged_propensities_available": false,
+    "logged_public_actions_available": false,
+    "safe_claim": "Action tendencies and proxy correlations only; no causal policy-value or optimality claim."
+  },
+  "mapping_notes": {
+    "pressure": "AOI-hour and courier-day normalized in full local file",
+    "sample": "all available rows with accept_time"
+  },
+  "report_metadata": {
+    "adapter_version": "public_historical_replay_adapter_v1",
+    "causal_counterfactual_claim": false,
+    "generated_at_utc": "2026-06-14T04:09:44.682352+00:00",
+    "policy_loaded": true,
+    "public_proxy_replay_only": true,
+    "row_count": 31415,
+    "source_name": "lade_delivery_jl_large"
+  },
+  "rows": [],
+  "runtime_seconds": 44.347,
+  "source_data": {
+    "actual_replay_rows": 31415,
+    "path": "<PROJECT_ROOT>\\data\\public\\lade_20260614\\delivery_jl.parquet",
+    "rows_skipped": {},
+    "target_rows": "all_available"
+  },
+  "summary": {
+    "action_24_rate": 0.0,
+    "action_32_rate": 0.0,
+    "action_distribution": {
+      "0": 6589,
+      "1": 24687,
+      "2": 10,
+      "41": 82,
+      "45": 47
+    },
+    "aggregate_feature_status_counts": {
+      "imputed": 841520,
+      "neutral": 31415,
+      "observed": 720635,
+      "unavailable": 699725
+    },
+    "confidence_distribution": {
+      "high": 31415
+    },
+    "dispatch_rate": 0.004106318637593506,
+    "hold_rate": 0.9958936813624065,
+    "mean_missingness_rate": 0.3051177454274308,
+    "mode_distribution": {
+      "primary_fleet": 47,
+      "secondary_fleet": 31368
+    },
+    "prediction_count": 31415,
+    "reorder_distribution": {
+      "aggressive": 10,
+      "conservative": 24816,
+      "none": 6589
+    },
+    "route_distribution": {
+      "high_resilience": 129,
+      "shortest": 31286
+    },
+    "row_count": 31415,
+    "service_proxy": {
+      "count": 31415,
+      "max": 1.0,
+      "mean": 0.5789574670473376,
+      "min": 0.0
+    },
+    "service_proxy_correlation": {
+      "action_24": null,
+      "action_32": null,
+      "dispatch": -0.14103583516622648
+    }
+  }
+}

@@ -1,0 +1,52 @@
+﻿Level 2 autonomous research-and-build goal.
+
+Objective:
+Produce a clean experimental 1M candidate that passes offline scenarios and long-run gate, or stop only if a human-level architecture decision is required.
+
+Current production parent:
+models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt
+
+Production eval:
+models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/scenario_summary.json
+
+Read first:
+docs/runs/20260610_bounded_stability_autopilot_stop_report.md
+docs/plans/20260609_long_run_stability_design_v2_plan.md
+docs/plans/20260609_long_run_gate_automation_plan.md
+docs/plans/20260609_action_quality_reward_instrumentation_patch_plan.md
+docs/plans/20260609_stability_v2_1_reward_balance_lateness_plan.md
+
+Hard constraints:
+Never update registry, active_models.json, models.jsonl, production, baselines, DB, or source production checkpoint.
+Never use failed nextgen 1M, V2, V2.1, V2.2, routepremium failed 200k, aborted after_rewardfix, invalid 700k, v3/v4, or probe checkpoints as parent.
+Always parent from production checkpoint unless a later PASS gate explicitly approves another parent.
+Keep contract physical_reality_v5_route_candidate_visibility, obs 73, action 48.
+Use fresh dirs only, --skip-registry, --disable-trace-logging, torch threads 2/1.
+No 500k until a 250k candidate has 8/8 PASS and long-run gate exit 0.
+No 1M until 500k has 8/8 PASS and long-run gate exit 0.
+No 3M/5M/10M/100M in this goal.
+
+Level 2 loop:
+1. Audit all failed V2/V2.1/V2.2 artifacts and production behavior.
+2. Build a root-cause matrix across scenario, action id, reward component, route/fleet/reorder, training metrics, eval summaries, and thresholds.
+3. If current telemetry is insufficient, add read-only eval/training diagnostics with TDD.
+4. If reward/config patch is needed, implement with TDD and independent review.
+5. Create a unique 250k config.
+6. Run tests, train 250k, audit, eval, run long-run gate.
+7. If FAIL, do not simply tweak schedule. Perform deeper causal analysis and create the next hypothesis.
+8. Repeat research/design cycles until either:
+   A. 250k PASS, then proceed to 500k.
+   B. 500k PASS, then proceed to 1M.
+   C. A required solution is broad architecture change: vector env, algorithm redesign, reward objective rewrite, evaluator threshold policy, or new model class.
+9. If 1M PASS and gate exit 0, stop and produce candidate review package only. Do not register/promote.
+
+Pass criteria:
+8/8 scenario PASS, all hard blockers zero, long-run gate PASS exit 0, no baseline regression, no premium/route dispatch-success regression, no no-current/no-unassigned top-action explosion, production comparison non-regressive or warnings explicitly reviewed.
+
+Required final output:
+Files changed, tests, runs/eval dirs, gate decisions, scenario comparison vs production, failed-cycle root causes, clean 1M status, protected-path no-mutation proof.
+
+Final classification exactly one:
+CLEAN_1M_STABILITY_CANDIDATE_READY_FOR_REVIEW
+LEVEL2_AUTOPILOT_RESEARCH_CONTINUES
+AUTOPILOT_BLOCKED_NEEDS_ARCHITECTURE_DECISION

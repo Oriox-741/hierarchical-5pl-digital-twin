@@ -1,0 +1,751 @@
+{
+  "decision": "MULTISEED_ROBUSTNESS_READY",
+  "metadata": {
+    "checkpoint": "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt",
+    "episode_rows": 800,
+    "scenario_count": 8,
+    "scenario_dir": "configs/eval_scenarios",
+    "scenario_rows": 40,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ]
+  },
+  "outlier_summary": {
+    "scenario_max_lateness": {
+      "baseline_normal": null,
+      "demand_spike_volatility": null,
+      "high_holding_cost": null,
+      "lead_time_volatility": null,
+      "mixed_stress": null,
+      "premium_sla_pressure": null,
+      "route_disruption_congestion": null,
+      "vehicle_scarcity_capacity_shock": null
+    },
+    "scenario_min_service": {
+      "baseline_normal": 0.9888837688216403,
+      "demand_spike_volatility": 0.8576111989070873,
+      "high_holding_cost": 0.9660184286420443,
+      "lead_time_volatility": 1.0,
+      "mixed_stress": 0.9415376568927915,
+      "premium_sla_pressure": 1.0,
+      "route_disruption_congestion": 0.8998185545206155,
+      "vehicle_scarcity_capacity_shock": 0.945486645347275
+    }
+  },
+  "scenario_statistics": [
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.09444444444444444,
+        "mean": 0.09340277777777778,
+        "median": 0.09340277777777778,
+        "min": 0.09253472222222223,
+        "q25": 0.09305555555555556,
+        "q75": 0.09357638888888889,
+        "sd": 0.0007052116670690912
+      },
+      "action24_total": 2690,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.00798611111111111,
+        "mean": 0.007361111111111111,
+        "median": 0.007638888888888889,
+        "min": 0.006423611111111111,
+        "q25": 0.0067708333333333336,
+        "q75": 0.00798611111111111,
+        "sd": 0.0007221053591349102
+      },
+      "action32_total": 212,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.9888837688216403,
+      "scenario_id": "baseline_normal",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.9902082721328986,
+        "mean": 0.9897262524667857,
+        "median": 0.9898925152330712,
+        "min": 0.9888837688216403,
+        "q25": 0.9894936548342109,
+        "q75": 0.9901530513121075,
+        "sd": 0.0005490955908030553
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 1.0,
+        "mean": 0.9897262524667857,
+        "median": 0.9920634920634921,
+        "min": 0.9735099337748344,
+        "q25": 0.9838031533683708,
+        "q75": 1.0,
+        "sd": 0.008171539847367848
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "action24_total": 0,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.0015625,
+        "mean": 0.0013541666666666667,
+        "median": 0.0012152777777777778,
+        "min": 0.0012152777777777778,
+        "q25": 0.0012152777777777778,
+        "q75": 0.0015625,
+        "sd": 0.00019018144357818272
+      },
+      "action32_total": 39,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.07485959723933168,
+        "mean": 0.029636881852924665,
+        "median": 0.023366919144512024,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.04733562666663829,
+        "sd": 0.02589075426300899
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.8576111989070873,
+      "scenario_id": "demand_spike_volatility",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.8608990503823287,
+        "mean": 0.8589651413762833,
+        "median": 0.8586115225709623,
+        "min": 0.8576111989070873,
+        "q25": 0.8581388725154279,
+        "q75": 0.8595650625056106,
+        "sd": 0.0012981560099681404
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 0.8816425120772947,
+        "mean": 0.8589651413762833,
+        "median": 0.8561320754716981,
+        "min": 0.8447058823529412,
+        "q25": 0.8528716156588654,
+        "q75": 0.8626506024096385,
+        "sd": 0.009728482092266216
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 10,
+      "action24_no_current": 10,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.29305555555555557,
+        "mean": 0.2913541666666667,
+        "median": 0.290625,
+        "min": 0.2904513888888889,
+        "q25": 0.290625,
+        "q75": 0.2920138888888889,
+        "sd": 0.0011410886614690975
+      },
+      "action24_total": 8391,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.08211805555555556,
+        "mean": 0.08010416666666667,
+        "median": 0.08090277777777778,
+        "min": 0.07725694444444445,
+        "q25": 0.07899305555555555,
+        "q75": 0.08125,
+        "sd": 0.001958807320495602
+      },
+      "action32_total": 2307,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 0.9991735537190083,
+        "mean": 0.9989214528786722,
+        "median": 0.9987533856517814,
+        "min": 0.9987533856517814,
+        "q25": 0.9987533856517814,
+        "q75": 0.9991735537190083,
+        "sd": 0.00023013552836351436
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.9660184286420443,
+      "scenario_id": "high_holding_cost",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.9677497678469902,
+        "mean": 0.9667901919636155,
+        "median": 0.9665053600808433,
+        "min": 0.9660184286420443,
+        "q25": 0.966413726141916,
+        "q75": 0.9672636771062836,
+        "sd": 0.000700615514593361
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 0.9939759036144579,
+        "mean": 0.9667901919636155,
+        "median": 0.9652777777777778,
+        "min": 0.937888198757764,
+        "q25": 0.96,
+        "q75": 0.9734513274336283,
+        "sd": 0.013717920648935943
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "action24_total": 0,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.015104166666666667,
+        "mean": 0.014652777777777778,
+        "median": 0.014583333333333334,
+        "min": 0.01423611111111111,
+        "q25": 0.014583333333333334,
+        "q75": 0.014756944444444444,
+        "sd": 0.0003153802452184888
+      },
+      "action32_total": 422,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 0.9994949494949494,
+        "mean": 0.9994949494949494,
+        "median": 0.9994949494949494,
+        "min": 0.9994949494949494,
+        "q25": 0.9994949494949494,
+        "q75": 0.9994949494949494,
+        "sd": 0.0
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 1.0,
+      "scenario_id": "lead_time_volatility",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.5835069444444444,
+        "mean": 0.58,
+        "median": 0.5802083333333333,
+        "min": 0.5777777777777777,
+        "q25": 0.5777777777777777,
+        "q75": 0.5807291666666666,
+        "sd": 0.0023848631696520846
+      },
+      "action24_total": 16704,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.24375,
+        "mean": 0.24,
+        "median": 0.23975694444444445,
+        "min": 0.23628472222222222,
+        "q25": 0.23923611111111112,
+        "q75": 0.24097222222222223,
+        "sd": 0.0027135588833249232
+      },
+      "action32_total": 6912,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 0.9994724443617878,
+        "mean": 0.9994007597739742,
+        "median": 0.9994724443617878,
+        "min": 0.9992932328922539,
+        "q25": 0.9992932328922539,
+        "q75": 0.9994724443617878,
+        "sd": 9.815816442738012e-05
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.014365211203044055,
+        "mean": 0.0007524439939815946,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.002899095884782085
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.9415376568927915,
+      "scenario_id": "mixed_stress",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.9432048380080611,
+        "mean": 0.9422679371457202,
+        "median": 0.9423472160631124,
+        "min": 0.9415376568927915,
+        "q25": 0.9416280805397971,
+        "q75": 0.9426218942248388,
+        "sd": 0.0006985842308586156
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 0.9660194174757282,
+        "mean": 0.9422679371457201,
+        "median": 0.9423963133640553,
+        "min": 0.9253731343283582,
+        "q25": 0.933806146572104,
+        "q75": 0.9492753623188406,
+        "sd": 0.010132843503572318
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "action24_total": 0,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "action32_total": 0,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 0.9994949494949494,
+        "mean": 0.9994949494949494,
+        "median": 0.9994949494949494,
+        "min": 0.9994949494949494,
+        "q25": 0.9994949494949494,
+        "q75": 0.9994949494949494,
+        "sd": 0.0
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.0
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 1.0,
+      "scenario_id": "premium_sla_pressure",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 0.0
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 5,
+      "action24_no_current": 5,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.004166666666666667,
+        "mean": 0.0040625,
+        "median": 0.003993055555555555,
+        "min": 0.003993055555555555,
+        "q25": 0.003993055555555555,
+        "q75": 0.004166666666666667,
+        "sd": 9.509072178909148e-05
+      },
+      "action24_total": 117,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.4828125,
+        "mean": 0.479375,
+        "median": 0.48038194444444443,
+        "min": 0.4751736111111111,
+        "q25": 0.4765625,
+        "q75": 0.48194444444444445,
+        "sd": 0.003353886289178674
+      },
+      "action32_total": 13806,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 0.9993198529411765,
+        "mean": 0.9993198529411765,
+        "median": 0.9993198529411765,
+        "min": 0.9993198529411765,
+        "q25": 0.9993198529411765,
+        "q75": 0.9993198529411765,
+        "sd": 0.0
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.08023957574140746,
+        "mean": 0.008790981715788045,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.02121714271912745
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.8998185545206155,
+      "scenario_id": "route_disruption_congestion",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.9007785656472469,
+        "mean": 0.9002641517969256,
+        "median": 0.9001204125594174,
+        "min": 0.8998185545206155,
+        "q25": 0.8999742321762932,
+        "q75": 0.9006289940810552,
+        "sd": 0.000418629546608123
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 0.9423076923076923,
+        "mean": 0.9002641517969256,
+        "median": 0.8993288590604027,
+        "min": 0.875968992248062,
+        "q25": 0.8873239436619719,
+        "q75": 0.9084967320261438,
+        "sd": 0.016158458843103973
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    },
+    {
+      "action24_failed_noop": 0,
+      "action24_no_current": 0,
+      "action24_no_unassigned": 0,
+      "action24_rate_by_seed": {
+        "count": 5,
+        "max": 0.02847222222222222,
+        "mean": 0.027118055555555555,
+        "median": 0.027083333333333334,
+        "min": 0.026041666666666668,
+        "q25": 0.02621527777777778,
+        "q75": 0.027777777777777776,
+        "sd": 0.0010300275676521746
+      },
+      "action24_total": 781,
+      "action32_failed_noop": 0,
+      "action32_no_current": 0,
+      "action32_no_unassigned": 0,
+      "action32_rate_by_seed": {
+        "count": 5,
+        "max": 0.0008680555555555555,
+        "mean": 0.0005208333333333333,
+        "median": 0.0008680555555555555,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0008680555555555555,
+        "sd": 0.00047545360894545664
+      },
+      "action32_total": 15,
+      "dispatch_success_by_seed": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 0.9999610894941634,
+        "median": 1.0,
+        "min": 0.9998054474708171,
+        "q25": 1.0,
+        "q75": 1.0,
+        "sd": 8.700653608948567e-05
+      },
+      "episode_count": 100,
+      "hard_blocker_total": 0,
+      "lateness": {
+        "count": 100,
+        "max": 0.02521114958759679,
+        "mean": 0.000995506386929517,
+        "median": 0.0,
+        "min": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "sd": 0.004234895042833364
+      },
+      "max_seed_lateness": null,
+      "min_seed_service": 0.945486645347275,
+      "scenario_id": "vehicle_scarcity_capacity_shock",
+      "scenario_lateness_by_seed": {
+        "count": 0
+      },
+      "scenario_service_by_seed": {
+        "count": 5,
+        "max": 0.9486773613640545,
+        "mean": 0.9466992522013518,
+        "median": 0.9467020849247835,
+        "min": 0.945486645347275,
+        "q25": 0.9456199611965624,
+        "q75": 0.9470102081740832,
+        "sd": 0.0012888853669392802
+      },
+      "seed_count": 5,
+      "service": {
+        "count": 100,
+        "max": 0.9790794979079498,
+        "mean": 0.9466992522013518,
+        "median": 0.944296788482835,
+        "min": 0.9206896551724137,
+        "q25": 0.9352906287069989,
+        "q75": 0.9581589958158996,
+        "sd": 0.01522819412399875
+      },
+      "verdict_counts": {
+        "PASS": 5
+      }
+    }
+  ],
+  "seed42_equal_budget_consistency": {
+    "interpretation": "Fresh seed42 benchmark matches prior equal-budget seed42 if deltas are zero or numerically negligible.",
+    "max_abs_service_delta": 0.0,
+    "rows": [
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "baseline_normal",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "demand_spike_volatility",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "high_holding_cost",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "lead_time_volatility",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "mixed_stress",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "premium_sla_pressure",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "route_disruption_congestion",
+        "service_delta_fresh_minus_reference": 0.0
+      },
+      {
+        "dispatch_success_delta_fresh_minus_reference": 0.0,
+        "lateness_delta_fresh_minus_reference": 0,
+        "scenario_id": "vehicle_scarcity_capacity_shock",
+        "service_delta_fresh_minus_reference": 0.0
+      }
+    ]
+  }
+}

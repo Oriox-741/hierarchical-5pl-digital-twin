@@ -1,0 +1,76 @@
+﻿Bounded stability autopilot goal.
+
+Objective:
+Reach a clean experimental 1M candidate from the current production model, or stop with a root-cause report.
+
+Use production parent only:
+models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt
+
+Read and follow these plans:
+docs/plans/20260609_long_run_stability_design_v2_plan.md
+docs/plans/20260609_long_run_gate_automation_plan.md
+docs/plans/20260609_action_quality_reward_instrumentation_patch_plan.md
+docs/plans/20260609_stability_v2_1_reward_balance_lateness_plan.md
+docs/plans/20260609_stability_v2_2_recovery_plan.md if it exists
+
+Hard constraints:
+Do not update registry.
+Do not mutate active_models.json.
+Do not append models.jsonl.
+Do not mutate production.
+Do not mutate baselines.
+Do not mutate DB.
+Do not mutate source production checkpoint.
+Do not use failed nextgen 1M, failed V2, failed V2.1, routepremium failed 200k, aborted after_rewardfix, invalid 700k, v3/v4, or probe checkpoints as parent.
+Always parent from the production checkpoint unless a later PASS gate explicitly approves another parent.
+No 500k until 250k PASS and long-run gate exit 0.
+No 1M until 500k PASS and long-run gate exit 0.
+No 3M, 5M, 10M, or 100M in this goal.
+Keep contract physical_reality_v5_route_candidate_visibility, obs 73, action 48.
+Use fresh output and eval dirs only.
+Run with --skip-registry and --disable-trace-logging.
+Use --torch-num-threads 2 and --torch-num-interop-threads 1.
+Stop after 3 failed 250k design cycles or if a fix requires broad architecture change.
+
+Allowed:
+Code, tests, configs, docs needed for stability V-cycle.
+New checkpoint dirs only for approved gated runs.
+New eval dirs only for those gated runs.
+
+Autopilot loop:
+1. Inspect latest failed V2/V2.1 evidence and current code.
+2. If code patch is needed, use TDD red/green.
+3. Create a unique 250k stability config.
+4. Run 250k training.
+5. Run read-only post-training audit.
+6. Run offline eval.
+7. Run long-run gate against production:
+python -m src.eval.check_long_run_gate --candidate-summary <eval>/scenario_summary.json --production-summary models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/scenario_summary.json --candidate-label <label>
+8. If FAIL: root-cause audit, redesign, repeat from step 2.
+9. If 250k PASS and gate exit 0: create and run 500k from same approved design lineage.
+10. If 500k PASS and gate exit 0: create and run 1M.
+11. If 1M PASS and gate exit 0: stop and produce candidate review package. Do not register or promote.
+
+Pass criteria:
+8/8 scenario PASS.
+All hard blockers zero.
+Long-run gate decision PASS exit 0.
+No baseline service regression.
+No premium or route dispatch-success regression.
+No no-current/no-unassigned top-action explosion.
+Production comparison non-regressive or warnings explicitly reviewed.
+
+Final output:
+Files changed.
+Runs executed with output dirs.
+Eval dirs.
+Gate decisions and exit codes.
+Scenario comparison table versus production.
+Why any failed cycles failed.
+Whether clean 1M was reached.
+No-mutation confirmation for registry, production, baselines, DB, and source production checkpoint.
+
+Final classification exactly one:
+CLEAN_1M_STABILITY_CANDIDATE_READY_FOR_REVIEW
+AUTOPILOT_STOPPED_AFTER_FAILED_GATES
+AUTOPILOT_BLOCKED_NEEDS_HUMAN_DECISION

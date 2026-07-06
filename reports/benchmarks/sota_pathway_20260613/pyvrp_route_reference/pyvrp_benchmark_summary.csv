@@ -1,0 +1,9 @@
+instance,family,status,objective,runtime_seconds,feasible,routes_used,error
+A-n32-k5.vrp,cvrplib_cvrp,success,773.0,2.01382759999251,True,5,
+A-n33-k5.vrp,cvrplib_cvrp,success,650.0,2.014566400030162,True,5,
+A-n33-k6.vrp,cvrplib_cvrp,success,726.0,2.016977899998892,True,6,
+A-n34-k5.vrp,cvrplib_cvrp,success,767.0,2.0148508999845944,True,5,
+A-n36-k5.vrp,cvrplib_cvrp,success,789.0,2.011158599983901,True,5,
+C1_2_1.TXT,vrptw_reference,blocked,,0.008517799957189709,False,,RuntimeError: Instance does not conform to the VRPLIB format.
+C1_2_2.TXT,vrptw_reference,blocked,,0.007447200012393296,False,,RuntimeError: Instance does not conform to the VRPLIB format.
+C1_2_3.TXT,vrptw_reference,blocked,,0.009337000024970621,False,,RuntimeError: Instance does not conform to the VRPLIB format.

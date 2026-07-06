@@ -1,0 +1,35 @@
+{
+  "scenario_id": "vehicle_scarcity_capacity_shock",
+  "name": "Vehicle Scarcity / Capacity Shock Scenario",
+  "description": "Tests whether capacity buffer and dispatch selectivity respond when vehicle/capacity resources are scarce.",
+  "seeds": [82, 83, 84],
+  "episode_count": 3,
+  "environment_overrides": {
+    "service_level_target": 0.93,
+    "rolling_demand_probability": 0.45,
+    "rolling_demand_max_orders_per_step": 3,
+    "vehicle_availability_multiplier": 0.5,
+    "fleet_capacity_multiplier": 0.55,
+    "capacity_shock_severity": 0.45
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "vehicle_availability_multiplier": "Disables a deterministic portion of vehicles in the fresh eval env.",
+    "fleet_capacity_multiplier": "Reduces vehicle and capacity-state capacities.",
+    "capacity_shock_severity": "Reduces capacity-state nominal capacity."
+  },
+  "expected_behavior": "PPO capacity buffer should rise or DQN dispatch should become more selective; dispatch spam into unavailable capacity is a failure.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_dispatch_success_per_attempt": 0.50,
+    "min_service_level": 0.85,
+    "max_true_lateness_pressure": 0.15,
+    "min_capacity_buffer_fraction": 0.03,
+    "max_action_24_25_concentration_warn": 0.50,
+    "max_action_24_25_concentration_fail": 0.50,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

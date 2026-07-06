@@ -1,0 +1,32 @@
+{
+  "scenario_id": "lead_time_volatility",
+  "name": "Lead-Time Volatility / Supplier Delay Scenario",
+  "description": "Tests whether proactive safety stock is justified under supplier delay pressure.",
+  "seeds": [72, 73, 74],
+  "episode_count": 3,
+  "environment_overrides": {
+    "service_level_target": 0.95,
+    "urgent_order_probability": 0.30,
+    "supplier_delay_probability": 0.45,
+    "lead_time_mean_multiplier": 1.8,
+    "lead_time_variance_multiplier": 3.0
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "supplier_delay_probability": "Increases inventory lead-time mean and variance.",
+    "lead_time_mean_multiplier": "Directly stretches inventory lead-time means.",
+    "lead_time_variance_multiplier": "Directly raises lead-time variance pressure."
+  },
+  "expected_behavior": "Higher safety stock is acceptable only if it reduces stockout risk, inventory shortfall, or lateness under delayed supply.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_service_level": 0.90,
+    "max_true_lateness_pressure": 0.10,
+    "max_action_24_25_concentration_warn": 0.40,
+    "max_action_24_25_concentration_fail": 0.40,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

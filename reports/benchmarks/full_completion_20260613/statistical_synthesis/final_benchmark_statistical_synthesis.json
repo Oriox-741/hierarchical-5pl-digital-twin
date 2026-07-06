@@ -1,0 +1,107 @@
+{
+  "advisor_safe_claims": [
+    "The model is production-promoted for the bounded 5PL digital-twin contract, not universally real-world autonomous.",
+    "Public Amazon and OR-Tools evidence supports route-side plausibility, not fleet/reorder economics.",
+    "No blind 3M/5M/10M training is recommended without monitored regression or company-data mismatch."
+  ],
+  "blocked": [],
+  "completed_fully": [
+    {
+      "benchmark": "rule_based_full_20ep",
+      "decision": "RULE_BASED_FULL_BENCHMARK_READY",
+      "sample_size": "8 baselines x 8 scenarios x 20 episodes = 1280 rows",
+      "status": "complete"
+    },
+    {
+      "benchmark": "amazon_full_route_proxy",
+      "decision": "AMAZON_FULL_ROUTE_PROXY_READY",
+      "sample_size": "6112 routes, 1457175 packages",
+      "status": "complete"
+    },
+    {
+      "benchmark": "ortools_route_benchmark_suite",
+      "decision": "OR_TOOLS_ROUTE_BENCHMARK_READY",
+      "sample_size": "{'cvrplib_cvrp': 5, 'homberger_200_vrptw': 3, 'solomon_vrptw': 6}",
+      "status": "complete"
+    },
+    {
+      "benchmark": "multiseed_robustness",
+      "decision": "MULTISEED_ROBUSTNESS_READY",
+      "sample_size": "800 episode rows, seeds [42, 43, 44, 45, 46]",
+      "status": "complete"
+    },
+    {
+      "benchmark": "runtime_latency_repeated",
+      "decision": "RUNTIME_LATENCY_REPEATED_BENCHMARK_READY",
+      "sample_size": "5 x 1000 predictions",
+      "status": "complete"
+    },
+    {
+      "benchmark": "historical_ablation_synthesis",
+      "decision": "HISTORICAL_ABLATION_SYNTHESIS_READY",
+      "sample_size": "10 historical branches/axes",
+      "status": "complete"
+    }
+  ],
+  "decision": "FULL_BENCHMARK_STATISTICAL_SYNTHESIS_READY",
+  "key_statistics": {
+    "amazon": {
+      "actual_to_greedy_ratio_mean": 0.9852256233910107,
+      "actual_to_greedy_ratio_sd": 0.06951873141505499,
+      "asymmetry_mean_pair_mean": 0.09997917186593447,
+      "caveat": "route-side only",
+      "package_count_processed": 1457175,
+      "route_score_distribution": {
+        "High": 2718,
+        "Low": 102,
+        "Medium": 3292
+      },
+      "routes_processed": 6112
+    },
+    "historical": {
+      "limitations": [
+        "Not a randomized controlled ablation.",
+        "Some branches differ in reward/config and chronology, so causal claims are evidence-weighted rather than strictly isolated.",
+        "Company fleet/reorder economics remain unvalidated."
+      ],
+      "overall_conclusion": "The strongest causal story is cumulative: exact resume fixed a real continuation bug, but the decisive product-quality improvement came from hierarchical_v1 action factorization plus flat-teacher distillation and exact-resume laddering. Further blind training is not recommended without a monitored trigger or company-data mismatch."
+    },
+    "latency": {
+      "iterations_per_run": 1000,
+      "max_ms_max": 16.204999992623925,
+      "mean_latency_ms_mean": 0.8725571602350101,
+      "p95_ms_mean": 1.2434809911064801,
+      "p99_ms_mean": 1.565499596763402,
+      "run_count": 5
+    },
+    "multiseed": {
+      "episode_rows": 800,
+      "hard_blockers_total": 0,
+      "max_abs_seed42_service_delta": 0.0,
+      "mixed_service_mean": 0.9422679371457201,
+      "route_service_mean": 0.9002641517969256
+    },
+    "ortools": {
+      "caveat": "route-only classical optimization",
+      "family_counts": {
+        "cvrplib_cvrp": 5,
+        "homberger_200_vrptw": 3,
+        "solomon_vrptw": 6
+      },
+      "success_counts": {
+        "cvrplib_cvrp": 5,
+        "homberger_200_vrptw": 2,
+        "solomon_vrptw": 4
+      }
+    },
+    "rule_based": {
+      "baseline_count": 8,
+      "caveat": "neutral continuous control; tactical comparator only",
+      "episode_rows": 1280,
+      "hard_blockers_total": 0,
+      "mean_service_all_baselines": 0.9878660922751054,
+      "scenario_count": 8
+    }
+  },
+  "overall_verdict": "The hierarchical_v1 1M production model remains simulator-production-validated under the project gate suite, with new full benchmark support from rule baselines, multi-seed robustness, full Amazon route-side proxy analysis, expanded OR-Tools route-only benchmarks, repeated latency, and historical ablation synthesis. Real-world fleet/reorder economics and live integration remain unproven without company data."
+}

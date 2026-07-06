@@ -1,0 +1,38 @@
+{
+  "scenario_id": "route_disruption_congestion",
+  "name": "Route Disruption / Congestion Scenario",
+  "description": "Tests whether DQN shifts away from shortest-route dominance when disruption or congestion increases.",
+  "seeds": [92, 93, 94],
+  "episode_count": 3,
+  "environment_overrides": {
+    "high_resilience_route_penalty": 0.04,
+    "low_congestion_route_penalty": 0.01,
+    "transport_cost_penalty_scale": 175.0,
+    "route_disruption_probability": 0.60,
+    "congestion_multiplier": 3.0,
+    "shortest_route_risk_multiplier": 2.0,
+    "traversal_cost_multiplier": 1.5,
+    "disruption_risk_multiplier": 1.8
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "route_disruption_probability": "Adds route arc delay pressure.",
+    "congestion_multiplier": "Raises per-arc congestion score.",
+    "shortest_route_risk_multiplier": "Raises route speed-risk economics.",
+    "traversal_cost_multiplier": "Raises traversal cost.",
+    "disruption_risk_multiplier": "Raises route risk cost multiplier."
+  },
+  "expected_behavior": "Route choices should reflect congestion and disruption risk instead of blindly selecting shortest routes.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_dispatch_success_per_attempt": 0.50,
+    "min_service_level": 0.88,
+    "max_true_lateness_pressure": 0.12,
+    "max_action_24_25_concentration_warn": 0.40,
+    "max_action_24_25_concentration_fail": 0.40,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

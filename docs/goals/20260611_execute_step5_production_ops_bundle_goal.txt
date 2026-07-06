@@ -1,0 +1,170 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+Objective:
+Implement Step 5: a safe-now local production-ops bundle runner that executes
+the already-safe read-only Step 2/3/4 tools into temporary intermediate files and
+writes one consolidated ops summary report. This is a convenience wrapper and
+summary aggregator only. Do not create a new validation domain. Do not ingest
+private company data.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260611_step5_production_ops_bundle_plan.md
+- docs/runs/20260611_step2_artifact_health_cli_report.md
+- scripts/production_artifact_health_report.py
+- reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+- docs/runs/20260611_step3_monitoring_report_generator_report.md
+- scripts/monitoring_report_generator.py
+- reports/monitoring/20260611_hierarchical_v1_synthetic_monitoring_report.json
+- docs/runs/20260611_step4_company_data_intake_validator_report.md
+- scripts/company_data_intake_validator.py
+- reports/company_data/20260611_company_data_synthetic_schema_report.json
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+- docs/runbooks/20260611_hierarchical_v1_production_monitoring_runbook.md
+- docs/plans/20260611_codex_project_future_strategy_plan.md
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not ingest private company data.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+
+Allowed writes only:
+1. scripts/run_production_ops_bundle.py
+2. tests/orchestration/test_production_ops_bundle.py
+3. reports/ops/20260611_hierarchical_v1_ops_bundle_report.json
+4. docs/runs/20260611_step5_production_ops_bundle_report.md
+5. docs/00_PROJECT_DASHBOARD.md only to add links/status if useful.
+
+Ephemeral temporary intermediate JSON files are allowed only under a system temp
+directory created by the runner during execution. They must not be placed under
+the workspace `reports`, `models`, `db`, `configs`, or `data` trees, and they
+must be cleaned up before completion. They are not persistent project outputs.
+
+Implementation requirements:
+1. Build `scripts/run_production_ops_bundle.py`.
+2. The runner must write exactly one persistent JSON output path supplied by
+   `--output`.
+3. The runner must execute these already-safe tools into a temporary directory:
+   - `scripts/production_artifact_health_report.py`
+   - `scripts/monitoring_report_generator.py`
+   - `scripts/company_data_intake_validator.py`
+4. Monitoring must use the built-in synthetic fixture `clean`.
+5. Company-data validation must use the built-in synthetic fixture
+   `valid_minimal`.
+6. Temporary intermediate reports must not be written into existing
+   `reports/artifact_health`, `reports/monitoring`, `reports/company_data`,
+   `models`, `db`, `configs`, or `data` paths.
+7. The runner must parse the temporary Step 2/3/4 JSON outputs and aggregate
+   them into this top-level schema:
+   - `bundle_metadata`
+   - `artifact_health`
+   - `monitoring_report`
+   - `company_data_schema`
+   - `protected_state`
+   - `process_scan`
+   - `decision`
+8. The runner must scan local processes and flag train/eval/gate/AWS/private-data
+   patterns without terminating processes.
+9. The runner must reject output paths under protected directories:
+   - `models/registry`
+   - `models/production`
+   - `models/baselines`
+   - `models/checkpoints`
+   - `models/eval`
+   - `db`
+   - `configs`
+   - `data`
+
+Classification priority:
+1. Missing, unreadable, malformed, or non-clean artifact-health result ->
+   `OPS_BUNDLE_PROTECTED_STATE_DRIFT`
+2. Monitoring production risk, unreadable monitoring JSON, or monitoring
+   blocked-by-data-quality -> `OPS_BUNDLE_PRODUCTION_RISK_FOUND`
+3. Company schema blocked or unreadable company schema JSON ->
+   `OPS_BUNDLE_DATA_SCHEMA_BLOCKED`
+4. Any warning-only or investigation-level result -> `OPS_BUNDLE_WARNINGS_ONLY`
+5. All clean/ready -> `OPS_BUNDLE_CLEAN`
+
+TDD requirements:
+Write failing tests before implementation for:
+- all-clean bundle -> `OPS_BUNDLE_CLEAN`
+- artifact-health drift -> `OPS_BUNDLE_PROTECTED_STATE_DRIFT`
+- monitoring production risk -> `OPS_BUNDLE_PRODUCTION_RISK_FOUND`
+- company schema blocked -> `OPS_BUNDLE_DATA_SCHEMA_BLOCKED`
+- warnings-only aggregation -> `OPS_BUNDLE_WARNINGS_ONLY`
+- malformed artifact-health JSON -> `OPS_BUNDLE_PROTECTED_STATE_DRIFT`
+- malformed monitoring JSON -> `OPS_BUNDLE_PRODUCTION_RISK_FOUND`
+- malformed company schema JSON -> `OPS_BUNDLE_DATA_SCHEMA_BLOCKED`
+- CLI writes only requested output
+- protected output path is rejected
+- no protected files are mutated
+
+Execution order:
+1. Read all required files.
+2. Capture protected preflight hashes and folder profiles.
+3. Add failing focused tests.
+4. Implement the runner.
+5. Run focused tests and fix with TDD until passing.
+6. Run py_compile for touched Python files.
+7. Run the bundle generator:
+   `python scripts/run_production_ops_bundle.py --output reports/ops/20260611_hierarchical_v1_ops_bundle_report.json`
+8. Validate the report classification is `OPS_BUNDLE_CLEAN`.
+9. Capture post-run protected hashes and folder profiles.
+10. Confirm no train/eval/gate/AWS/private-data process.
+11. Update dashboard links/status only if useful.
+12. Write `docs/runs/20260611_step5_production_ops_bundle_report.md`.
+13. Spawn one `gpt-5.5` read-only reviewer.
+14. If reviewer requests fixes, apply only those fixes with tests and re-review.
+
+Verification commands:
+- `python -m unittest tests.orchestration.test_production_ops_bundle -v`
+- `python -m py_compile scripts/run_production_ops_bundle.py tests/orchestration/test_production_ops_bundle.py`
+- `python scripts/run_production_ops_bundle.py --output reports/ops/20260611_hierarchical_v1_ops_bundle_report.json`
+- `Select-String -Path reports\ops\20260611_hierarchical_v1_ops_bundle_report.json -Pattern '"classification": "OPS_BUNDLE_CLEAN"'`
+
+Independent reviewer:
+Spawn one `gpt-5.5` read-only reviewer after implementation and verification.
+
+Reviewer scope:
+- Read this goal and the Step 5 plan.
+- Read the implemented runner, tests, generated ops JSON, and run report.
+- Inspect Step 2/3/4 tool/report inputs as needed.
+- Do not mutate files.
+- Do not train, eval, gate, download datasets, ingest private data, or touch
+  registry, production, baselines, DB, checkpoints, configs, data, or existing
+  eval outputs.
+
+Reviewer verdict exactly one:
+- STEP5_PRODUCTION_OPS_BUNDLE_APPROVED
+- STEP5_PRODUCTION_OPS_BUNDLE_NEEDS_FIXES
+- STEP5_PRODUCTION_OPS_BUNDLE_BLOCKED
+
+Final output must include:
+- files changed
+- tests run/results
+- generated ops report path
+- decision classification
+- protected no-mutation proof
+- reviewer verdict
+- dashboard update status
+- final classification exactly one:
+  - STEP5_PRODUCTION_OPS_BUNDLE_READY
+  - STEP5_PRODUCTION_OPS_BUNDLE_NEEDS_FIXES
+  - STEP5_PRODUCTION_OPS_BUNDLE_BLOCKED

@@ -1,0 +1,19 @@
+name: safe-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile Python sources only
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Recurse src,scripts,tests -Filter *.py | ForEach-Object { $_.FullName }
+          if ($files.Count -gt 0) { python -m py_compile $files }

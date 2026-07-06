@@ -1,0 +1,158 @@
+{
+  "generated_at_utc": "2026-06-14T04:07:54.477950+00:00",
+  "key_file_hashes": {
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt": {
+      "exists": true,
+      "sha256": "c1e756bdf7cd6b824ca134dbe6fb021612367ab18b12f2a24e13bf2167e51cde",
+      "size_bytes": 303413903
+    },
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json": {
+      "exists": true,
+      "sha256": "fdaf8de495d90bdfd69bcc2ee3772eb6a09661e104a5127ea3cb01c6d02cf99a",
+      "size_bytes": 4084
+    },
+    "models/registry/active_models.json": {
+      "exists": true,
+      "sha256": "b7c6e79749044b92639b8a27ef38483022fc21d9f0ee08743af88725e42aa60a",
+      "size_bytes": 314
+    },
+    "models/registry/models.jsonl": {
+      "exists": true,
+      "sha256": "935d8bf34adc8dd956a68fb57581ec860b02d74ec26434dd6c084e63055c38e1",
+      "size_bytes": 14142
+    }
+  },
+  "protected_profiles": {
+    "db": {
+      "exists": true,
+      "file_count": 7,
+      "newest_mtime": 1779200011.8015914,
+      "sample_files": [
+        "db/.sql",
+        "db/extensions.sql",
+        "db/indexes.sql",
+        "db/partitions.sql",
+        "db/schema_sense.sql",
+        "db/seed_scenarios.sql",
+        "db/staging.sql"
+      ],
+      "total_bytes": 28330
+    },
+    "models/baselines": {
+      "exists": true,
+      "file_count": 2692,
+      "newest_mtime": 1779666921.4676654,
+      "sample_files": [
+        "models/baselines/candidate_3m_physical_reality_v3/dqn_torch_joint_3000000.pt",
+        "models/baselines/candidate_3m_physical_reality_v3/joint_torch_latest.pt",
+        "models/baselines/candidate_3m_physical_reality_v3/ppo_torch_joint_3000000.pt",
+        "models/baselines/candidate_3m_physical_reality_v3/training_metrics.jsonl",
+        "models/baselines/historical_isolated/dqn_5pl_10000000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1000000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_100000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_10000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1010000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1020000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1030000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1040000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1050000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1060000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1070000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1080000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1090000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1100000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_110000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1110000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1120000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1130000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1140000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1150000_steps.zip",
+        "models/baselines/historical_isolated/dqn_5pl_1160000_steps.zip"
+      ],
+      "total_bytes": 7392576274
+    },
+    "models/checkpoints": {
+      "exists": true,
+      "file_count": 787,
+      "newest_mtime": 1781151555.2412176,
+      "sample_files": [
+        "models/checkpoints/archive_aborted_10k_launch_20260522/training_metrics.jsonl",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_100000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1000000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1050000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1100000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1150000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1200000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1250000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1300000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1350000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1400000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1450000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_150000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1500000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1550000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1600000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_1650000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_200000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_250000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_300000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_350000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_400000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_450000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_50000.pt",
+        "models/checkpoints/archive_pre_reward_surgery_joint_torch_20260522/dqn_torch_joint_500000.pt"
+      ],
+      "total_bytes": 4920830666
+    },
+    "models/eval": {
+      "exists": true,
+      "file_count": 128,
+      "newest_mtime": 1781184464.1419876,
+      "sample_files": [
+        "models/eval/equal_budget_hierarchical_v1_20ep_seed42_20260611/episode_metrics.jsonl",
+        "models/eval/equal_budget_hierarchical_v1_20ep_seed42_20260611/real_world_evaluation_report.md",
+        "models/eval/equal_budget_hierarchical_v1_20ep_seed42_20260611/scenario_summary.csv",
+        "models/eval/equal_budget_hierarchical_v1_20ep_seed42_20260611/scenario_summary.json",
+        "models/eval/equal_budget_oldprod_20ep_seed42_20260611/episode_metrics.jsonl",
+        "models/eval/equal_budget_oldprod_20ep_seed42_20260611/real_world_evaluation_report.md",
+        "models/eval/equal_budget_oldprod_20ep_seed42_20260611/scenario_summary.csv",
+        "models/eval/equal_budget_oldprod_20ep_seed42_20260611/scenario_summary.json",
+        "models/eval/joint_torch_v5_balanced_retention_ft_200k_20260608_offline_scenarios_semantics_v2_20260610/episode_metrics.jsonl",
+        "models/eval/joint_torch_v5_balanced_retention_ft_200k_20260608_offline_scenarios_semantics_v2_20260610/real_world_evaluation_report.md",
+        "models/eval/joint_torch_v5_balanced_retention_ft_200k_20260608_offline_scenarios_semantics_v2_20260610/scenario_summary.csv",
+        "models/eval/joint_torch_v5_balanced_retention_ft_200k_20260608_offline_scenarios_semantics_v2_20260610/scenario_summary.json",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_diag_20260610_offline_scenarios/episode_metrics.jsonl",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_diag_20260610_offline_scenarios/real_world_evaluation_report.md",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_diag_20260610_offline_scenarios/scenario_summary.csv",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_diag_20260610_offline_scenarios/scenario_summary.json",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_phase2_patch_diag_20260610_offline_scenarios/episode_metrics.jsonl",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_phase2_patch_diag_20260610_offline_scenarios/real_world_evaluation_report.md",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_phase2_patch_diag_20260610_offline_scenarios/scenario_summary.csv",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_level2_phase2_patch_diag_20260610_offline_scenarios/scenario_summary.json",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/episode_metrics.jsonl",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/real_world_evaluation_report.md",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/scenario_summary.csv",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_balanced_retention_ft_200k_20260608_offline_scenarios/scenario_summary.json",
+        "models/eval/joint_torch_v5_clean_after_rewardfix_perfclean_routepremium_mixed_ft_200k_20260608_offline_scenarios/episode_metrics.jsonl"
+      ],
+      "total_bytes": 388267659
+    },
+    "models/production": {
+      "exists": true,
+      "file_count": 8,
+      "newest_mtime": 1781178821.7307432,
+      "sample_files": [
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/dqn_torch_joint_final_balanced_retention_ft_200k.pt",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/ppo_torch_joint_final_balanced_retention_ft_200k.pt",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/production_manifest.json",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json"
+      ],
+      "total_bytes": 328265276
+    }
+  },
+  "purpose": "final_evidence_preflight_protected_state"
+}

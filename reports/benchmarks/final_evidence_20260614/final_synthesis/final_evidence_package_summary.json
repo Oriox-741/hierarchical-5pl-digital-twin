@@ -1,0 +1,50 @@
+{
+  "blocker_count": 9,
+  "classification": "FINAL_CODEX_5PL_EVIDENCE_SYNTHESIS_READY_WITH_LIMITATIONS",
+  "generated_at_utc": "2026-06-14T04:18:18.961649+00:00",
+  "large_replay": {
+    "LaDe": {
+      "action_24_rate": 0.0,
+      "action_32_rate": 0.0,
+      "confidence": {
+        "high": 31415
+      },
+      "missingness": 0.3051177454274308,
+      "rows": 31415
+    },
+    "NYC_HVFHS": {
+      "action_24_rate": 0.00051,
+      "action_32_rate": 2e-05,
+      "confidence": {
+        "high": 100000
+      },
+      "missingness": 0.3013698630136986,
+      "rows": 100000
+    },
+    "Olist": {
+      "action_24_rate": 0.002062689166217505,
+      "action_32_rate": 0.0,
+      "confidence": {
+        "medium": 96476
+      },
+      "missingness": 0.5479511690607132,
+      "rows": 96476
+    }
+  },
+  "production_truth": "joint_torch_v5_prod_hierarchical_v1_1m_20260611 hierarchical_v1 active/copy-promoted",
+  "safe_claim": "CODEX-5PL has a protected simulator-production candidate and broad benchmark/public-proxy evidence package.",
+  "score_dimensions": 13,
+  "scorecard_classification": "FINAL_INTEGRATED_SCORECARD_READY_WITH_LIMITATIONS",
+  "stale_docs_updated": [
+    "docs/reports/20260613_final_advisor_showcase_pack_tr.md",
+    "docs/reports/20260613_sunum_slayt_icerik_taslagi_tr.md",
+    "docs/reports/20260613_demo_script_and_qna_tr.md",
+    "docs/thesis/20260613_lisans_tezi_ilk_taslak_tr.md"
+  ],
+  "unsafe_claims": [
+    "global SOTA",
+    "live TMS/WMS/ERP deployment",
+    "causal counterfactual superiority from public replay",
+    "company-data validation without company data"
+  ]
+}

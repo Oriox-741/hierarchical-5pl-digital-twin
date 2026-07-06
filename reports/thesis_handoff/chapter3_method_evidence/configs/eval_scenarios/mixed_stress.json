@@ -1,0 +1,45 @@
+{
+  "scenario_id": "mixed_stress",
+  "name": "Mixed Stress Scenario",
+  "description": "Combines demand spike, route disruption, vehicle scarcity intent, and high holding-cost pressure.",
+  "seeds": [112, 113, 114],
+  "episode_count": 3,
+  "environment_overrides": {
+    "rolling_demand_probability_multiplier": 1.7,
+    "rolling_demand_volume_multiplier": 2.0,
+    "order_units_multiplier": 1.45,
+    "urgent_order_probability_multiplier": 1.8,
+    "holding_cost_multiplier": 2.0,
+    "vehicle_availability_multiplier": 0.5,
+    "fleet_capacity_multiplier": 0.6,
+    "capacity_shock_severity": 0.4,
+    "route_disruption_probability": 0.55,
+    "congestion_multiplier": 2.5,
+    "traversal_cost_multiplier": 1.4,
+    "stockout_penalty_multiplier": 1.6,
+    "inventory_shortfall_penalty_multiplier": 1.5,
+    "transport_cost_penalty_scale": 180.0
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "rolling_demand_probability_multiplier": "Raises rolling demand pressure.",
+    "vehicle_availability_multiplier": "Reduces active vehicle supply.",
+    "fleet_capacity_multiplier": "Reduces vehicle/capacity capacity.",
+    "route_disruption_probability": "Adds route delay pressure.",
+    "holding_cost_multiplier": "Raises inventory/replenishment economics.",
+    "stockout_penalty_multiplier": "Raises inventory-risk economics."
+  },
+  "expected_behavior": "Policy should degrade gracefully without collapsing into one repeated action family or reward shortcut.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_service_level": 0.70,
+    "max_true_lateness_pressure": 0.20,
+    "min_dispatch_success_per_attempt": 0.50,
+    "max_action_24_25_concentration_warn": 0.50,
+    "max_action_24_25_concentration_fail": 0.50,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

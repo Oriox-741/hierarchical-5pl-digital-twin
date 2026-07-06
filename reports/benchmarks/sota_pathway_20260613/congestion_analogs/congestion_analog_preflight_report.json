@@ -1,0 +1,17 @@
+﻿{
+    "benchmark_metadata":  {
+                               "benchmark":  "congestion_analog_preflight",
+                               "output_dir":  "reports\\benchmarks\\sota_pathway_20260613\\congestion_analogs",
+                               "attempted_package":  "cityflow",
+                               "install_log":  "reports\\benchmarks\\sota_pathway_20260613\\congestion_analogs\\pip_install_cityflow.log",
+                               "web_evidence":  "CityFlow is a traffic-signal simulator project/source benchmark, but the simple PyPI install path is unavailable here.",
+                               "caveat":  "Traffic-signal control is only an analog for congestion, not a 5PL dispatch-route-fleet-reorder benchmark."
+                           },
+    "decision":  "CONGESTION_ANALOG_PREFLIGHT_DEFERRED",
+    "blocker":  {
+                    "type":  "heavy_source_build_or_non_pypi_package",
+                    "exact_reason":  "pip install cityflow returned: No matching distribution found for cityflow. Building CityFlow/LibSignal from source is outside this bounded sprint after route, inventory, and FleetPy benchmarks completed.",
+                    "next_step":  "Open a separate source-build goal if traffic-signal congestion analog evidence becomes necessary."
+                },
+    "metrics":  null
+}

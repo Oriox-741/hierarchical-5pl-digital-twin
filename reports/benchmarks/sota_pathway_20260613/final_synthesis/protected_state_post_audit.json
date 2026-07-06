@@ -1,0 +1,89 @@
+﻿{
+    "generated_at":  "2026-06-14T03:35:17.5402970+03:00",
+    "decision":  "PROTECTED_STATE_UNCHANGED",
+    "protected_files":  [
+                            {
+                                "path":  "models/registry/active_models.json",
+                                "pre_size":  314,
+                                "post_size":  314,
+                                "size_match":  true,
+                                "pre_sha256":  "b7c6e79749044b92639b8a27ef38483022fc21d9f0ee08743af88725e42aa60a",
+                                "post_sha256":  "b7c6e79749044b92639b8a27ef38483022fc21d9f0ee08743af88725e42aa60a",
+                                "hash_match":  true
+                            },
+                            {
+                                "path":  "models/registry/models.jsonl",
+                                "pre_size":  14142,
+                                "post_size":  14142,
+                                "size_match":  true,
+                                "pre_sha256":  "935d8bf34adc8dd956a68fb57581ec860b02d74ec26434dd6c084e63055c38e1",
+                                "post_sha256":  "935d8bf34adc8dd956a68fb57581ec860b02d74ec26434dd6c084e63055c38e1",
+                                "hash_match":  true
+                            },
+                            {
+                                "path":  "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt",
+                                "pre_size":  303413903,
+                                "post_size":  303413903,
+                                "size_match":  true,
+                                "pre_sha256":  "c1e756bdf7cd6b824ca134dbe6fb021612367ab18b12f2a24e13bf2167e51cde",
+                                "post_sha256":  "c1e756bdf7cd6b824ca134dbe6fb021612367ab18b12f2a24e13bf2167e51cde",
+                                "hash_match":  true
+                            },
+                            {
+                                "path":  "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json",
+                                "pre_size":  4084,
+                                "post_size":  4084,
+                                "size_match":  true,
+                                "pre_sha256":  "fdaf8de495d90bdfd69bcc2ee3772eb6a09661e104a5127ea3cb01c6d02cf99a",
+                                "post_sha256":  "fdaf8de495d90bdfd69bcc2ee3772eb6a09661e104a5127ea3cb01c6d02cf99a",
+                                "hash_match":  true
+                            }
+                        ],
+    "protected_path_profiles":  [
+                                    {
+                                        "path":  "models/baselines",
+                                        "pre_files":  2692,
+                                        "post_files":  2692,
+                                        "files_match":  true,
+                                        "pre_bytes":  7392576274,
+                                        "post_bytes":  7392576274,
+                                        "bytes_match":  true
+                                    },
+                                    {
+                                        "path":  "db",
+                                        "pre_files":  7,
+                                        "post_files":  7,
+                                        "files_match":  true,
+                                        "pre_bytes":  28330,
+                                        "post_bytes":  28330,
+                                        "bytes_match":  true
+                                    },
+                                    {
+                                        "path":  "models/checkpoints",
+                                        "pre_files":  787,
+                                        "post_files":  787,
+                                        "files_match":  true,
+                                        "pre_bytes":  4920830666,
+                                        "post_bytes":  4920830666,
+                                        "bytes_match":  true
+                                    },
+                                    {
+                                        "path":  "models/production",
+                                        "pre_files":  8,
+                                        "post_files":  8,
+                                        "files_match":  true,
+                                        "pre_bytes":  328265276,
+                                        "post_bytes":  328265276,
+                                        "bytes_match":  true
+                                    },
+                                    {
+                                        "path":  "models/eval",
+                                        "pre_files":  128,
+                                        "post_files":  128,
+                                        "files_match":  true,
+                                        "pre_bytes":  388267659,
+                                        "post_bytes":  388267659,
+                                        "bytes_match":  true
+                                    }
+                                ]
+}

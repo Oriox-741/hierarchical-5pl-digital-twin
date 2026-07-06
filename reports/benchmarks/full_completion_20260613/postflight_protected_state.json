@@ -1,0 +1,95 @@
+{
+  "comparison_to_preflight": {
+    "dirs": {
+      "db": true,
+      "models/baselines": true,
+      "models/checkpoints": true,
+      "models/eval": true,
+      "models/production": true
+    },
+    "files": {
+      "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt": true,
+      "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": true,
+      "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt": true,
+      "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": true,
+      "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json": true,
+      "models/registry/active_models.json": true,
+      "models/registry/models.jsonl": true
+    }
+  },
+  "protected_dirs": {
+    "db": {
+      "exists": true,
+      "file_count": 7,
+      "max_mtime": 1779200011.8015914,
+      "path_manifest_sha256": "6fde5f2604f322df8dd60a24af1cfc9f78dd301471cd555f6fccdb4f2908ac0c",
+      "total_bytes": 28330
+    },
+    "models/baselines": {
+      "exists": true,
+      "file_count": 2692,
+      "max_mtime": 1779666921.4676654,
+      "path_manifest_sha256": "cb99da340bf3779331b701680fa673d83fb1ee5bc8ef816c5ae78f72e521e533",
+      "total_bytes": 7392576274
+    },
+    "models/checkpoints": {
+      "exists": true,
+      "file_count": 787,
+      "max_mtime": 1781151555.2412176,
+      "path_manifest_sha256": "8fea7a5c372d22668662335e02c017acd9fb2316410cd83f0e957d18a113c0c9",
+      "total_bytes": 4920830666
+    },
+    "models/eval": {
+      "exists": true,
+      "file_count": 128,
+      "max_mtime": 1781184464.1419876,
+      "path_manifest_sha256": "e8092fae4662b5bb4e193937e165fb600d01a93cae753079799f3934294c20ba",
+      "total_bytes": 388267659
+    },
+    "models/production": {
+      "exists": true,
+      "file_count": 8,
+      "max_mtime": 1781178821.7307432,
+      "path_manifest_sha256": "be26cfa75ce33d7f1794eb65e8f403d6cf5153ef82d5d306c133c6d2cdb6c31e",
+      "total_bytes": 328265276
+    }
+  },
+  "protected_files": {
+    "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt": {
+      "bytes": 5010235,
+      "exists": true,
+      "sha256": "7a6e4eaac7cb9cdbf5926a544cf1cab7812940586c26e4c01cc757f3fd81b52e"
+    },
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": {
+      "bytes": 4903475,
+      "exists": true,
+      "sha256": "9db010eb89adb7262f3b85902507a13db45ad7523940b65c3769cefc96ca470d"
+    },
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt": {
+      "bytes": 303413903,
+      "exists": true,
+      "sha256": "c1e756bdf7cd6b824ca134dbe6fb021612367ab18b12f2a24e13bf2167e51cde"
+    },
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": {
+      "bytes": 4903475,
+      "exists": true,
+      "sha256": "2d4cd9130492f7e15e9925177a9b82df959ecf09534ade649dc0d81d39410996"
+    },
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json": {
+      "bytes": 4084,
+      "exists": true,
+      "sha256": "fdaf8de495d90bdfd69bcc2ee3772eb6a09661e104a5127ea3cb01c6d02cf99a"
+    },
+    "models/registry/active_models.json": {
+      "bytes": 314,
+      "exists": true,
+      "sha256": "b7c6e79749044b92639b8a27ef38483022fc21d9f0ee08743af88725e42aa60a"
+    },
+    "models/registry/models.jsonl": {
+      "bytes": 14142,
+      "exists": true,
+      "sha256": "935d8bf34adc8dd956a68fb57581ec860b02d74ec26434dd6c084e63055c38e1"
+    }
+  },
+  "snapshot": "post_final_ops"
+}

@@ -1,0 +1,38 @@
+{
+  "classification": "FINAL_REPRODUCIBILITY_MANIFEST_READY",
+  "commands": [
+    "python -m unittest tests.benchmarks.test_public_historical_replay_adapter -v",
+    "python -m unittest tests.benchmarks.test_public_historical_replay_adapter tests.benchmarks.test_company_data_replay_validator tests.benchmarks.test_public_data_expansion_benchmarks tests.benchmarks.test_fleet_dispatch_upgrade_benchmarks tests.orchestration.test_production_artifact_health_report tests.orchestration.test_monitoring_report_generator tests.orchestration.test_production_ops_bundle -v",
+    "python -m py_compile scripts\\public_historical_replay_adapter.py scripts\\final_evidence_integration_writer.py tests\\benchmarks\\test_public_historical_replay_adapter.py",
+    "python scripts\\run_production_ops_bundle.py --output reports\\ops\\20260614_final_evidence_integration_final_ops_bundle_report.json"
+  ],
+  "data_paths": [
+    "data/public/lade_20260614/delivery_jl.parquet",
+    "data/public/nyc_hvfhs_20260614/fhvhv_tripdata_2023-01.parquet",
+    "data/public/olist_20260614/"
+  ],
+  "dependency_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "pyarrow": "24.0.0",
+    "python": "3.12.9",
+    "torch": "2.11.0+cpu"
+  },
+  "generated_at_utc": "2026-06-14T04:17:53.675452+00:00",
+  "protected_paths": [
+    "models/registry",
+    "models/production",
+    "models/baselines",
+    "db",
+    "models/checkpoints",
+    "models/eval"
+  ],
+  "truth_source_order": [
+    "production/equal-budget gate evidence",
+    "large public replay and public-data expansions as proxy evidence",
+    "benchmark suite/spec and reproducibility docs",
+    "company-data bridge/requirements",
+    "older bounded/smoke docs only as chronology"
+  ]
+}

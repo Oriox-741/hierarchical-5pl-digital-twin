@@ -1,0 +1,35 @@
+﻿{
+    "summary_metadata":  {
+                             "sprint":  "sota_pathway_20260613",
+                             "generated_at":  "2026-06-14T03:31:21.2422414+03:00",
+                             "production_model":  "joint_torch_v5_prod_hierarchical_v1_1m_20260611"
+                         },
+    "decisions":  {
+                      "continuous_aware":  "CONTINUOUS_AWARE_RULE_BASELINE_BENCHMARK_READY",
+                      "inventory_gym_invmgmt":  "INVENTORY_REORDER_BENCHMARK_READY",
+                      "inventory_mabim":  "MABIM_INVENTORY_BENCHMARK_READY",
+                      "fleet_dispatch":  "FLEET_DISPATCH_BENCHMARK_READY",
+                      "pyvrp_route_reference":  "PYVRP_ROUTE_REFERENCE_READY",
+                      "svrpbench":  "SVRPBENCH_STOCHASTIC_ROUTING_BLOCKED",
+                      "congestion_analog":  "CONGESTION_ANALOG_PREFLIGHT_DEFERRED"
+                  },
+    "row_counts":  {
+                       "continuous_episode_rows":  5120,
+                       "continuous_summary_rows":  256,
+                       "gym_invmgmt_policies":  4,
+                       "mabim_policies":  4,
+                       "fleetpy_user_rows":  100,
+                       "fleetpy_operator_rows":  342,
+                       "pyvrp_instances":  8,
+                       "pyvrp_successes":  5,
+                       "pyvrp_blocked":  3
+                   },
+    "headline_findings":  [
+                              "Continuous-aware tactical rule benchmark completed at full 5120 episode budget.",
+                              "Inventory evidence now includes gym-invmgmt and MABIM public simulators.",
+                              "Fleet/dispatch evidence includes a successful FleetPy immediate-offer example run.",
+                              "PyVRP solved five CVRPLIB instances; three extracted VRPTW TXT files were blocked by format incompatibility.",
+                              "SVRPBench and CityFlow are true external blockers/deferred tracks, not silently downgraded READY."
+                          ],
+    "final_classification":  "SOTA_PATHWAY_EXECUTION_PARTIALLY_READY_WITH_EXTERNAL_BLOCKERS"
+}

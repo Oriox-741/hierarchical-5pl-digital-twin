@@ -1,0 +1,106 @@
+{
+  "decision": {
+    "classification": "PUBLIC_LARGE_REPLAY_READY_WITH_CAUSAL_LIMITATIONS",
+    "no_causal_counterfactual_claim": true,
+    "no_company_data_claim": true
+  },
+  "dry_run_preflight": {
+    "confidence_distribution": {
+      "medium": 96476
+    },
+    "mean_missingness_rate": 0.5479511690607132,
+    "policy_loaded": false,
+    "row_count": 96476
+  },
+  "interpretation_limits": {
+    "counterfactual_reward_available": false,
+    "logged_propensities_available": false,
+    "logged_public_actions_available": false,
+    "safe_claim": "Action tendencies and proxy correlations only; no causal policy-value or optimality claim."
+  },
+  "mapping_notes": {
+    "route": "seller/customer states only; no route distance/congestion forced",
+    "sample": "all rows with purchase and delivered timestamps"
+  },
+  "report_metadata": {
+    "adapter_version": "public_historical_replay_adapter_v1",
+    "causal_counterfactual_claim": false,
+    "generated_at_utc": "2026-06-14T04:13:27.780258+00:00",
+    "policy_loaded": true,
+    "public_proxy_replay_only": true,
+    "row_count": 96476,
+    "source_name": "olist_large"
+  },
+  "rows": [],
+  "runtime_seconds": 105.839,
+  "source_data": {
+    "actual_replay_rows": 96476,
+    "path": "<PROJECT_ROOT>\\data\\public\\olist_20260614",
+    "rows_skipped": {
+      "not_feasible_delivered_rows": 2965
+    },
+    "target_rows": "all_feasible_delivered_rows"
+  },
+  "summary": {
+    "action_24_rate": 0.002062689166217505,
+    "action_32_rate": 0.0,
+    "action_distribution": {
+      "0": 38699,
+      "1": 52201,
+      "2": 871,
+      "24": 199,
+      "25": 21,
+      "27": 643,
+      "28": 103,
+      "29": 15,
+      "3": 1190,
+      "30": 1,
+      "31": 9,
+      "37": 1,
+      "41": 201,
+      "43": 1661,
+      "45": 578,
+      "47": 83
+    },
+    "aggregate_feature_status_counts": {
+      "imputed": 1447112,
+      "neutral": 96476,
+      "observed": 1640078,
+      "unavailable": 3859082
+    },
+    "confidence_distribution": {
+      "medium": 96476
+    },
+    "dispatch_rate": 0.03643393175504789,
+    "hold_rate": 0.9635660682449522,
+    "mean_missingness_rate": 0.5479511690607132,
+    "mode_distribution": {
+      "primary_fleet": 790,
+      "secondary_fleet": 95686
+    },
+    "prediction_count": 96476,
+    "reorder_distribution": {
+      "aggressive": 872,
+      "conservative": 53017,
+      "emergency": 3586,
+      "none": 39001
+    },
+    "route_distribution": {
+      "high_resilience": 2523,
+      "low_congestion": 1,
+      "shortest": 93952
+    },
+    "row_count": 96476,
+    "service_proxy": {
+      "count": 96476,
+      "max": 1.0,
+      "mean": 0.9365337555409797,
+      "min": 0.0
+    },
+    "service_proxy_correlation": {
+      "action_24": -0.1734050827586187,
+      "action_32": null,
+      "dispatch": -0.6505362052667408
+    }
+  }
+}

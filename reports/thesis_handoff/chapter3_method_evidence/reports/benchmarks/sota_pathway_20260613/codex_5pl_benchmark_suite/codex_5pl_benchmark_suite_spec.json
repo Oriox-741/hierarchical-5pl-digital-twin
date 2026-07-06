@@ -1,0 +1,106 @@
+﻿{
+    "spec_metadata":  {
+                          "name":  "CODEX-5PL benchmark suite",
+                          "version":  "20260613",
+                          "production_model":  "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+                          "contract":  "physical_reality_v5_route_candidate_visibility"
+                      },
+    "problem_definition":  "Joint dispatch-route-fleet-reorder decision control in a 5PL digital twin, evaluated under scenario stressors and protected production-artifact constraints.",
+    "state":  {
+                  "observation_dim":  73,
+                  "feature_groups":  [
+                                         "order/SLA pressure",
+                                         "vehicle/fleet availability",
+                                         "route candidate visibility",
+                                         "inventory/reorder pressure",
+                                         "scenario stress context",
+                                         "action feasibility context"
+                                     ]
+              },
+    "action":  {
+                   "continuous":  {
+                                      "policy":  "PPO",
+                                      "dimensions":  5,
+                                      "caveat":  "normalized zero maps to midpoint physical controls, not physical no-op"
+                                  },
+                   "discrete":  {
+                                    "policy":  "DQN",
+                                    "external_action_count":  48,
+                                    "key_watches":  [
+                                                        "action 24 dispatch+shortest+secondary_fleet+none",
+                                                        "action 32 dispatch+low_congestion+secondary_fleet+none"
+                                                    ]
+                                }
+               },
+    "scenarios":  [
+                      "baseline",
+                      "premium_pressure",
+                      "route_disruption",
+                      "vehicle_scarcity",
+                      "high_holding",
+                      "late_time",
+                      "mixed_stress",
+                      "low_congestion"
+                  ],
+    "metrics":  [
+                    "service_level",
+                    "lateness",
+                    "dispatch_rate",
+                    "dispatch_success",
+                    "no_work",
+                    "no_current",
+                    "no_unassigned",
+                    "failed_noop",
+                    "route_failure",
+                    "no_vehicle",
+                    "already_assigned",
+                    "top_action_concentration",
+                    "action_24_rate",
+                    "action_32_rate",
+                    "fleet_mix",
+                    "reorder_none_rate"
+                ],
+    "baselines":  [
+                      "current hierarchical_v1 production",
+                      "old flat production comparator",
+                      "historical flat/teacher-retention candidates",
+                      "rule neutral continuous",
+                      "rule heuristic continuous",
+                      "PPO-assisted tactical rule",
+                      "OR-Tools/PyVRP route-only references",
+                      "gym-invmgmt and MABIM inventory references",
+                      "FleetPy public fleet dispatch reference"
+                  ],
+    "statistical_protocol":  {
+                                 "default_episodes":  20,
+                                 "default_seed":  42,
+                                 "required_equal_budget":  true,
+                                 "confidence_methods":  [
+                                                            "bootstrap CI",
+                                                            "paired/permutation tests where paired samples exist",
+                                                            "sign test for scenario-level wins"
+                                                        ],
+                                 "hard_blocker_policy":  "Any no-current/no-unassigned/failed-noop explosion is analyzed before aggregate score claims."
+                             },
+    "public_reproducibility":  {
+                                   "allowed_public_data":  [
+                                                               "Amazon Last Mile samples",
+                                                               "CVRPLIB/Solomon-compatible route data",
+                                                               "MABIM/ReplenishmentEnv",
+                                                               "FleetPy example study",
+                                                               "gym-invmgmt"
+                                                           ],
+                                   "protected_artifacts":  "registry, production, baselines, DB, checkpoints, and existing eval outputs must remain unchanged."
+                               },
+    "sota_claim_requirements":  [
+                                    "Do not claim global SOTA from internal simulator alone.",
+                                    "Route-only SOTA requires route benchmark evidence against solver references.",
+                                    "Inventory/fleet claims require domain-specific public or company data evidence.",
+                                    "Full 5PL superiority requires equal-budget scenario results plus company telemetry validation."
+                                ],
+    "overclaim_warnings":  [
+                               "Public route/inventory/fleet benchmarks validate components, not the entire 5PL control stack.",
+                               "PPO-assisted rule baselines are diagnostic hybrids, not pure hand rules.",
+                               "Oracle diagnostic continuous mode is non-deployable."
+                           ]
+}

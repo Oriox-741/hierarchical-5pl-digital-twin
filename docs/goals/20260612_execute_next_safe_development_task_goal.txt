@@ -1,0 +1,105 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- verification-before-completion
+- requesting-code-review
+
+Goal:
+Create the next safe-now deliverable: a firm-facing company-data request email/template and field dictionary handoff package for CODEX PROJE. This task must not ingest private company data. It must not train, eval, gate, download datasets, mutate registry, mutate production, mutate baselines, mutate DB, mutate checkpoints, edit existing eval outputs, create training configs, or start 1.5M/2M/3M/5M/10M/100M.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260612_project_development_master_plan_no_us_application.md
+- docs/plans/20260612_company_data_and_benchmark_execution_plan.md
+- docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+- docs/runs/20260611_step4_company_data_intake_validator_report.md
+- scripts/company_data_intake_validator.py
+- docs/reports/20260612_tez_danismani_operasyon_walkthrough_detayli.md
+
+Hard constraints:
+- Documentation only.
+- Do not read or write private company data.
+- Do not create DB tables.
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+
+Allowed writes:
+- docs/runbooks/20260613_company_data_request_email_template.md
+- docs/runbooks/20260613_company_data_field_dictionary_handoff.md
+- docs/runs/20260613_company_data_request_package_audit.md
+- docs/00_PROJECT_DASHBOARD.md only to add links/status if useful.
+
+Required deliverable 1:
+docs/runbooks/20260613_company_data_request_email_template.md
+
+Include:
+- short firm-facing email template in Turkish and English;
+- project explanation without overclaiming;
+- explicit statement that the first request is read-only historical/de-identified data;
+- minimum viable extract list;
+- privacy/anonymization expectations;
+- data owner questions;
+- what not to send yet;
+- next meeting agenda.
+
+Required deliverable 2:
+docs/runbooks/20260613_company_data_field_dictionary_handoff.md
+
+Include:
+- table families: orders, dispatch_attempts, deliveries/outcomes, routes, fleet/carriers, inventory/reorder, costs;
+- required fields;
+- optional fields;
+- join keys;
+- timestamp rules;
+- controlled labels;
+- field-by-field rationale;
+- which action 24/32 component each field validates;
+- schema-validator usage note;
+- stop conditions.
+
+Required deliverable 3:
+docs/runs/20260613_company_data_request_package_audit.md
+
+Include:
+- files read;
+- files written;
+- no private data ingested;
+- protected no-mutation proof;
+- reviewer verdict;
+- final classification.
+
+Verification commands:
+- Confirm all three output docs exist.
+- Confirm required sections exist.
+- Confirm no train/eval/gate/AWS/private-data process running.
+- Confirm protected hashes unchanged if feasible:
+  - models/registry/active_models.json
+  - models/registry/models.jsonl
+  - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt
+  - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+- Confirm no registry/production/baseline/DB/checkpoint/eval-output mutation occurred.
+
+Independent review:
+Spawn one gpt-5.5 read-only reviewer.
+
+Reviewer verdict exactly one:
+- COMPANY_DATA_REQUEST_PACKAGE_APPROVED
+- COMPANY_DATA_REQUEST_PACKAGE_NEEDS_FIXES
+- COMPANY_DATA_REQUEST_PACKAGE_BLOCKED
+
+Final classification exactly one:
+- COMPANY_DATA_REQUEST_PACKAGE_READY
+- COMPANY_DATA_REQUEST_PACKAGE_NEEDS_FIXES
+- COMPANY_DATA_REQUEST_PACKAGE_BLOCKED
+

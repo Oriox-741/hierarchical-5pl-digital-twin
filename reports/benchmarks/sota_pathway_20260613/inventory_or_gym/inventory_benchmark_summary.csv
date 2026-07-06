@@ -1,0 +1,5 @@
+policy_name,steps,total_reward,total_cost,mean_step_cost,mean_inventory,mean_backlog,max_backlog,no_backlog_step_rate,mean_order_quantity
+base_stock_order_up_to,600,-346062.82,346062.82,576.7713666666667,16922.963333333333,0.0,0.0,1.0,3715.345
+conservative_reorder,600,-235989.81,235989.81,393.31635,9305.878333333334,0.0,0.0,1.0,1920.0
+aggressive_reorder,600,-801909.81,801909.81,1336.51635,31625.878333333334,0.0,0.0,1.0,6240.0
+project_heuristic_continuous_reorder,600,-943597.507905124,943597.507905124,1572.6625131752066,38916.73536595908,0.0,0.0,1.0,7219.425557093695

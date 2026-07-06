@@ -1,0 +1,68 @@
+{
+  "artifact_health": {
+    "active_registry_status": "PASS",
+    "classification": "ARTIFACT_HEALTH_CLEAN",
+    "dashboard_consistency_status": "PASS",
+    "production_manifest_status": "PASS",
+    "report_generated_at_utc": "2026-06-14T04:07:55.596764+00:00",
+    "runtime_smoke_status": "PASS",
+    "source_tool": "scripts/production_artifact_health_report.py"
+  },
+  "bundle_metadata": {
+    "dqn_architecture": "hierarchical_v1",
+    "generated_at_utc": "2026-06-14T04:07:58.968186+00:00",
+    "generator_version": "production_ops_bundle_v1",
+    "hierarchical_init_method": "flat_teacher_distillation_v1",
+    "logical_model_id": "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "long_run_gate_run": false,
+    "offline_eval_run": false,
+    "private_data_ingested": false,
+    "runtime_family": "torch_joint",
+    "synthetic_only": true,
+    "training_run": false
+  },
+  "company_data_schema": {
+    "classification": "COMPANY_DATA_SCHEMA_READY",
+    "data_quality_check_count": 39,
+    "join_key_check_count": 9,
+    "source_tool": "scripts/company_data_intake_validator.py",
+    "synthetic_data": true,
+    "table_count": 7,
+    "warning_count": 0
+  },
+  "decision": {
+    "classification": "OPS_BUNDLE_CLEAN",
+    "reasons": [
+      "artifact health, synthetic monitoring, and synthetic company schema are clean/ready"
+    ],
+    "recommended_action": "Record clean ops bundle; no model action authorized."
+  },
+  "monitoring_report": {
+    "alert_count": 0,
+    "classification": "MONITORING_REPORT_CLEAN",
+    "residual_watch_count": 6,
+    "source_tool": "scripts/monitoring_report_generator.py",
+    "synthetic_data": true,
+    "watched_actions": [
+      24,
+      32
+    ]
+  },
+  "process_scan": {
+    "aws_download_process_detected": false,
+    "long_run_gate_process_detected": false,
+    "offline_eval_process_detected": false,
+    "private_data_process_detected": false,
+    "raw_matches": [],
+    "train_process_detected": false
+  },
+  "protected_state": {
+    "artifact_health_report_status": "clean",
+    "baseline_status": "clean",
+    "checkpoint_status": "clean",
+    "db_status": "clean",
+    "eval_output_status": "clean",
+    "production_status": "clean",
+    "registry_status": "clean"
+  }
+}

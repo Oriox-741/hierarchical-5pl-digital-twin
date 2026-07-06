@@ -1,0 +1,313 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+CODEX PROJE Step 3 monitoring report generator goal.
+
+Objective:
+Implement the Step 3 safe-now monitoring report generator skeleton/validator
+using only synthetic/local fixture telemetry and the existing Step 2
+artifact-health report. The generator must validate report shape, compute action
+24/32 watch fields from supplied telemetry-like JSON/CSV fixtures, combine
+protected artifact-health status with monitoring metrics, and produce a JSON
+report conforming to the Step 1 monitoring report spec.
+
+This is not live telemetry ingestion and not company-data ingestion.
+
+This goal is executable later with:
+/goal Read docs/goals/20260611_execute_step3_monitoring_report_generator_goal.txt and execute it exactly.
+
+Current production state:
+- logical_model_id: joint_torch_v5_prod_hierarchical_v1_1m_20260611
+- runtime family: torch_joint
+- architecture: hierarchical_v1
+- init: flat_teacher_distillation_v1
+- contract: physical_reality_v5_route_candidate_visibility
+- obs/action: 73/48
+- continuous action dim: 5
+- status: active registry + copy-only production promoted + Step 2 artifact-health clean
+- residual watches: action 24/32 concentration accepted for monitoring
+- equal-budget residual-watch gate: PASS
+- company data still required for secondary_fleet and reorder economics
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not ingest private company data.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+- Do not read live telemetry.
+- Use synthetic/local fixture data only.
+
+Allowed writes only:
+1. scripts/monitoring_report_generator.py
+2. tests/orchestration/test_monitoring_report_generator.py
+3. reports/monitoring/20260611_hierarchical_v1_synthetic_monitoring_report.json
+4. docs/runs/20260611_step3_monitoring_report_generator_report.md
+5. docs/00_PROJECT_DASHBOARD.md links/status only
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260611_step3_monitoring_report_generator_plan.md
+- docs/runs/20260611_step2_artifact_health_cli_report.md
+- scripts/production_artifact_health_report.py
+- reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+- docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+- docs/runbooks/20260611_hierarchical_v1_production_monitoring_runbook.md
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+- docs/plans/20260611_step2_future_work_plan.md
+
+Implementation requirements:
+1. Create a read-only CLI at scripts/monitoring_report_generator.py.
+2. CLI must default to the current Step 2 artifact-health report path:
+   reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+3. CLI must accept:
+   - --artifact-health PATH
+   - --telemetry-json PATH
+   - --telemetry-csv PATH
+   - --use-built-in-synthetic-fixture clean|warning_action24|warning_action32|critical_no_current
+   - --output PATH
+4. CLI may write only the explicit --output JSON path.
+5. Do not create persistent fixture files. Use built-in fixtures for the first
+   skeleton report and temporary fixtures in tests.
+6. Output JSON top-level keys must be:
+   - report_metadata
+   - protected_state
+   - scenario_metrics
+   - action_metrics
+   - residual_watches
+   - alerts
+   - decision
+7. report_metadata must include:
+   - report_timestamp_utc
+   - monitoring_window_start_utc
+   - monitoring_window_end_utc
+   - logical_model_id
+   - runtime_family=torch_joint
+   - dqn_architecture=hierarchical_v1
+   - hierarchical_init_method=flat_teacher_distillation_v1
+   - contract=physical_reality_v5_route_candidate_visibility
+   - observation_dim=73
+   - continuous_action_dim=5
+   - external_discrete_action_count=48
+   - production_checkpoint
+   - active_ppo_id
+   - active_dqn_id
+   - source_telemetry_kind
+   - source_telemetry_rows
+   - generator_version
+   - synthetic_data
+8. protected_state must reflect the artifact-health report:
+   - ARTIFACT_HEALTH_CLEAN plus all core checks PASS -> status=clean
+   - any drift/failure/block -> status=drift and final classification
+     MONITORING_REPORT_PROTECTED_STATE_DRIFT
+9. Telemetry row schema:
+   - window_start_utc
+   - window_end_utc
+   - scenario_or_regime
+   - decision_steps
+   - orders
+   - served
+   - late_orders
+   - lateness_minutes
+   - lateness_p95
+   - delivered
+   - dispatch_attempts
+   - dispatch_successes
+   - action_id
+   - action_attempts
+   - no_current
+   - no_unassigned
+   - failed_noop
+   - route_failure
+   - no_vehicle
+   - already_assigned
+   - secondary_fleet_attempts
+   - reorder_none_decisions
+10. Numeric telemetry fields must be finite and non-negative.
+11. Denominators required for rates must be positive:
+   - decision_steps for per-step rates
+   - dispatch_attempts for dispatch success
+   - orders for service level
+12. Action decode:
+   - action 24 = dispatch + shortest + secondary_fleet + none
+   - action 32 = dispatch + low_congestion + secondary_fleet + none
+   - other actions may be decoded as unknown_action_<id> unless a local mapper
+     helper is already simple to reuse without broad coupling.
+13. Residual watch baselines:
+   - mixed action 24 equal-budget baseline rate = 0.580208
+   - route action 32 equal-budget baseline rate = 0.475174
+   - material warning margin = +0.10 absolute rate
+14. Required residual watches:
+   - route_action_32_concentration
+   - mixed_action_24_concentration
+   - top_action_concentration
+   - mixed_success_route_failure
+   - secondary_fleet_economics_unvalidated
+   - reorder_none_economics_unvalidated
+15. Classification priority:
+   - malformed telemetry -> MONITORING_REPORT_BLOCKED_BY_DATA_QUALITY
+   - protected artifact-health drift -> MONITORING_REPORT_PROTECTED_STATE_DRIFT
+   - no-current/no-unassigned/failed-noop on action 24 or 32 ->
+     MONITORING_REPORT_PRODUCTION_RISK_FOUND
+   - warning plus service/lateness/fleet/route degradation ->
+     MONITORING_REPORT_NEEDS_INVESTIGATION
+   - concentration or route/fleet/reorder watch only ->
+     MONITORING_REPORT_WARNINGS_ONLY
+   - no alerts above info -> MONITORING_REPORT_CLEAN
+16. Final monitoring report classifications:
+   - MONITORING_REPORT_CLEAN
+   - MONITORING_REPORT_WARNINGS_ONLY
+   - MONITORING_REPORT_NEEDS_INVESTIGATION
+   - MONITORING_REPORT_PRODUCTION_RISK_FOUND
+   - MONITORING_REPORT_PROTECTED_STATE_DRIFT
+   - MONITORING_REPORT_BLOCKED_BY_DATA_QUALITY
+17. No classification authorizes training or protected mutation.
+
+TDD requirements:
+1. Add tests before production implementation in:
+   tests/orchestration/test_monitoring_report_generator.py
+2. Use TemporaryDirectory fixtures for JSON/CSV telemetry and artifact-health
+   variants.
+3. Tests must prove:
+   - clean synthetic report returns MONITORING_REPORT_CLEAN
+   - action 24 warning returns MONITORING_REPORT_WARNINGS_ONLY
+   - action 32 warning returns MONITORING_REPORT_WARNINGS_ONLY
+   - no-current/no-unassigned/failed-noop on action 24 or 32 escalates to
+     MONITORING_REPORT_PRODUCTION_RISK_FOUND
+   - protected-state drift escalates to MONITORING_REPORT_PROTECTED_STATE_DRIFT
+   - malformed input returns MONITORING_REPORT_BLOCKED_BY_DATA_QUALITY
+   - CLI writes only requested output JSON in fixture mode
+4. Prefer pure helper functions for:
+   - artifact-health parsing
+   - telemetry JSON/CSV parsing
+   - telemetry validation
+   - scenario aggregation
+   - action aggregation
+   - residual watch construction
+   - alert classification
+   - report JSON assembly
+
+Execution order:
+1. Read all required files.
+2. Verify allowed output files do not already exist or inspect them if present.
+3. Record protected hashes for:
+   - models/registry/active_models.json
+   - models/registry/models.jsonl
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+4. Record protected path profiles for:
+   - models/baselines
+   - db
+   - models/checkpoints
+   - models/production
+   - models/eval
+5. Scan for train/eval/gate/AWS/private-data processes.
+6. Write failing tests.
+7. Run focused tests and confirm they fail for missing implementation.
+8. Implement scripts/monitoring_report_generator.py.
+9. Run focused tests and fix only root causes identified by failures.
+10. Run py_compile on touched Python files.
+11. Run the CLI against the current Step 2 artifact-health JSON using the
+    built-in clean synthetic fixture:
+    python scripts/monitoring_report_generator.py --artifact-health reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json --use-built-in-synthetic-fixture clean --output reports/monitoring/20260611_hierarchical_v1_synthetic_monitoring_report.json
+12. Verify the generated report classification is MONITORING_REPORT_CLEAN.
+13. Write docs/runs/20260611_step3_monitoring_report_generator_report.md
+    summarizing implementation, tests, generated report, protected no-mutation
+    proof, and reviewer verdict placeholder.
+14. Update docs/00_PROJECT_DASHBOARD.md links/status only.
+15. Re-run protected hashes/path profiles/process scan.
+16. Spawn one gpt-5.5 read-only reviewer.
+17. If reviewer returns NEEDS_FIXES, apply only requested fixes, re-run tests
+    and verification, and re-review.
+
+Verification commands:
+
+Focused tests:
+python -m unittest tests.orchestration.test_monitoring_report_generator -v
+
+Py compile:
+python -m py_compile scripts/monitoring_report_generator.py tests/orchestration/test_monitoring_report_generator.py
+
+CLI run:
+python scripts/monitoring_report_generator.py --artifact-health reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json --use-built-in-synthetic-fixture clean --output reports/monitoring/20260611_hierarchical_v1_synthetic_monitoring_report.json
+
+Generated report classification check:
+Select-String -Path reports\monitoring\20260611_hierarchical_v1_synthetic_monitoring_report.json -Pattern '"classification": "MONITORING_REPORT_CLEAN"'
+
+Protected hashes:
+Get-FileHash -Algorithm SHA256 -LiteralPath @(
+  'models\registry\active_models.json',
+  'models\registry\models.jsonl',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\joint_torch_latest.pt',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\production_manifest.json'
+) | ForEach-Object { "$($_.Hash)  $($_.Path)" }
+
+Protected path profiles:
+$paths = @('models\baselines','db','models\checkpoints','models\production','models\eval')
+foreach ($path in $paths) {
+  $items = Get-ChildItem -LiteralPath $path -Recurse -File -Force
+  $bytes = ($items | Measure-Object -Property Length -Sum).Sum
+  "$path files=$($items.Count) bytes=$bytes"
+}
+
+Process scan:
+$self = $PID
+$matches = Get-CimInstance Win32_Process | Where-Object {
+  $_.ProcessId -ne $self -and $_.CommandLine -and ($_.CommandLine -match 'train_joint|evaluate_real_world_scenarios|check_long_run_gate|offline_scenarios|aws s3 sync|aws s3 cp|private_data|private-data|company_data|company-data')
+}
+if ($matches) { $matches | Select-Object ProcessId,Name,CommandLine | Format-List } else { 'NO_TRAIN_EVAL_GATE_AWS_OR_PRIVATE_DATA_PROCESS' }
+
+Independent review:
+Spawn one gpt-5.5 read-only reviewer after implementation and verification.
+
+Reviewer scope:
+- read docs/plans/20260611_step3_monitoring_report_generator_plan.md
+- read this goal file
+- inspect scripts/monitoring_report_generator.py
+- inspect tests/orchestration/test_monitoring_report_generator.py
+- inspect reports/monitoring/20260611_hierarchical_v1_synthetic_monitoring_report.json
+- inspect docs/runs/20260611_step3_monitoring_report_generator_report.md
+- inspect docs/00_PROJECT_DASHBOARD.md only for Step 3 link/status update
+- inspect Step 1 KPI/report specs and Step 2 artifact-health report as needed
+- do not edit files
+- do not train
+- do not run offline eval
+- do not run long-run gate
+- do not download datasets
+- do not ingest private company data
+- do not mutate registry, production, baselines, DB, checkpoints, existing eval
+  outputs, or training configs
+
+Reviewer verdict exactly one:
+STEP3_MONITORING_REPORT_GENERATOR_APPROVED
+STEP3_MONITORING_REPORT_GENERATOR_NEEDS_FIXES
+STEP3_MONITORING_REPORT_GENERATOR_BLOCKED
+
+Final output required:
+- files changed
+- tests/verifications run and results
+- monitoring JSON output path
+- monitoring report final classification
+- reviewer verdict
+- protected no-mutation proof
+- exact statement that no training/eval/gate/download/private-data/protected
+  mutation ran
+- final classification exactly one:
+  STEP3_MONITORING_REPORT_GENERATOR_READY
+  STEP3_MONITORING_REPORT_GENERATOR_NEEDS_FIXES
+  STEP3_MONITORING_REPORT_GENERATOR_BLOCKED

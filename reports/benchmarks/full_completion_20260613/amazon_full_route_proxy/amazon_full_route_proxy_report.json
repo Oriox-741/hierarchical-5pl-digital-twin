@@ -1,0 +1,182 @@
+{
+  "actual_to_greedy_travel_time_ratio": {
+    "bootstrap_mean_ci": {
+      "alpha": 0.05,
+      "iterations": 1000,
+      "lower": 0.9835629117290683,
+      "mean": 0.9852256233910107,
+      "sample_size": 6112,
+      "upper": 0.9870466829311201
+    },
+    "count": 6112,
+    "max": 1.6532500088267488,
+    "mean": 0.9852256233910107,
+    "median": 0.9750852806548789,
+    "min": 0.7962653932718887,
+    "q25": 0.9381082461490846,
+    "q75": 1.0195534583870658,
+    "sd": 0.06951873141505499
+  },
+  "comparison_to_13_route_sample": {
+    "available": true,
+    "full_asymmetry_mean_pair_mean": 0.09997917186593447,
+    "full_ratio_mean": 0.9852256233910107,
+    "full_route_count": 6112,
+    "interpretation": "Full model-build data supersedes the old 13-route bounded sample for route-side proxy coverage.",
+    "previous_asymmetry_mean_pair_mean": 0.09785104151897392,
+    "previous_ratio_mean": 0.967329049650868,
+    "previous_route_count": 13
+  },
+  "coverage": {
+    "package_count_processed": 1457175,
+    "routes_in_package_data": 6112,
+    "routes_in_route_data": 6112,
+    "routes_processed": 6112,
+    "tight_window_count_le_2h": 0,
+    "tight_window_share_le_2h": 0.0,
+    "windowed_package_count": 113993
+  },
+  "data_root": "data\\public\\almrrc2021_full",
+  "decision": "AMAZON_FULL_ROUTE_PROXY_READY",
+  "input_files": {
+    "actual_sequences": {
+      "bytes": 9665078,
+      "path": "data\\public\\almrrc2021_full\\almrrc2021-data-training\\model_build_inputs\\actual_sequences.json",
+      "sha256": "3de44067242e8fa841d4b852db8809afaa23fe852e452ee4a2f54f0f0fb77e3c"
+    },
+    "invalid_sequence_scores": {
+      "bytes": 414742,
+      "path": "data\\public\\almrrc2021_full\\almrrc2021-data-training\\model_build_inputs\\invalid_sequence_scores.json",
+      "sha256": "265c8603ea5e658bf733b5d32a6037415324f7edb8331499e7c51e0f8ababefa"
+    },
+    "package_data": {
+      "bytes": 375437806,
+      "path": "data\\public\\almrrc2021_full\\almrrc2021-data-training\\model_build_inputs\\package_data.json",
+      "sha256": "9ac858358e9f43d34cb65198c03601c814328a06dec9b71ee88b40aaec7f0966"
+    },
+    "route_data": {
+      "bytes": 78972162,
+      "path": "data\\public\\almrrc2021_full\\almrrc2021-data-training\\model_build_inputs\\route_data.json",
+      "sha256": "da3a5d4e73b683d756111f0d9e6d3f20eb8e82adf7c89ee6ee0cb2239abd2f38"
+    },
+    "travel_times": {
+      "bytes": 1817146363,
+      "path": "data\\public\\almrrc2021_full\\almrrc2021-data-training\\model_build_inputs\\travel_times.json",
+      "sha256": "0023d7517380f15b611d77bc0f8a41a1b89459c7c12c37e88981ea16a2b99e2d"
+    }
+  },
+  "invalid_sequence_score": {
+    "bootstrap_mean_ci": {
+      "alpha": 0.05,
+      "iterations": 1000,
+      "lower": 0.9183500481381343,
+      "mean": 0.9245934401784482,
+      "sample_size": 6112,
+      "upper": 0.9308422315631926
+    },
+    "count": 6112,
+    "max": 1.7645945032375752,
+    "mean": 0.9245934401784482,
+    "median": 0.928670267306503,
+    "min": 0.17767055747339097,
+    "q25": 0.731941600895132,
+    "q75": 1.1249151091505436,
+    "sd": 0.2642323263889464
+  },
+  "route_score_distribution": {
+    "High": 2718,
+    "Low": 102,
+    "Medium": 3292
+  },
+  "route_side_interpretation": {
+    "action_24_shortest_component": "Full Amazon training routes compare actual driver sequences to a greedy fastest/nearest-neighbor proxy. Ratios near 1 support shortest-like route preferences as directionally plausible, but not universally optimal.",
+    "action_32_low_congestion_component": "Directed travel-time asymmetry across full training routes supports a reliability/low-congestion proxy under disruption. No live congestion labels are present, so this remains route-side proxy evidence.",
+    "strict_limits": "Amazon public data does not validate secondary_fleet, reorder_none, company carrier economics, inventory economics, or private dispatch failure reasons."
+  },
+  "station_concentration": {
+    "top_count": 1133,
+    "top_label": "DLA7",
+    "top_share": 0.18537303664921467,
+    "total": 6112
+  },
+  "station_distribution": {
+    "DAU1": 214,
+    "DBO1": 60,
+    "DBO2": 296,
+    "DBO3": 573,
+    "DCH1": 196,
+    "DCH2": 154,
+    "DCH3": 271,
+    "DCH4": 381,
+    "DLA3": 254,
+    "DLA4": 197,
+    "DLA5": 155,
+    "DLA7": 1133,
+    "DLA8": 448,
+    "DLA9": 701,
+    "DSE2": 125,
+    "DSE4": 446,
+    "DSE5": 508
+  },
+  "stop_count": {
+    "bootstrap_mean_ci": {
+      "alpha": 0.05,
+      "iterations": 1000,
+      "lower": 147.20500654450262,
+      "mean": 147.9919829842932,
+      "sample_size": 6112,
+      "upper": 148.69453534031413
+    },
+    "count": 6112,
+    "max": 238.0,
+    "mean": 147.9919829842932,
+    "median": 151.0,
+    "min": 33.0,
+    "q25": 129.0,
+    "q75": 170.0,
+    "sd": 31.033653449160486
+  },
+  "time_window_bucket_counts": {
+    "gt_8h": 28729,
+    "le_2h": 0,
+    "le_4h": 6643,
+    "le_8h": 78621,
+    "missing": 1343182
+  },
+  "travel_time_asymmetry_max_pair": {
+    "bootstrap_mean_ci": {
+      "alpha": 0.05,
+      "iterations": 1000,
+      "lower": 1.3646559571750077,
+      "mean": 1.3753321784758963,
+      "sample_size": 6112,
+      "upper": 1.3863541729619353
+    },
+    "count": 6112,
+    "max": 2.0,
+    "mean": 1.3753321784758963,
+    "median": 1.3771774688671208,
+    "min": 0.522911051212938,
+    "q25": 1.0064755175560336,
+    "q75": 1.763142885783319,
+    "sd": 0.4177962814186185
+  },
+  "travel_time_asymmetry_mean_pair": {
+    "bootstrap_mean_ci": {
+      "alpha": 0.05,
+      "iterations": 1000,
+      "lower": 0.09872100906782229,
+      "mean": 0.09997917186593447,
+      "sample_size": 6112,
+      "upper": 0.10131965770345991
+    },
+    "count": 6112,
+    "max": 0.6028005378648922,
+    "mean": 0.09997917186593447,
+    "median": 0.08795155434635998,
+    "min": 0.03711613279269114,
+    "q25": 0.0726292798677425,
+    "q75": 0.10765410407048046,
+    "sd": 0.05052199931027631
+  }
+}

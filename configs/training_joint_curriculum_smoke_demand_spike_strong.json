@@ -1,0 +1,121 @@
+﻿{
+  "schema_version": "joint_training_v1",
+  "mdp_contract_version": "physical_reality_v5_route_candidate_visibility",
+  "shared_global_parameters": {
+    "experiment_name": "joint_curriculum_v4_smoke",
+    "mode": "joint",
+    "total_timesteps": 10000,
+    "seed": 42,
+    "log_interval": 10,
+    "save_freq": 10000,
+    "max_steps": 288,
+    "decision_interval_seconds": 300,
+    "observation_dim": 73,
+    "max_extra_dispatch_budget": 4,
+    "feasibility_gated_macro_budget": true,
+    "trace_sample_interval": 50,
+    "trace_flush_batch_size": 5000,
+    "environment_id": "joint_curriculum_v4_demand_spike_strong_5pl_288_smoke",
+    "team_id": "joint_curriculum_v4_smoke"
+  },
+  "ppo_hyperparameters": {
+    "algorithm": "PPO",
+    "policy": "MlpPolicy",
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "max_grad_norm": 0.5,
+    "action_space": "continuous"
+  },
+  "dqn_hyperparameters": {
+    "algorithm": "DQN",
+    "policy": "MlpPolicy",
+    "learning_rate": 0.0001,
+    "gamma": 0.99,
+    "buffer_size": 500000,
+    "batch_size": 256,
+    "exploration_fraction": 0.2,
+    "exploration_final_eps": 0.05,
+    "target_update_interval": 1000,
+    "action_space": "discrete"
+  },
+  "torch_joint_training": {
+    "rollout_steps": 128,
+    "ppo_epochs": 4,
+    "ppo_minibatch_size": 256,
+    "ppo_clip_range": 0.2,
+    "ppo_value_coef": 0.5,
+    "ppo_entropy_coef": 0.01,
+    "ppo_max_grad_norm": 0.5,
+    "dqn_replay_buffer_size": 500000,
+    "dqn_learning_starts": 32,
+    "dqn_batch_size": 64,
+    "dqn_gradient_steps_per_rollout": 8,
+    "dqn_target_update_interval": 1000,
+    "dqn_tau": 1.0,
+    "dqn_exploration_initial_eps": 1.0,
+    "dqn_exploration_final_eps": 0.05,
+    "dqn_exploration_fraction": 0.25,
+    "global_reward_weight": 0.5,
+    "local_reward_weight": 0.5,
+    "trace_flush_interval": 5000,
+    "checkpoint_interval_steps": 10000,
+    "metrics_interval_steps": 128,
+    "device": "auto"
+  },
+  "reward_physics": {
+    "speed_cost_coefficient": 1.25,
+    "speed_risk_coefficient": 0.75,
+    "speed_cost_penalty_weight": 0.3,
+    "speed_unjustified_penalty": 0.2,
+    "planned_replenishment_cost_weight": 0.12,
+    "planned_replenishment_credit": 0.18,
+    "global_transport_cost_penalty_weight": 0.18,
+    "global_backlog_reduction_weight": 0.1,
+    "global_lateness_reduction_weight": 0.12,
+    "excess_inventory_penalty": 0.15,
+    "safety_stock_gap_credit": 0.16,
+    "capacity_opportunity_cost": 0.1,
+    "low_speed_lateness_weight": 0.12,
+    "flow_capacity_neglect_weight": 0.1,
+    "flow_enablement_weight": 0.08,
+    "dispatch_progress_weight": 0.05,
+    "infeasible_dispatch_penalty_weight": 0.04
+  },
+  "cold_start": {
+    "required": true,
+    "active_checkpoint_dir": "models/checkpoints/joint_torch",
+    "archive_dir": "models/baselines/physical_gap_speed_free",
+    "allow_resume_contract": "physical_reality_v5_route_candidate_visibility",
+    "reject_stale_contracts": true
+  },
+  "curriculum": {
+    "enabled": true,
+    "stage": "demand_spike",
+    "seed": 42,
+    "baseline_anchor_probability": 0.05,
+    "explicit_overrides": {
+      "rolling_demand_probability_multiplier": 2.0,
+      "rolling_demand_volume_multiplier": 2.0,
+      "order_units_multiplier": 1.5,
+      "urgent_order_probability_multiplier": 1.7
+    },
+    "stage_schedule": [
+      {"name": "normal_v4", "steps": 250000},
+      {"name": "high_holding_cost", "steps": 250000},
+      {"name": "vehicle_scarcity", "steps": 250000},
+      {"name": "route_disruption", "steps": 250000},
+      {"name": "premium_sla", "steps": 250000},
+      {"name": "demand_spike", "steps": 250000},
+      {"name": "lead_time_delay", "steps": 250000},
+      {"name": "mixed_stress", "steps": 500000}
+    ],
+    "randomization": {
+      "enabled": false,
+      "ranges_profile": "fixed_medium"
+    }
+  }
+}
+

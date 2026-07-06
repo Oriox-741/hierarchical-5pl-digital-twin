@@ -1,0 +1,119 @@
+{
+  "generated_utc": "2026-07-06T20:21:01.616329+00:00",
+  "expected": {
+    "models/registry": {
+      "file_count": 2,
+      "total_size": 14456,
+      "sha256": {
+        "models/registry/active_models.json": "B7C6E79749044B92639B8A27EF38483022FC21D9F0EE08743AF88725E42AA60A",
+        "models/registry/models.jsonl": "935D8BF34ADC8DD956A68FB57581EC860B02D74EC26434DD6C084E63055C38E1"
+      }
+    },
+    "models/production": {
+      "file_count": 8,
+      "total_size": 328265276,
+      "sha256": {
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/dqn_torch_joint_final_balanced_retention_ft_200k.pt": "A837B5152918419546EE48EDE0B5D829AC97B0A657822FB009E918BFFB2B3A77",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt": "7A6E4EAAC7CB9CDBF5926A544CF1CAB7812940586C26E4C01CC757F3FD81B52E",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/ppo_torch_joint_final_balanced_retention_ft_200k.pt": "D759A2EF7A69D519BEB8C4E4A50021B25546173BB73D087051320AF8BBED4A6A",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/production_manifest.json": "24059801FB48B2438C4A6AC4E2B5CC4D49237239298C95045798207DFCF131A6",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt": "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A"
+      }
+    },
+    "models/baselines": {
+      "file_count": 2692,
+      "total_size": 7392576274
+    },
+    "models/checkpoints": {
+      "file_count": 787,
+      "total_size": 4920830666
+    },
+    "models/eval": {
+      "file_count": 128,
+      "total_size": 388267659
+    },
+    "db": {
+      "file_count": 7,
+      "total_size": 28330,
+      "sha256": {
+        "db/.sql": "694A6573C1CFADB52AD859AA9FE080D4D3594D38CC456BF82EB184213DF175B9",
+        "db/extensions.sql": "9140CBD8DF4FD842BAD321BC709FE85E6F6CD8C77DDC3E558CA348C9B56963C0",
+        "db/indexes.sql": "3AB9336ED65AA86265AA7ECCAB6CEDA2C2F6ECA716624F2FC265FD4AD805B1AA",
+        "db/partitions.sql": "4781D90B9EF602063D43017D75CBE84623AEA51DC7DF6C2C64D023BDF61AA0D9",
+        "db/schema_sense.sql": "A28D009561A803900582DA098D5B569A5076BD910DDE1ECAEA36C91E478F0298",
+        "db/seed_scenarios.sql": "5232A5DAA989608752C6C047B089D49EF263A23F95D06CD07F1FA9FD3844F22B",
+        "db/staging.sql": "104FA8F4641BCA40EA77108544145C700330F67CD1E8999757F460C367352895"
+      }
+    },
+    "data/raw": {
+      "file_count": 0,
+      "total_size": 0
+    },
+    "data/public": {
+      "file_count": 565,
+      "total_size": 3148941437
+    }
+  },
+  "current": {
+    "models/registry": {
+      "file_count": 2,
+      "total_size": 14456,
+      "sha256": {
+        "models/registry/active_models.json": "B7C6E79749044B92639B8A27EF38483022FC21D9F0EE08743AF88725E42AA60A",
+        "models/registry/models.jsonl": "935D8BF34ADC8DD956A68FB57581EC860B02D74EC26434DD6C084E63055C38E1"
+      }
+    },
+    "models/production": {
+      "file_count": 8,
+      "total_size": 328265276,
+      "sha256": {
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/dqn_torch_joint_final_balanced_retention_ft_200k.pt": "A837B5152918419546EE48EDE0B5D829AC97B0A657822FB009E918BFFB2B3A77",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/joint_torch_latest.pt": "7A6E4EAAC7CB9CDBF5926A544CF1CAB7812940586C26E4C01CC757F3FD81B52E",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/ppo_torch_joint_final_balanced_retention_ft_200k.pt": "D759A2EF7A69D519BEB8C4E4A50021B25546173BB73D087051320AF8BBED4A6A",
+        "models/production/joint_torch_v5_balanced_retention_ft_200k_20260608/production_manifest.json": "24059801FB48B2438C4A6AC4E2B5CC4D49237239298C95045798207DFCF131A6",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt": "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+        "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A"
+      }
+    },
+    "models/baselines": {
+      "file_count": 2692,
+      "total_size": 7392576274
+    },
+    "models/checkpoints": {
+      "file_count": 787,
+      "total_size": 4920830666
+    },
+    "models/eval": {
+      "file_count": 128,
+      "total_size": 388267659
+    },
+    "db": {
+      "file_count": 7,
+      "total_size": 28330,
+      "sha256": {
+        "db/.sql": "694A6573C1CFADB52AD859AA9FE080D4D3594D38CC456BF82EB184213DF175B9",
+        "db/extensions.sql": "9140CBD8DF4FD842BAD321BC709FE85E6F6CD8C77DDC3E558CA348C9B56963C0",
+        "db/indexes.sql": "3AB9336ED65AA86265AA7ECCAB6CEDA2C2F6ECA716624F2FC265FD4AD805B1AA",
+        "db/partitions.sql": "4781D90B9EF602063D43017D75CBE84623AEA51DC7DF6C2C64D023BDF61AA0D9",
+        "db/schema_sense.sql": "A28D009561A803900582DA098D5B569A5076BD910DDE1ECAEA36C91E478F0298",
+        "db/seed_scenarios.sql": "5232A5DAA989608752C6C047B089D49EF263A23F95D06CD07F1FA9FD3844F22B",
+        "db/staging.sql": "104FA8F4641BCA40EA77108544145C700330F67CD1E8999757F460C367352895"
+      }
+    },
+    "data/raw": {
+      "file_count": 0,
+      "total_size": 0
+    },
+    "data/public": {
+      "file_count": 565,
+      "total_size": 3148941437
+    }
+  },
+  "mismatches": [],
+  "status": "clean"
+}

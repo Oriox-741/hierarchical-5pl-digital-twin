@@ -1,0 +1,656 @@
+{
+  "decision": "OR_TOOLS_ROUTE_BENCHMARK_READY",
+  "family_counts": {
+    "cvrplib_cvrp": 5,
+    "homberger_200_vrptw": 3,
+    "solomon_vrptw": 6
+  },
+  "metadata": {
+    "benchmark": "ortools_route_benchmark_suite",
+    "instance_count": 14,
+    "ortools_version": "9.15.6755",
+    "solver": "Google OR-Tools RoutingModel",
+    "source_caveat": "Route-only classical optimization benchmark; not full 5PL digital twin.",
+    "time_limit_seconds_per_instance": 5
+  },
+  "results": [
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 200,
+      "customer_count": 100,
+      "instance_name": "C101",
+      "objective_value": 9829,
+      "routes": [
+        {
+          "distance": 821,
+          "node_count": 10,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 1049,
+          "node_count": 13,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 816,
+          "node_count": 10,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 907,
+          "node_count": 11,
+          "vehicle_id": 6
+        },
+        {
+          "distance": 977,
+          "node_count": 12,
+          "vehicle_id": 7
+        },
+        {
+          "distance": 907,
+          "node_count": 11,
+          "vehicle_id": 8
+        },
+        {
+          "distance": 1140,
+          "node_count": 14,
+          "vehicle_id": 10
+        },
+        {
+          "distance": 1235,
+          "node_count": 15,
+          "vehicle_id": 14
+        },
+        {
+          "distance": 1041,
+          "node_count": 13,
+          "vehicle_id": 19
+        },
+        {
+          "distance": 936,
+          "node_count": 11,
+          "vehicle_id": 21
+        }
+      ],
+      "solve_time_seconds": 5.008104100008495,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": 9829,
+      "vehicle_count": 25,
+      "vehicles_used": 10
+    },
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 700,
+      "customer_count": 100,
+      "instance_name": "C201",
+      "objective_value": 9590,
+      "routes": [
+        {
+          "distance": 3036,
+          "node_count": 34,
+          "vehicle_id": 13
+        },
+        {
+          "distance": 3389,
+          "node_count": 37,
+          "vehicle_id": 18
+        },
+        {
+          "distance": 3165,
+          "node_count": 35,
+          "vehicle_id": 23
+        }
+      ],
+      "solve_time_seconds": 5.000492399965879,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": 9590,
+      "vehicle_count": 25,
+      "vehicles_used": 3
+    },
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 200,
+      "customer_count": 100,
+      "instance_name": "R101",
+      "objective_value": null,
+      "routes": [],
+      "solve_time_seconds": 5.000936999975238,
+      "solver_status": "ROUTING_FAIL_TIMEOUT",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": null,
+      "vehicle_count": 25,
+      "vehicles_used": null
+    },
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 1000,
+      "customer_count": 100,
+      "instance_name": "R201",
+      "objective_value": 2217,
+      "routes": [
+        {
+          "distance": 18,
+          "node_count": 3,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 389,
+          "node_count": 20,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 349,
+          "node_count": 20,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 302,
+          "node_count": 16,
+          "vehicle_id": 5
+        },
+        {
+          "distance": 544,
+          "node_count": 21,
+          "vehicle_id": 12
+        },
+        {
+          "distance": 213,
+          "node_count": 12,
+          "vehicle_id": 15
+        },
+        {
+          "distance": 402,
+          "node_count": 22,
+          "vehicle_id": 21
+        }
+      ],
+      "solve_time_seconds": 5.000419199990574,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": 2217,
+      "vehicle_count": 25,
+      "vehicles_used": 7
+    },
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 200,
+      "customer_count": 100,
+      "instance_name": "RC101",
+      "objective_value": null,
+      "routes": [],
+      "solve_time_seconds": 5.001467399997637,
+      "solver_status": "ROUTING_FAIL_TIMEOUT",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": null,
+      "vehicle_count": 25,
+      "vehicles_used": null
+    },
+    {
+      "benchmark_family": "solomon_vrptw",
+      "capacity": 1000,
+      "customer_count": 100,
+      "instance_name": "RC201",
+      "objective_value": 2280,
+      "routes": [
+        {
+          "distance": 433,
+          "node_count": 20,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 377,
+          "node_count": 18,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 280,
+          "node_count": 15,
+          "vehicle_id": 15
+        },
+        {
+          "distance": 222,
+          "node_count": 12,
+          "vehicle_id": 17
+        },
+        {
+          "distance": 120,
+          "node_count": 7,
+          "vehicle_id": 18
+        },
+        {
+          "distance": 242,
+          "node_count": 14,
+          "vehicle_id": 19
+        },
+        {
+          "distance": 381,
+          "node_count": 18,
+          "vehicle_id": 20
+        },
+        {
+          "distance": 18,
+          "node_count": 3,
+          "vehicle_id": 21
+        },
+        {
+          "distance": 207,
+          "node_count": 11,
+          "vehicle_id": 22
+        }
+      ],
+      "solve_time_seconds": 5.01050179998856,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "total_distance": 2280,
+      "vehicle_count": 25,
+      "vehicles_used": 9
+    },
+    {
+      "benchmark_family": "homberger_200_vrptw",
+      "capacity": 200,
+      "customer_count": 200,
+      "instance_name": "c1_2_1",
+      "objective_value": 20939,
+      "routes": [
+        {
+          "distance": 658,
+          "node_count": 8,
+          "vehicle_id": 8
+        },
+        {
+          "distance": 1079,
+          "node_count": 12,
+          "vehicle_id": 9
+        },
+        {
+          "distance": 1075,
+          "node_count": 12,
+          "vehicle_id": 13
+        },
+        {
+          "distance": 817,
+          "node_count": 9,
+          "vehicle_id": 14
+        },
+        {
+          "distance": 1183,
+          "node_count": 13,
+          "vehicle_id": 15
+        },
+        {
+          "distance": 901,
+          "node_count": 10,
+          "vehicle_id": 16
+        },
+        {
+          "distance": 1140,
+          "node_count": 13,
+          "vehicle_id": 18
+        },
+        {
+          "distance": 1105,
+          "node_count": 13,
+          "vehicle_id": 19
+        },
+        {
+          "distance": 1134,
+          "node_count": 13,
+          "vehicle_id": 20
+        },
+        {
+          "distance": 942,
+          "node_count": 11,
+          "vehicle_id": 22
+        },
+        {
+          "distance": 1350,
+          "node_count": 15,
+          "vehicle_id": 26
+        },
+        {
+          "distance": 1013,
+          "node_count": 11,
+          "vehicle_id": 27
+        },
+        {
+          "distance": 998,
+          "node_count": 12,
+          "vehicle_id": 28
+        },
+        {
+          "distance": 745,
+          "node_count": 9,
+          "vehicle_id": 29
+        },
+        {
+          "distance": 1102,
+          "node_count": 12,
+          "vehicle_id": 31
+        },
+        {
+          "distance": 1006,
+          "node_count": 12,
+          "vehicle_id": 32
+        },
+        {
+          "distance": 980,
+          "node_count": 11,
+          "vehicle_id": 36
+        },
+        {
+          "distance": 694,
+          "node_count": 9,
+          "vehicle_id": 41
+        },
+        {
+          "distance": 1060,
+          "node_count": 13,
+          "vehicle_id": 43
+        },
+        {
+          "distance": 1144,
+          "node_count": 14,
+          "vehicle_id": 46
+        },
+        {
+          "distance": 813,
+          "node_count": 10,
+          "vehicle_id": 48
+        }
+      ],
+      "solve_time_seconds": 5.000156600028276,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip",
+      "total_distance": 20939,
+      "vehicle_count": 50,
+      "vehicles_used": 21
+    },
+    {
+      "benchmark_family": "homberger_200_vrptw",
+      "capacity": 700,
+      "customer_count": 200,
+      "instance_name": "c2_2_1",
+      "objective_value": 20005,
+      "routes": [
+        {
+          "distance": 3597,
+          "node_count": 38,
+          "vehicle_id": 21
+        },
+        {
+          "distance": 2304,
+          "node_count": 25,
+          "vehicle_id": 23
+        },
+        {
+          "distance": 1936,
+          "node_count": 21,
+          "vehicle_id": 30
+        },
+        {
+          "distance": 3082,
+          "node_count": 33,
+          "vehicle_id": 33
+        },
+        {
+          "distance": 2605,
+          "node_count": 28,
+          "vehicle_id": 36
+        },
+        {
+          "distance": 3394,
+          "node_count": 36,
+          "vehicle_id": 39
+        },
+        {
+          "distance": 3087,
+          "node_count": 33,
+          "vehicle_id": 41
+        }
+      ],
+      "solve_time_seconds": 5.001190799986944,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip",
+      "total_distance": 20005,
+      "vehicle_count": 50,
+      "vehicles_used": 7
+    },
+    {
+      "benchmark_family": "homberger_200_vrptw",
+      "capacity": 200,
+      "customer_count": 200,
+      "instance_name": "r1_2_1",
+      "objective_value": null,
+      "routes": [],
+      "solve_time_seconds": 5.004135700000916,
+      "solver_status": "ROUTING_FAIL_TIMEOUT",
+      "source_url": "https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip",
+      "total_distance": null,
+      "vehicle_count": 50,
+      "vehicles_used": null
+    },
+    {
+      "benchmark_family": "cvrplib_cvrp",
+      "capacity": 100,
+      "customer_count": 31,
+      "instance_name": "A-n32-k5",
+      "objective_value": 784,
+      "routes": [
+        {
+          "distance": 59,
+          "node_count": 4,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 73,
+          "node_count": 6,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 267,
+          "node_count": 12,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 155,
+          "node_count": 9,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 230,
+          "node_count": 10,
+          "vehicle_id": 4
+        }
+      ],
+      "solve_time_seconds": 4.9999735999736,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/4",
+      "total_distance": 784,
+      "vehicle_count": 5,
+      "vehicles_used": 5
+    },
+    {
+      "benchmark_family": "cvrplib_cvrp",
+      "capacity": 100,
+      "customer_count": 32,
+      "instance_name": "A-n33-k5",
+      "objective_value": 661,
+      "routes": [
+        {
+          "distance": 138,
+          "node_count": 8,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 47,
+          "node_count": 6,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 185,
+          "node_count": 8,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 172,
+          "node_count": 10,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 119,
+          "node_count": 10,
+          "vehicle_id": 4
+        }
+      ],
+      "solve_time_seconds": 4.999993200006429,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/5",
+      "total_distance": 661,
+      "vehicle_count": 5,
+      "vehicles_used": 5
+    },
+    {
+      "benchmark_family": "cvrplib_cvrp",
+      "capacity": 100,
+      "customer_count": 32,
+      "instance_name": "A-n33-k6",
+      "objective_value": 742,
+      "routes": [
+        {
+          "distance": 71,
+          "node_count": 4,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 164,
+          "node_count": 8,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 69,
+          "node_count": 7,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 172,
+          "node_count": 10,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 166,
+          "node_count": 7,
+          "vehicle_id": 4
+        },
+        {
+          "distance": 100,
+          "node_count": 8,
+          "vehicle_id": 5
+        }
+      ],
+      "solve_time_seconds": 5.001010700012557,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/7",
+      "total_distance": 742,
+      "vehicle_count": 6,
+      "vehicles_used": 6
+    },
+    {
+      "benchmark_family": "cvrplib_cvrp",
+      "capacity": 100,
+      "customer_count": 33,
+      "instance_name": "A-n34-k5",
+      "objective_value": 786,
+      "routes": [
+        {
+          "distance": 209,
+          "node_count": 10,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 122,
+          "node_count": 8,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 160,
+          "node_count": 9,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 144,
+          "node_count": 9,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 151,
+          "node_count": 7,
+          "vehicle_id": 4
+        }
+      ],
+      "solve_time_seconds": 5.000843200017698,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/8",
+      "total_distance": 786,
+      "vehicle_count": 5,
+      "vehicles_used": 5
+    },
+    {
+      "benchmark_family": "cvrplib_cvrp",
+      "capacity": 100,
+      "customer_count": 35,
+      "instance_name": "A-n36-k5",
+      "objective_value": 799,
+      "routes": [
+        {
+          "distance": 205,
+          "node_count": 10,
+          "vehicle_id": 0
+        },
+        {
+          "distance": 193,
+          "node_count": 12,
+          "vehicle_id": 1
+        },
+        {
+          "distance": 136,
+          "node_count": 9,
+          "vehicle_id": 2
+        },
+        {
+          "distance": 226,
+          "node_count": 9,
+          "vehicle_id": 3
+        },
+        {
+          "distance": 39,
+          "node_count": 5,
+          "vehicle_id": 4
+        }
+      ],
+      "solve_time_seconds": 5.00212509999983,
+      "solver_status": "ROUTING_SUCCESS",
+      "source_url": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/9",
+      "total_distance": 799,
+      "vehicle_count": 5,
+      "vehicles_used": 5
+    }
+  ],
+  "sources": {
+    "cvrplib_instances": {
+      "A-n32-k5": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/4",
+      "A-n33-k5": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/5",
+      "A-n33-k6": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/7",
+      "A-n34-k5": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/8",
+      "A-n36-k5": "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/9"
+    },
+    "homberger_200": "https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip",
+    "solomon_100": "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip"
+  },
+  "success_counts": {
+    "cvrplib_cvrp": 5,
+    "homberger_200_vrptw": 2,
+    "solomon_vrptw": 4
+  }
+}

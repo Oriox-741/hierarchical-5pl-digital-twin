@@ -1,0 +1,519 @@
+{
+  "data_quality_checks": [
+    {
+      "check_id": "orders_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "orders"
+    },
+    {
+      "check_id": "dispatch_attempts_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "check_id": "deliveries_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "deliveries"
+    },
+    {
+      "check_id": "routes_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "routes"
+    },
+    {
+      "check_id": "fleet_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "fleet"
+    },
+    {
+      "check_id": "inventory_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "inventory"
+    },
+    {
+      "check_id": "costs_required_columns",
+      "message": "Required columns present.",
+      "missing_columns": [],
+      "status": "pass",
+      "table": "costs"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "orders_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "orders"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "dispatch_attempts_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "deliveries_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "deliveries"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "routes_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "routes"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "fleet_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "fleet"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "inventory_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "inventory"
+    },
+    {
+      "blank_fields": [],
+      "blank_values": [],
+      "check_id": "costs_required_values",
+      "message": "Required field values are non-empty.",
+      "status": "pass",
+      "table": "costs"
+    },
+    {
+      "check_id": "orders_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "order_id"
+      ],
+      "status": "pass",
+      "table": "orders"
+    },
+    {
+      "check_id": "dispatch_attempts_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "dispatch_attempt_id"
+      ],
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "check_id": "deliveries_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "dispatch_attempt_id"
+      ],
+      "status": "pass",
+      "table": "deliveries"
+    },
+    {
+      "check_id": "routes_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "route_id"
+      ],
+      "status": "pass",
+      "table": "routes"
+    },
+    {
+      "check_id": "fleet_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "vehicle_id"
+      ],
+      "status": "pass",
+      "table": "fleet"
+    },
+    {
+      "check_id": "inventory_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "sku_id",
+        "site_id",
+        "order_id"
+      ],
+      "status": "pass",
+      "table": "inventory"
+    },
+    {
+      "check_id": "costs_duplicate_primary_key",
+      "duplicate_primary_keys": [],
+      "message": "Primary keys are unique.",
+      "primary_key": [
+        "order_id"
+      ],
+      "status": "pass",
+      "table": "costs"
+    },
+    {
+      "check_id": "orders_timestamp_parse",
+      "invalid_values": [],
+      "message": "Required timestamps parse with timezone semantics.",
+      "status": "pass",
+      "table": "orders",
+      "timezone_naive_values": []
+    },
+    {
+      "check_id": "dispatch_attempts_timestamp_parse",
+      "invalid_values": [],
+      "message": "Required timestamps parse with timezone semantics.",
+      "status": "pass",
+      "table": "dispatch_attempts",
+      "timezone_naive_values": []
+    },
+    {
+      "check_id": "deliveries_timestamp_parse",
+      "invalid_values": [],
+      "message": "Required timestamps parse with timezone semantics.",
+      "status": "pass",
+      "table": "deliveries",
+      "timezone_naive_values": []
+    },
+    {
+      "check_id": "fleet_timestamp_parse",
+      "invalid_values": [],
+      "message": "Required timestamps parse with timezone semantics.",
+      "status": "pass",
+      "table": "fleet",
+      "timezone_naive_values": []
+    },
+    {
+      "check_id": "fleet_fleet_type_controlled_label",
+      "field": "fleet_type",
+      "invalid_values": [],
+      "message": "Controlled labels valid.",
+      "status": "pass",
+      "table": "fleet"
+    },
+    {
+      "check_id": "dispatch_attempts_fleet_type_controlled_label",
+      "field": "fleet_type",
+      "invalid_values": [],
+      "message": "Controlled labels valid.",
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "check_id": "inventory_reorder_type_controlled_label",
+      "field": "reorder_type",
+      "invalid_values": [],
+      "message": "Controlled labels valid.",
+      "status": "pass",
+      "table": "inventory"
+    },
+    {
+      "check_id": "orders_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "orders"
+    },
+    {
+      "check_id": "routes_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "routes"
+    },
+    {
+      "check_id": "fleet_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "fleet"
+    },
+    {
+      "check_id": "inventory_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "inventory"
+    },
+    {
+      "check_id": "costs_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "costs"
+    },
+    {
+      "check_id": "deliveries_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "deliveries"
+    },
+    {
+      "check_id": "dispatch_attempts_non_negative_values",
+      "invalid_values": [],
+      "message": "Non-negative values valid.",
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "check_id": "dispatch_attempts_action_id_range",
+      "invalid_values": [],
+      "message": "action_id values are valid.",
+      "status": "pass",
+      "table": "dispatch_attempts"
+    },
+    {
+      "check_id": "orders_promised_window_order",
+      "invalid_values": [],
+      "message": "Promised windows are ordered.",
+      "status": "pass",
+      "table": "orders"
+    },
+    {
+      "check_id": "deliveries_decision_pickup_delivery_order",
+      "invalid_values": [],
+      "message": "Decision, pickup, and delivery timestamps are ordered.",
+      "status": "pass",
+      "table": "deliveries"
+    },
+    {
+      "check_id": "deliveries_dispatch_pickup_order",
+      "invalid_values": [],
+      "message": "Dispatch and pickup timestamps are ordered.",
+      "status": "pass",
+      "table": "deliveries"
+    }
+  ],
+  "decision": {
+    "classification": "COMPANY_DATA_SCHEMA_READY",
+    "reason": "Synthetic schema fixture passed required table, join, timestamp, label, duplicate-key, and value checks.",
+    "recommended_action": "Record readiness; no private-data intake or model action is authorized."
+  },
+  "join_key_checks": [
+    {
+      "check_id": "dispatch_attempts_order_id_join",
+      "left_key": "order_id",
+      "left_table": "dispatch_attempts",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "order_id",
+      "right_table": "orders",
+      "status": "pass"
+    },
+    {
+      "check_id": "deliveries_order_id_join",
+      "left_key": "order_id",
+      "left_table": "deliveries",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "order_id",
+      "right_table": "orders",
+      "status": "pass"
+    },
+    {
+      "check_id": "deliveries_dispatch_attempt_id_join",
+      "left_key": "dispatch_attempt_id",
+      "left_table": "deliveries",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "dispatch_attempt_id",
+      "right_table": "dispatch_attempts",
+      "status": "pass"
+    },
+    {
+      "check_id": "routes_order_id_join",
+      "left_key": "order_id",
+      "left_table": "routes",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "order_id",
+      "right_table": "orders",
+      "status": "pass"
+    },
+    {
+      "check_id": "dispatch_attempts_route_id_join",
+      "left_key": "route_id",
+      "left_table": "dispatch_attempts",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "route_id",
+      "right_table": "routes",
+      "status": "pass"
+    },
+    {
+      "check_id": "dispatch_attempts_vehicle_id_join",
+      "left_key": "vehicle_id",
+      "left_table": "dispatch_attempts",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "vehicle_id",
+      "right_table": "fleet",
+      "status": "pass"
+    },
+    {
+      "check_id": "dispatch_attempts_carrier_id_join",
+      "left_key": "carrier_id",
+      "left_table": "dispatch_attempts",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "carrier_id",
+      "right_table": "fleet",
+      "status": "pass"
+    },
+    {
+      "check_id": "inventory_order_id_join",
+      "left_key": "order_id",
+      "left_table": "inventory",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "order_id",
+      "right_table": "orders",
+      "status": "pass"
+    },
+    {
+      "check_id": "costs_order_id_join",
+      "left_key": "order_id",
+      "left_table": "costs",
+      "message": "Join keys are present.",
+      "missing_values": [],
+      "right_key": "order_id",
+      "right_table": "orders",
+      "status": "pass"
+    }
+  ],
+  "report_metadata": {
+    "report_timestamp_utc": "2026-06-11T22:58:19.341137+00:00",
+    "source_kind": "built_in:valid_minimal",
+    "synthetic_data": true,
+    "table_count": 7,
+    "tables_present": [
+      "costs",
+      "deliveries",
+      "dispatch_attempts",
+      "fleet",
+      "inventory",
+      "orders",
+      "routes"
+    ],
+    "validator_version": "company_data_intake_validator_v1"
+  },
+  "table_summaries": {
+    "costs": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "route_cost",
+        "emergency_reorder_cost",
+        "cancellation_cost"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "deliveries": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "failed_attempt_reason",
+        "lateness_minutes",
+        "actual_sequence_rank"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "dispatch_attempts": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "no_vehicle_flag",
+        "already_assigned_flag",
+        "route_failure_flag",
+        "carrier_rejected_flag",
+        "duplicate_assignment_flag",
+        "policy_version"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "fleet": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "accepted_at",
+        "cancelled_at",
+        "fleet_reliability_score"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "inventory": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "allocated_quantity",
+        "reorder_event_id",
+        "reorder_type",
+        "supplier_id"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "orders": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "customer_id",
+        "customer_location_id",
+        "latitude",
+        "longitude",
+        "sku_id",
+        "site_id"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    },
+    "routes": {
+      "duplicate_primary_keys": 0,
+      "issues": [],
+      "optional_columns_present": [
+        "actual_route_id",
+        "actual_distance",
+        "actual_travel_time",
+        "planned_sequence_rank",
+        "actual_sequence_rank",
+        "reroute_flag",
+        "congestion_delay_flag",
+        "route_provider"
+      ],
+      "required_columns_present": true,
+      "rows": 1
+    }
+  },
+  "warnings": []
+}

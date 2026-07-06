@@ -1,0 +1,54 @@
+﻿{
+    "captured_at":  "2026-06-13T17:05:29.6948942Z",
+    "protected_files":  [
+                            {
+                                "path":  "models/registry/active_models.json",
+                                "size":  314,
+                                "sha256":  "b7c6e79749044b92639b8a27ef38483022fc21d9f0ee08743af88725e42aa60a"
+                            },
+                            {
+                                "path":  "models/registry/models.jsonl",
+                                "size":  14142,
+                                "sha256":  "935d8bf34adc8dd956a68fb57581ec860b02d74ec26434dd6c084e63055c38e1"
+                            },
+                            {
+                                "path":  "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt",
+                                "size":  303413903,
+                                "sha256":  "c1e756bdf7cd6b824ca134dbe6fb021612367ab18b12f2a24e13bf2167e51cde"
+                            },
+                            {
+                                "path":  "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json",
+                                "size":  4084,
+                                "sha256":  "fdaf8de495d90bdfd69bcc2ee3772eb6a09661e104a5127ea3cb01c6d02cf99a"
+                            }
+                        ],
+    "protected_path_profiles":  [
+                                    {
+                                        "path":  "models/baselines",
+                                        "files":  2692,
+                                        "bytes":  7392576274
+                                    },
+                                    {
+                                        "path":  "db",
+                                        "files":  7,
+                                        "bytes":  28330
+                                    },
+                                    {
+                                        "path":  "models/checkpoints",
+                                        "files":  787,
+                                        "bytes":  4920830666
+                                    },
+                                    {
+                                        "path":  "models/production",
+                                        "files":  8,
+                                        "bytes":  328265276
+                                    },
+                                    {
+                                        "path":  "models/eval",
+                                        "files":  128,
+                                        "bytes":  388267659
+                                    }
+                                ],
+    "preflight_ops_bundle":  "reports/ops/20260613_sota_pathway_preflight_ops_bundle_report.json",
+    "preflight_ops_decision":  "OPS_BUNDLE_CLEAN"
+}

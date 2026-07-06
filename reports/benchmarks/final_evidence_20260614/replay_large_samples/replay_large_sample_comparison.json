@@ -1,0 +1,383 @@
+{
+  "classification": "PUBLIC_REPLAY_LARGE_SAMPLE_COMPARISON_READY",
+  "datasets": {
+    "LaDe": {
+      "bounded": {
+        "action_24_rate": 0.0,
+        "action_32_rate": 0.0,
+        "confidence_distribution": {
+          "high": 5000
+        },
+        "dispatch_rate": 0.003,
+        "hold_rate": 0.997,
+        "mean_missingness_rate": 0.30445205479452053,
+        "mode_distribution": {
+          "primary_fleet": 8,
+          "secondary_fleet": 4992
+        },
+        "prediction_count": 5000,
+        "reorder_distribution": {
+          "conservative": 4466,
+          "none": 534
+        },
+        "route_distribution": {
+          "high_resilience": 15,
+          "shortest": 4985
+        },
+        "row_count": 5000,
+        "service_proxy_correlation": {
+          "action_24": null,
+          "action_32": null,
+          "dispatch": -0.11175930352424639
+        },
+        "top_actions": [
+          [
+            "1",
+            4451
+          ],
+          [
+            "0",
+            534
+          ],
+          [
+            "45",
+            8
+          ],
+          [
+            "41",
+            7
+          ]
+        ]
+      },
+      "important_change": "large sample improves descriptive public replay stability but does not add propensities, company rewards, or full trajectories",
+      "interpretation_stability": "stable descriptive interpretation: action 24/32 remain rare and public replay remains non-causal proxy evidence",
+      "large": {
+        "action_24_rate": 0.0,
+        "action_32_rate": 0.0,
+        "confidence_distribution": {
+          "high": 31415
+        },
+        "dispatch_rate": 0.004106318637593506,
+        "hold_rate": 0.9958936813624065,
+        "mean_missingness_rate": 0.3051177454274308,
+        "mode_distribution": {
+          "primary_fleet": 47,
+          "secondary_fleet": 31368
+        },
+        "prediction_count": 31415,
+        "reorder_distribution": {
+          "aggressive": 10,
+          "conservative": 24816,
+          "none": 6589
+        },
+        "route_distribution": {
+          "high_resilience": 129,
+          "shortest": 31286
+        },
+        "row_count": 31415,
+        "service_proxy_correlation": {
+          "action_24": null,
+          "action_32": null,
+          "dispatch": -0.14103583516622648
+        },
+        "top_actions": [
+          [
+            "1",
+            24687
+          ],
+          [
+            "0",
+            6589
+          ],
+          [
+            "41",
+            82
+          ],
+          [
+            "45",
+            47
+          ],
+          [
+            "2",
+            10
+          ]
+        ]
+      },
+      "row_count_multiplier": 6.283
+    },
+    "NYC_HVFHS": {
+      "bounded": {
+        "action_24_rate": 0.002,
+        "action_32_rate": 0.0,
+        "confidence_distribution": {
+          "high": 10000
+        },
+        "dispatch_rate": 0.0466,
+        "hold_rate": 0.9534,
+        "mean_missingness_rate": 0.3013698630136986,
+        "mode_distribution": {
+          "primary_fleet": 71,
+          "secondary_fleet": 9929
+        },
+        "prediction_count": 10000,
+        "reorder_distribution": {
+          "aggressive": 135,
+          "conservative": 7877,
+          "emergency": 3,
+          "none": 1985
+        },
+        "route_distribution": {
+          "high_resilience": 161,
+          "shortest": 9839
+        },
+        "row_count": 10000,
+        "service_proxy_correlation": {
+          "action_24": -0.08521060321654683,
+          "action_32": null,
+          "dispatch": -0.43604495805209065
+        },
+        "top_actions": [
+          [
+            "1",
+            7441
+          ],
+          [
+            "0",
+            1958
+          ],
+          [
+            "25",
+            217
+          ],
+          [
+            "41",
+            148
+          ],
+          [
+            "2",
+            135
+          ],
+          [
+            "29",
+            68
+          ],
+          [
+            "24",
+            20
+          ],
+          [
+            "40",
+            7
+          ]
+        ]
+      },
+      "important_change": "large sample improves descriptive public replay stability but does not add propensities, company rewards, or full trajectories",
+      "interpretation_stability": "stable descriptive interpretation: action 24/32 remain rare and public replay remains non-causal proxy evidence",
+      "large": {
+        "action_24_rate": 0.00051,
+        "action_32_rate": 2e-05,
+        "confidence_distribution": {
+          "high": 100000
+        },
+        "dispatch_rate": 0.04092,
+        "hold_rate": 0.95908,
+        "mean_missingness_rate": 0.3013698630136986,
+        "mode_distribution": {
+          "primary_fleet": 450,
+          "secondary_fleet": 99550
+        },
+        "prediction_count": 100000,
+        "reorder_distribution": {
+          "aggressive": 2756,
+          "conservative": 83175,
+          "emergency": 31,
+          "none": 14038
+        },
+        "route_distribution": {
+          "high_resilience": 2738,
+          "low_congestion": 2,
+          "shortest": 97260
+        },
+        "row_count": 100000,
+        "service_proxy_correlation": {
+          "action_24": -0.03525765583751783,
+          "action_32": -0.007891244936826736,
+          "dispatch": -0.4610341719753878
+        },
+        "top_actions": [
+          [
+            "1",
+            79220
+          ],
+          [
+            "0",
+            13929
+          ],
+          [
+            "2",
+            2754
+          ],
+          [
+            "41",
+            2510
+          ],
+          [
+            "25",
+            1007
+          ],
+          [
+            "29",
+            281
+          ],
+          [
+            "45",
+            157
+          ],
+          [
+            "40",
+            55
+          ]
+        ]
+      },
+      "row_count_multiplier": 10.0
+    },
+    "Olist": {
+      "bounded": {
+        "action_24_rate": 0.0018,
+        "action_32_rate": 0.0,
+        "confidence_distribution": {
+          "medium": 5000
+        },
+        "dispatch_rate": 0.038,
+        "hold_rate": 0.962,
+        "mean_missingness_rate": 0.5497534246575342,
+        "mode_distribution": {
+          "primary_fleet": 60,
+          "secondary_fleet": 4940
+        },
+        "prediction_count": 5000,
+        "reorder_distribution": {
+          "aggressive": 41,
+          "conservative": 2800,
+          "emergency": 188,
+          "none": 1971
+        },
+        "route_distribution": {
+          "high_resilience": 130,
+          "low_congestion": 4,
+          "shortest": 4866
+        },
+        "row_count": 5000,
+        "service_proxy_correlation": {
+          "action_24": -0.16634947290063917,
+          "action_32": null,
+          "dispatch": -0.5977567699325136
+        },
+        "top_actions": [
+          [
+            "1",
+            2748
+          ],
+          [
+            "0",
+            1956
+          ],
+          [
+            "43",
+            87
+          ],
+          [
+            "3",
+            66
+          ],
+          [
+            "2",
+            40
+          ],
+          [
+            "45",
+            28
+          ],
+          [
+            "27",
+            25
+          ],
+          [
+            "29",
+            15
+          ]
+        ]
+      },
+      "important_change": "large sample improves descriptive public replay stability but does not add propensities, company rewards, or full trajectories",
+      "interpretation_stability": "stable descriptive interpretation: action 24/32 remain rare and public replay remains non-causal proxy evidence",
+      "large": {
+        "action_24_rate": 0.002062689166217505,
+        "action_32_rate": 0.0,
+        "confidence_distribution": {
+          "medium": 96476
+        },
+        "dispatch_rate": 0.03643393175504789,
+        "hold_rate": 0.9635660682449522,
+        "mean_missingness_rate": 0.5479511690607132,
+        "mode_distribution": {
+          "primary_fleet": 790,
+          "secondary_fleet": 95686
+        },
+        "prediction_count": 96476,
+        "reorder_distribution": {
+          "aggressive": 872,
+          "conservative": 53017,
+          "emergency": 3586,
+          "none": 39001
+        },
+        "route_distribution": {
+          "high_resilience": 2523,
+          "low_congestion": 1,
+          "shortest": 93952
+        },
+        "row_count": 96476,
+        "service_proxy_correlation": {
+          "action_24": -0.1734050827586187,
+          "action_32": null,
+          "dispatch": -0.6505362052667408
+        },
+        "top_actions": [
+          [
+            "1",
+            52201
+          ],
+          [
+            "0",
+            38699
+          ],
+          [
+            "43",
+            1661
+          ],
+          [
+            "3",
+            1190
+          ],
+          [
+            "2",
+            871
+          ],
+          [
+            "27",
+            643
+          ],
+          [
+            "45",
+            578
+          ],
+          [
+            "41",
+            201
+          ]
+        ]
+      },
+      "row_count_multiplier": 19.2952
+    }
+  },
+  "generated_at_utc": "2026-06-14T04:17:51.257019+00:00"
+}

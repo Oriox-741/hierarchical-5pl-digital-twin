@@ -1,0 +1,334 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+Objective:
+Execute Step 4: implement a safe-now company-data intake validator skeleton using synthetic headers/fixtures only. Validate expected schemas and join-key availability for future company data without ingesting real private company data. Do not create DB tables. Do not read any private or production company extract. Do not make calibration conclusions from synthetic data.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260611_step4_company_data_intake_validator_plan.md
+- docs/runs/20260611_step3_monitoring_report_generator_report.md
+- scripts/monitoring_report_generator.py
+- docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md
+- docs/plans/20260611_real_world_calibration_and_validation_plan.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+- docs/plans/20260611_codex_project_future_strategy_plan.md
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not read or write private company data.
+- Do not read live production/company extracts.
+- Do not create DB tables.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+
+Allowed writes only:
+1. scripts/company_data_intake_validator.py
+2. tests/orchestration/test_company_data_intake_validator.py
+3. reports/company_data/20260611_company_data_synthetic_schema_report.json
+4. docs/runs/20260611_step4_company_data_intake_validator_report.md
+5. docs/00_PROJECT_DASHBOARD.md link/status update only.
+
+Purpose:
+Build a synthetic-only intake validator for the company data contract described in docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md. The validator should prove that expected table schemas, join keys, timestamps, labels, duplicate keys, and cost/value constraints can be checked before any real data access is approved.
+
+Future table families:
+- orders
+- dispatch_attempts
+- deliveries
+- routes
+- fleet
+- inventory
+- costs
+
+Required fields by table:
+
+orders:
+- order_id
+- created_at
+- promised_window_start
+- promised_window_end
+- order_priority
+- order_size
+- zone_id
+
+dispatch_attempts:
+- dispatch_attempt_id
+- order_id
+- decision_timestamp
+- dispatch_attempt_timestamp
+- dispatch_status
+- dispatch_failure_reason
+- action_id
+- vehicle_id
+- carrier_id
+- fleet_type
+- route_id
+
+deliveries:
+- order_id
+- dispatch_attempt_id
+- pickup_timestamp
+- delivery_timestamp
+- delivery_status
+- delivered_on_time
+
+routes:
+- route_id
+- order_id
+- planned_route_type
+- planned_distance
+- planned_travel_time
+- route_failure_flag
+
+fleet:
+- vehicle_id
+- carrier_id
+- fleet_type
+- vehicle_capacity
+- available_at_decision
+- assigned_at
+- fleet_cost
+
+inventory:
+- sku_id
+- site_id
+- order_id
+- stock_on_hand_at_decision
+- backlog_quantity
+- stockout_flag
+- supplier_lead_time
+
+costs:
+- order_id
+- primary_fleet_cost
+- secondary_fleet_cost
+- lateness_penalty_cost
+- stockout_cost
+- holding_cost
+
+Optional fields to recognize when present:
+- orders: customer_id, customer_location_id, latitude, longitude, sku_id, site_id
+- dispatch_attempts: no_vehicle_flag, already_assigned_flag, route_failure_flag, carrier_rejected_flag, duplicate_assignment_flag, policy_version
+- deliveries: failed_attempt_reason, lateness_minutes, actual_sequence_rank
+- routes: actual_route_id, actual_distance, actual_travel_time, planned_sequence_rank, actual_sequence_rank, reroute_flag, congestion_delay_flag, route_provider
+- fleet: accepted_at, cancelled_at, fleet_reliability_score
+- inventory: allocated_quantity, reorder_event_id, reorder_type, supplier_id
+- costs: route_cost, emergency_reorder_cost, cancellation_cost
+
+Primary key rules:
+- orders: order_id
+- dispatch_attempts: dispatch_attempt_id
+- deliveries: dispatch_attempt_id
+- routes: route_id
+- fleet: vehicle_id
+- inventory: sku_id + site_id + order_id
+- costs: order_id
+
+Join-key rules:
+- order_id must exist in orders, dispatch_attempts, deliveries, routes, inventory, and costs.
+- dispatch_attempts.order_id must exist in orders.order_id.
+- deliveries.order_id and deliveries.dispatch_attempt_id must match orders and dispatch_attempts.
+- routes.order_id must exist in orders.
+- dispatch_attempts.route_id must exist in routes.route_id.
+- dispatch_attempts.vehicle_id must exist in fleet.vehicle_id.
+- dispatch_attempts.carrier_id should exist in fleet.carrier_id; if vehicle_id joins, carrier-only mismatch may be warning.
+- inventory.order_id must exist in orders.
+- inventory.sku_id and inventory.site_id must be present where inventory validation is claimed.
+- timestamps must have shared semantics and should prefer ISO-8601 UTC strings ending in Z or explicit offsets.
+
+Data-quality rules:
+- Required columns present for each table.
+- Required timestamps parse.
+- promised_window_start <= promised_window_end.
+- If present, decision_timestamp <= pickup_timestamp <= delivery_timestamp.
+- If present, dispatch_attempt_timestamp <= pickup_timestamp.
+- Costs are non-negative.
+- Route distance, travel time, vehicle capacity, and inventory quantities are non-negative.
+- fleet_type is primary or secondary.
+- reorder_type is none, conservative, aggressive, or emergency when present and non-empty.
+- action_id is an integer in 0..47.
+- No duplicate primary keys.
+- Empty optional fields do not block readiness.
+
+Output schema:
+Top-level JSON keys:
+- report_metadata
+- table_summaries
+- join_key_checks
+- data_quality_checks
+- warnings
+- decision
+
+Decision classifications:
+- COMPANY_DATA_SCHEMA_READY
+- COMPANY_DATA_SCHEMA_WARNINGS_ONLY
+- COMPANY_DATA_SCHEMA_NEEDS_FIXES
+- COMPANY_DATA_SCHEMA_BLOCKED
+
+Classification priority:
+1. Missing required table or unreadable fixture -> COMPANY_DATA_SCHEMA_BLOCKED.
+2. Missing required columns, duplicate primary keys, malformed required timestamps, impossible required ordering, invalid controlled labels, invalid action id, or required join failure -> COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+3. Missing optional fields, carrier-only warning where vehicle joins, or timezone-naive parseable timestamps -> COMPANY_DATA_SCHEMA_WARNINGS_ONLY.
+4. All required schemas, joins, timestamps, labels, and non-negative constraints pass -> COMPANY_DATA_SCHEMA_READY.
+
+Synthetic fixtures:
+- valid_minimal: one valid row per table, all required joins present, fleet_type secondary, reorder_type none if included, non-negative costs, UTC timestamps, action_id in 0..47.
+- missing_required_columns: remove promised_window_end from orders and dispatch_attempt_id from dispatch_attempts.
+- bad_timestamps: unparsable created_at plus promised_window_start after promised_window_end.
+- duplicate_keys: duplicate orders.order_id and dispatch_attempts.dispatch_attempt_id.
+- invalid_labels: fleet_type overflow_unknown and reorder_type delay_forever.
+
+Implementation requirements:
+- Create scripts/company_data_intake_validator.py.
+- Use only Python standard library.
+- Do not import project runtime/model/training/eval modules.
+- Do not connect to any DB.
+- Do not scan for private/company data.
+- Do not read registry or production files except dashboard/docs if needed for reporting.
+- CLI must require exactly one synthetic input mode:
+  - --use-built-in-synthetic-fixture valid_minimal|missing_required_columns|bad_timestamps|duplicate_keys|invalid_labels
+  - OR --synthetic-fixture-root PATH
+- CLI must require --output PATH.
+- CLI must write only the explicit --output JSON path.
+- Generated report must set synthetic_data=true.
+- Generated report must include source_kind.
+- Generated report must print final classification to stdout.
+
+TDD requirements:
+Write tests before implementation in tests/orchestration/test_company_data_intake_validator.py.
+
+Tests must cover:
+- clean valid synthetic schema returns COMPANY_DATA_SCHEMA_READY.
+- missing required columns returns COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+- bad timestamps return COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+- duplicate primary keys return COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+- invalid fleet/reorder labels return COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+- missing required join key returns COMPANY_DATA_SCHEMA_NEEDS_FIXES.
+- optional gaps do not block readiness beyond documented warning/info behavior.
+- CLI writes only the requested report output path.
+- CLI refuses to run without synthetic input.
+- CLI refuses conflicting synthetic input modes.
+
+Execution order:
+1. Read all read-first files.
+2. Verify allowed output paths and record whether they already exist.
+3. Capture protected hashes:
+   - models/registry/active_models.json
+   - models/registry/models.jsonl
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt
+   - models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+4. Capture protected folder profiles:
+   - models/baselines
+   - db
+   - models/checkpoints
+   - models/production
+   - models/eval
+5. Verify no train/eval/gate/AWS/private-data process.
+6. Write failing tests.
+7. Run focused tests and confirm expected red failure.
+8. Implement scripts/company_data_intake_validator.py.
+9. Run focused tests until green.
+10. Run py_compile.
+11. Generate reports/company_data/20260611_company_data_synthetic_schema_report.json from built-in valid_minimal fixture.
+12. Check classification COMPANY_DATA_SCHEMA_READY.
+13. Write docs/runs/20260611_step4_company_data_intake_validator_report.md.
+14. Update docs/00_PROJECT_DASHBOARD.md link/status only.
+15. Re-run protected hashes, protected folder profiles, and process scan.
+16. Spawn one gpt-5.5 read-only reviewer.
+17. If approved, record reviewer verdict and final verification.
+18. If needs fixes, apply only requested fixes with tests and re-review.
+19. If blocked, stop and report blocked classification.
+
+Verification commands:
+
+Focused tests:
+python -m unittest tests.orchestration.test_company_data_intake_validator -v
+
+Compile:
+python -m py_compile scripts/company_data_intake_validator.py tests/orchestration/test_company_data_intake_validator.py
+
+Generate synthetic report:
+python scripts/company_data_intake_validator.py --use-built-in-synthetic-fixture valid_minimal --output reports/company_data/20260611_company_data_synthetic_schema_report.json
+
+Classification check:
+Select-String -Path reports\company_data\20260611_company_data_synthetic_schema_report.json -Pattern '"classification": "COMPANY_DATA_SCHEMA_READY"'
+
+Process scan:
+$self = $PID
+$matches = Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $self -and ($_.Name -match 'python|aws|mlflow|tensorboard' -or $_.CommandLine -match 'train_joint|offline_scenarios|long_run_gate|aws s3|private') } | Select-Object ProcessId,Name,CommandLine
+if ($matches) { $matches | Format-Table -Wrap -AutoSize } else { Write-Output 'NO_TRAIN_EVAL_GATE_AWS_OR_PRIVATE_DATA_PROCESS' }
+
+Independent reviewer:
+Spawn one gpt-5.5 read-only reviewer after implementation and verification.
+
+Reviewer scope:
+- Read docs/plans/20260611_step4_company_data_intake_validator_plan.md.
+- Read this goal file.
+- Read docs/runbooks/20260611_hierarchical_v1_company_data_request_package.md.
+- Read docs/runbooks/20260611_hierarchical_v1_monitoring_kpi_dictionary.md.
+- Read docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md.
+- Read docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md.
+- Inspect scripts/company_data_intake_validator.py.
+- Inspect tests/orchestration/test_company_data_intake_validator.py.
+- Inspect reports/company_data/20260611_company_data_synthetic_schema_report.json.
+- Inspect docs/runs/20260611_step4_company_data_intake_validator_report.md.
+- Inspect docs/00_PROJECT_DASHBOARD.md link/status update.
+
+Reviewer must verify:
+1. Validator is synthetic-only and does not ingest private company data.
+2. No DB writes/tables/migrations are introduced.
+3. Table schemas match this goal and company data request package.
+4. Join-key checks cover order_id, dispatch_attempt_id, vehicle_id/carrier_id, route_id, sku_id/site_id, and timestamp semantics.
+5. Data-quality checks cover required columns, timestamps, promised window ordering, dispatch/pickup/delivery ordering, non-negative costs, fleet/reorder labels, duplicate primary keys, and action_id 0..47.
+6. Output schema and classifications match this goal.
+7. Tests cover required clean, warning/fix, blocked/refusal, and CLI write-scope cases.
+8. Generated report classification COMPANY_DATA_SCHEMA_READY is supported by synthetic fixture evidence.
+9. Protected no-mutation proof is coherent.
+
+Reviewer verdict exactly one:
+STEP4_COMPANY_DATA_INTAKE_VALIDATOR_APPROVED
+STEP4_COMPANY_DATA_INTAKE_VALIDATOR_NEEDS_FIXES
+STEP4_COMPANY_DATA_INTAKE_VALIDATOR_BLOCKED
+
+Run report must include:
+- files changed
+- TDD red/green evidence
+- tests and verification commands/results
+- generated schema report path and SHA256
+- generated schema final classification
+- reviewer verdict
+- protected no-mutation proof
+- explicit statement that no private company data was read or written
+- explicit statement that no training/eval/gate/download/registry/production/baseline/DB/checkpoint/eval-output mutation occurred
+
+Final output must include:
+- files changed
+- tests run/results
+- generated report path
+- generated schema classification
+- reviewer verdict
+- protected no-mutation proof
+- no private-data/no DB/no train/eval/gate/download/protected mutation statement
+- final classification exactly one:
+  STEP4_COMPANY_DATA_INTAKE_VALIDATOR_READY
+  STEP4_COMPANY_DATA_INTAKE_VALIDATOR_NEEDS_FIXES
+  STEP4_COMPANY_DATA_INTAKE_VALIDATOR_BLOCKED
+

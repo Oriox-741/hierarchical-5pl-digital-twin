@@ -1,0 +1,129 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+CODEX PROJE Step 8 rule-based baseline eval harness skeleton uygula.
+
+Objective:
+Implement only the skeleton adapter that lets existing deterministic rule-based baseline policies plug into the existing 5PL scenario/environment metric stack later. Do not run any scenario eval, long-run gate, or benchmark. Do not write `models/eval`. Do not duplicate `env_5pl`.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260613_rule_based_baseline_eval_harness_plan_no_run.md
+- docs/runs/20260613_step8_rule_based_eval_harness_plan_audit.md
+- docs/runs/20260613_rule_based_baseline_skeleton_report.md
+- src/eval/rule_based_baselines.py
+- tests/eval/test_rule_based_baselines.py
+- src/eval/real_world_scenario_arena.py
+- src/eval/scenario_metrics.py
+- src/act/env_5pl.py
+- src/act/action_projector.py
+- src/act/discrete_action_mapper.py
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run `src/eval/evaluate_real_world_scenarios.py`.
+- Do not run long-run gate.
+- Do not run `src/eval/long_run_gate.py`.
+- Do not run benchmark.
+- Do not install dependencies.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate `models/registry/active_models.json`.
+- Do not mutate `models/registry/models.jsonl`.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not write `models/eval`.
+- Do not write benchmark results.
+- Do not create training configs.
+- Do not ingest private company data.
+- Do not prepare or send firm-facing data request email.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+- Keep external contract `physical_reality_v5_route_candidate_visibility`, obs 73, continuous action dim 5, external discrete action count 48.
+
+Allowed writes:
+- src/eval/rule_based_baseline_arena.py
+- tests/eval/test_rule_based_baseline_arena.py
+- docs/runs/20260613_rule_based_baseline_eval_harness_skeleton_report.md
+- docs/00_PROJECT_DASHBOARD.md only to add links/status if useful
+
+Implementation architecture:
+- Implement a library module, not a script-first harness.
+- Use `src/eval/rule_based_baseline_arena.py` as the adapter seam.
+- Reuse existing env/scenario utilities and `EpisodeMetricAccumulator`.
+- Do not change `env_5pl` physics.
+- Do not change `real_world_scenario_arena.py` unless a tiny import-only reuse issue makes it unavoidable. Prefer no changes there.
+- Do not create `scripts/evaluate_rule_based_baselines.py` in this skeleton unless the plan is explicitly updated and reviewed first.
+
+TDD requirements:
+1. Add failing tests first in `tests/eval/test_rule_based_baseline_arena.py`.
+2. Tests must prove:
+   - neutral continuous action is length 5, finite, and within normalized `[-1, 1]`;
+   - rule action validation accepts 0..47;
+   - rule action validation rejects negative and 48+ action ids;
+   - adapter returns a joint action mapping with `continuous` and `discrete`;
+   - adapter does not load checkpoints;
+   - adapter does not write outputs;
+   - action 24 and action 32 remain legal external actions through `DiscreteActionMapper`;
+   - a small mocked or fake-env loop can feed `EpisodeMetricAccumulator.observe` without writing files.
+3. Keep tests focused. Do not run scenario eval as a test.
+
+Expected implementation:
+- `neutral_continuous_action()`
+- `validate_rule_action_id(action_id)`
+- `build_joint_action_from_rule_decision(decision)`
+- a small context-building seam for future env snapshots
+- a skeleton `run_rule_baseline_episode` or equivalent function that can be tested with a fake/mocked env and does not write files
+
+Execution order:
+1. Capture protected hashes/profiles for registry, production, baselines, DB, checkpoints, and eval outputs.
+2. Write failing tests.
+3. Implement the minimal adapter.
+4. Run focused tests.
+5. Run py_compile on touched Python files.
+6. Confirm no train/eval/gate/AWS/private-data process.
+7. Confirm protected hashes/profiles unchanged.
+8. Write `docs/runs/20260613_rule_based_baseline_eval_harness_skeleton_report.md`.
+9. Update dashboard links/status only if useful.
+10. Spawn one gpt-5.5 read-only reviewer.
+
+Verification commands:
+- `python -m unittest tests.eval.test_rule_based_baselines tests.eval.test_rule_based_baseline_arena`
+- `python -m py_compile src/eval/rule_based_baselines.py src/eval/rule_based_baseline_arena.py tests/eval/test_rule_based_baselines.py tests/eval/test_rule_based_baseline_arena.py`
+
+Forbidden verification commands:
+- Do not run `python -m src.eval.evaluate_real_world_scenarios`.
+- Do not run `python -m src.eval.long_run_gate`.
+- Do not run any benchmark command.
+- Do not write to `models/eval`.
+
+Reviewer requirement:
+Spawn exactly one `gpt-5.5` read-only reviewer after the patch and tests. Reviewer must not train, eval, gate, benchmark, mutate registry, mutate production, mutate baselines, mutate DB, mutate checkpoints, edit eval outputs, download data, or ingest private company data.
+
+Reviewer verdict exactly one:
+- RULE_BASED_EVAL_HARNESS_SKELETON_APPROVED
+- RULE_BASED_EVAL_HARNESS_SKELETON_NEEDS_FIXES
+- RULE_BASED_EVAL_HARNESS_SKELETON_BLOCKED
+
+Final output must include:
+- files changed
+- tests run/results
+- chosen harness architecture
+- continuous action strategy
+- proof no eval/gate/benchmark ran
+- proof no `models/eval` writes
+- protected no-mutation proof
+- reviewer verdict
+- final classification exactly one:
+  - RULE_BASED_EVAL_HARNESS_SKELETON_READY
+  - RULE_BASED_EVAL_HARNESS_SKELETON_NEEDS_FIXES
+  - RULE_BASED_EVAL_HARNESS_SKELETON_BLOCKED

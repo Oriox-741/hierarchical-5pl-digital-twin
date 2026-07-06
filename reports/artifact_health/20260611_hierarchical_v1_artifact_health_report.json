@@ -1,0 +1,167 @@
+{
+  "active_registry_checks": {
+    "actual_active_models": {
+      "dqn:tactical_dispatch": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "ppo:continuous_control": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt"
+    },
+    "expected_active_models": {
+      "dqn:tactical_dispatch": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "ppo:continuous_control": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt"
+    },
+    "expected_sha256": "B7C6E79749044B92639B8A27EF38483022FC21D9F0EE08743AF88725E42AA60A",
+    "issues": [],
+    "path": "models\\registry\\active_models.json",
+    "sha256": "B7C6E79749044B92639B8A27EF38483022FC21D9F0EE08743AF88725E42AA60A",
+    "status": "PASS"
+  },
+  "dashboard_consistency_checks": {
+    "path": "docs\\00_PROJECT_DASHBOARD.md",
+    "status": "PASS",
+    "warnings": []
+  },
+  "expected_production_identity": {
+    "action_count": 48,
+    "active_dqn_id": "f87e10d6-479f-44fc-99d1-6925bc9cb346",
+    "active_dqn_path": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+    "active_ppo_id": "17ba1d28-0054-4f7c-ae9a-34cd305ebb89",
+    "active_ppo_path": "models\\checkpoints\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+    "candidate_dqn_id": "71af6701-ac3a-40f2-bdd9-cc80868d5a1c",
+    "candidate_ppo_id": "3befa11c-e853-4d0f-a951-c2fbbb2a9898",
+    "contract": "physical_reality_v5_route_candidate_visibility",
+    "dqn_architecture": "hierarchical_v1",
+    "hierarchical_init_method": "flat_teacher_distillation_v1",
+    "logical_model_id": "joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "observation_dim": 73,
+    "training_step": 1000000
+  },
+  "final_classification": "ARTIFACT_HEALTH_CLEAN",
+  "models_jsonl_checks": {
+    "expected_sha256": "935D8BF34ADC8DD956A68FB57581EC860B02D74EC26434DD6C084E63055C38E1",
+    "issues": [],
+    "missing_rows": [],
+    "old_production_active_rows_present": true,
+    "path": "models\\registry\\models.jsonl",
+    "row_count": 10,
+    "row_issues": {},
+    "sha256": "935D8BF34ADC8DD956A68FB57581EC860B02D74EC26434DD6C084E63055C38E1",
+    "status": "PASS"
+  },
+  "process_scan_result": {
+    "matches": [],
+    "message": "NO_TRAIN_EVAL_GATE_OR_AWS_DOWNLOAD_PROCESS",
+    "patterns": [
+      "train_joint",
+      "evaluate_real_world_scenarios",
+      "check_long_run_gate",
+      "offline_scenarios",
+      "aws s3 sync",
+      "aws s3 cp"
+    ],
+    "status": "PASS"
+  },
+  "production_file_hash_checks": {
+    "actual_files": [
+      "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "joint_torch_latest.pt",
+      "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "production_manifest.json"
+    ],
+    "actual_sha256": {
+      "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+      "joint_torch_latest.pt": "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE",
+      "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+      "production_manifest.json": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A"
+    },
+    "expected_files": [
+      "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "joint_torch_latest.pt",
+      "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt",
+      "production_manifest.json"
+    ],
+    "expected_sha256": {
+      "dqn_torch_joint_final_hierarchical_v1_1m_20260611.pt": "9DB010EB89ADB7262F3B85902507A13DB45AD7523940B65C3769CEFC96CA470D",
+      "joint_torch_latest.pt": "C1E756BDF7CD6B824CA134DBE6FB021612367AB18B12F2A24E13BF2167E51CDE",
+      "ppo_torch_joint_final_hierarchical_v1_1m_20260611.pt": "2D4CD9130492F7E15E9925177A9B82DF959ECF09534ADE649DC0D81D39410996",
+      "production_manifest.json": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A"
+    },
+    "issues": [],
+    "production_dir": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611",
+    "status": "PASS"
+  },
+  "production_manifest_checks": {
+    "expected_sha256": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A",
+    "issues": [],
+    "path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\production_manifest.json",
+    "sha256": "FDAF8DE495D90BDFD69BCC2EE3772EB6A09661E104A5127EA3CB01C6D02CF99A",
+    "status": "PASS"
+  },
+  "protected_path_profile_checks": {
+    "issues": [],
+    "profiles": {
+      "db": {
+        "actual_file_count": 7,
+        "actual_total_bytes": 28330,
+        "expected_file_count": 7,
+        "expected_total_bytes": 28330,
+        "issues": [],
+        "path": "db",
+        "status": "PASS"
+      },
+      "models/baselines": {
+        "actual_file_count": 2692,
+        "actual_total_bytes": 7392576274,
+        "expected_file_count": 2692,
+        "expected_total_bytes": 7392576274,
+        "issues": [],
+        "path": "models\\baselines",
+        "status": "PASS"
+      },
+      "models/checkpoints": {
+        "actual_file_count": 787,
+        "actual_total_bytes": 4920830666,
+        "expected_file_count": 787,
+        "expected_total_bytes": 4920830666,
+        "issues": [],
+        "path": "models\\checkpoints",
+        "status": "PASS"
+      },
+      "models/eval": {
+        "actual_file_count": 128,
+        "actual_total_bytes": 388267659,
+        "expected_file_count": 128,
+        "expected_total_bytes": 388267659,
+        "issues": [],
+        "path": "models\\eval",
+        "status": "PASS"
+      },
+      "models/production": {
+        "actual_file_count": 8,
+        "actual_total_bytes": 328265276,
+        "expected_file_count": 8,
+        "expected_total_bytes": 328265276,
+        "issues": [],
+        "path": "models\\production",
+        "status": "PASS"
+      }
+    },
+    "status": "PASS"
+  },
+  "report_metadata": {
+    "generated_at_utc": "2026-06-11T21:16:20.021344+00:00",
+    "runtime_smoke_requested": true,
+    "script": "<PROJECT_ROOT>/scripts/production_artifact_health_report.py"
+  },
+  "runtime_smoke_result": {
+    "checkpoint_path": "models\\production\\joint_torch_v5_prod_hierarchical_v1_1m_20260611\\joint_torch_latest.pt",
+    "continuous_bounded": true,
+    "continuous_finite": true,
+    "continuous_length": 5,
+    "discrete": 1,
+    "dqn_architecture": "hierarchical_v1",
+    "exact_resume_capable": true,
+    "global_step": 1000000,
+    "hierarchical_init_method": "flat_teacher_distillation_v1",
+    "issues": [],
+    "status": "PASS"
+  }
+}

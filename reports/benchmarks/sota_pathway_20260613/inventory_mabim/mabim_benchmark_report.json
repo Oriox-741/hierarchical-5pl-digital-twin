@@ -1,0 +1,61 @@
+{
+  "benchmark_metadata": {
+    "benchmark": "mabim_replenishment_env_small",
+    "max_steps": null,
+    "policy_count": 4,
+    "route_fleet_caveat": "MABIM validates inventory/reorder behavior only; it does not validate 5PL dispatch or routing.",
+    "source_root": "data\\public\\mabim_or_replenishment_20260613\\source\\ReplenishmentEnv-main",
+    "task_name": "sku50.single_store.standard"
+  },
+  "decision": "MABIM_INVENTORY_BENCHMARK_READY",
+  "policy_summaries": [
+    {
+      "final_balance": -6253.293000000003,
+      "max_action": 0.0,
+      "mean_action": 0.0,
+      "mean_balance": 7908.728033333332,
+      "mean_in_stock": 4.306333333333333,
+      "mean_in_transit": 0.6380000000000001,
+      "min_balance": -6253.293000000003,
+      "policy_name": "zero_reorder_stress_floor",
+      "steps": 60,
+      "total_reward": -6253.293000000003
+    },
+    {
+      "final_balance": 112111.34500000002,
+      "max_action": 2.5,
+      "mean_action": 0.47474407650212175,
+      "mean_balance": 65783.2406,
+      "mean_in_stock": 19.441,
+      "mean_in_transit": 11.717333333333334,
+      "min_balance": 4425.181,
+      "policy_name": "conservative_ss_builtin_style",
+      "steps": 60,
+      "total_reward": 112111.34500000002
+    },
+    {
+      "final_balance": 175450.25300000003,
+      "max_action": 4.5,
+      "mean_action": 0.6647165187037326,
+      "mean_balance": 97325.44408333332,
+      "mean_in_stock": 35.85733333333334,
+      "mean_in_transit": 17.214,
+      "min_balance": 4415.181,
+      "policy_name": "aggressive_ss_builtin_style",
+      "steps": 60,
+      "total_reward": 175450.25300000003
+    },
+    {
+      "final_balance": 126513.67200000002,
+      "max_action": 3.7,
+      "mean_action": 0.5097159111977919,
+      "mean_balance": 72307.96420000002,
+      "mean_in_stock": 23.46266666666667,
+      "mean_in_transit": 13.321,
+      "min_balance": 4425.181,
+      "policy_name": "project_inspired_continuous_reorder",
+      "steps": 60,
+      "total_reward": 126513.67200000002
+    }
+  ]
+}

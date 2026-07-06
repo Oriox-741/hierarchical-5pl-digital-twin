@@ -1,0 +1,15 @@
+instance_name,benchmark_family,customer_count,vehicle_count,capacity,solver_status,objective_value,vehicles_used,total_distance,solve_time_seconds,source_url
+C101,solomon_vrptw,100,25,200,ROUTING_SUCCESS,9829,10,9829,5.008104100008495,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+C201,solomon_vrptw,100,25,700,ROUTING_SUCCESS,9590,3,9590,5.000492399965879,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+R101,solomon_vrptw,100,25,200,ROUTING_FAIL_TIMEOUT,,,,5.000936999975238,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+R201,solomon_vrptw,100,25,1000,ROUTING_SUCCESS,2217,7,2217,5.000419199990574,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+RC101,solomon_vrptw,100,25,200,ROUTING_FAIL_TIMEOUT,,,,5.001467399997637,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+RC201,solomon_vrptw,100,25,1000,ROUTING_SUCCESS,2280,9,2280,5.01050179998856,https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip
+c1_2_1,homberger_200_vrptw,200,50,200,ROUTING_SUCCESS,20939,21,20939,5.000156600028276,https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip
+c2_2_1,homberger_200_vrptw,200,50,700,ROUTING_SUCCESS,20005,7,20005,5.001190799986944,https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip
+r1_2_1,homberger_200_vrptw,200,50,200,ROUTING_FAIL_TIMEOUT,,,,5.004135700000916,https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip
+A-n32-k5,cvrplib_cvrp,31,5,100,ROUTING_SUCCESS,784,5,784,4.9999735999736,https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/4
+A-n33-k5,cvrplib_cvrp,32,5,100,ROUTING_SUCCESS,661,5,661,4.999993200006429,https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/5
+A-n33-k6,cvrplib_cvrp,32,6,100,ROUTING_SUCCESS,742,6,742,5.001010700012557,https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/7
+A-n34-k5,cvrplib_cvrp,33,5,100,ROUTING_SUCCESS,786,5,786,5.000843200017698,https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/8
+A-n36-k5,cvrplib_cvrp,35,5,100,ROUTING_SUCCESS,799,5,799,5.00212509999983,https://galgos.inf.puc-rio.br/cvrplib/en/download/instance/9

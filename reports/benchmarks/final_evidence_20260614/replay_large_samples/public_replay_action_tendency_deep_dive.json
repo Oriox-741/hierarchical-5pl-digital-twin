@@ -1,0 +1,3216 @@
+{
+  "classification": "PUBLIC_REPLAY_ACTION_TENDENCY_DEEP_DIVE_READY",
+  "datasets": {
+    "LaDe": {
+      "confidence_distribution": {
+        "high": 31415
+      },
+      "mean_missingness_rate": 0.3051177454274308,
+      "overall": {
+        "action_24_rate": 0.0,
+        "action_32_rate": 0.0,
+        "action_distribution": {
+          "0": 6589,
+          "1": 24687,
+          "2": 10,
+          "41": 82,
+          "45": 47
+        },
+        "dispatch_rate": 0.004106318637593506,
+        "hold_rate": 0.9958936813624065,
+        "mode_distribution": {
+          "primary_fleet": 47,
+          "secondary_fleet": 31368
+        },
+        "reorder_distribution": {
+          "aggressive": 10,
+          "conservative": 24816,
+          "none": 6589
+        },
+        "route_distribution": {
+          "high_resilience": 129,
+          "shortest": 31286
+        },
+        "row_count": 31415,
+        "top_actions": [
+          [
+            "1",
+            24687
+          ],
+          [
+            "0",
+            6589
+          ],
+          [
+            "41",
+            82
+          ],
+          [
+            "45",
+            47
+          ],
+          [
+            "2",
+            10
+          ]
+        ]
+      },
+      "pressure_summary": {
+        "demand_pressure": {
+          "high_dispatch_rate": 0.0,
+          "high_rows": 1333,
+          "low_dispatch_rate": 0.004288278704873346,
+          "low_rows": 30082,
+          "missing_rows": 0
+        },
+        "dispatch_pressure": {
+          "high_dispatch_rate": 0.0,
+          "high_rows": 1333,
+          "low_dispatch_rate": 0.004288278704873346,
+          "low_rows": 30082,
+          "missing_rows": 0
+        },
+        "fleet_pressure": {
+          "high_dispatch_rate": 0.0,
+          "high_rows": 11984,
+          "low_dispatch_rate": 0.006638876022850085,
+          "low_rows": 19431,
+          "missing_rows": 0
+        },
+        "lateness_risk": {
+          "high_dispatch_rate": 0.012053821715567183,
+          "high_rows": 10702,
+          "low_dispatch_rate": 0.0,
+          "low_rows": 20713,
+          "missing_rows": 0
+        },
+        "route_congestion_proxy": {
+          "high_dispatch_rate": 0.012053821715567183,
+          "high_rows": 10702,
+          "low_dispatch_rate": 0.0,
+          "low_rows": 20713,
+          "missing_rows": 0
+        },
+        "route_disruption_proxy": {
+          "high_dispatch_rate": 0.2948717948717949,
+          "high_rows": 156,
+          "low_dispatch_rate": 0.002655235292235836,
+          "low_rows": 31259,
+          "missing_rows": 0
+        }
+      },
+      "runtime_seconds": 49.617,
+      "segments": {
+        "confidence": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6589,
+              "1": 24687,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.004106318637593506,
+            "hold_rate": 0.9958936813624065,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 31368
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 24816,
+              "none": 6589
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 31286
+            },
+            "row_count": 31415,
+            "top_actions": [
+              [
+                "1",
+                24687
+              ],
+              [
+                "0",
+                6589
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "demand_pressure": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 88,
+              "1": 1245
+            },
+            "dispatch_rate": 0.0,
+            "hold_rate": 1.0,
+            "mode_distribution": {
+              "secondary_fleet": 1333
+            },
+            "reorder_distribution": {
+              "conservative": 1245,
+              "none": 88
+            },
+            "route_distribution": {
+              "shortest": 1333
+            },
+            "row_count": 1333,
+            "top_actions": [
+              [
+                "1",
+                1245
+              ],
+              [
+                "0",
+                88
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6501,
+              "1": 23442,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.004288278704873346,
+            "hold_rate": 0.9957117212951266,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 30035
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 23571,
+              "none": 6501
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 29953
+            },
+            "row_count": 30082,
+            "top_actions": [
+              [
+                "1",
+                23442
+              ],
+              [
+                "0",
+                6501
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "dispatch_pressure": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 88,
+              "1": 1245
+            },
+            "dispatch_rate": 0.0,
+            "hold_rate": 1.0,
+            "mode_distribution": {
+              "secondary_fleet": 1333
+            },
+            "reorder_distribution": {
+              "conservative": 1245,
+              "none": 88
+            },
+            "route_distribution": {
+              "shortest": 1333
+            },
+            "row_count": 1333,
+            "top_actions": [
+              [
+                "1",
+                1245
+              ],
+              [
+                "0",
+                88
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6501,
+              "1": 23442,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.004288278704873346,
+            "hold_rate": 0.9957117212951266,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 30035
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 23571,
+              "none": 6501
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 29953
+            },
+            "row_count": 30082,
+            "top_actions": [
+              [
+                "1",
+                23442
+              ],
+              [
+                "0",
+                6501
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "fleet_pressure": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 3420,
+              "1": 8564
+            },
+            "dispatch_rate": 0.0,
+            "hold_rate": 1.0,
+            "mode_distribution": {
+              "secondary_fleet": 11984
+            },
+            "reorder_distribution": {
+              "conservative": 8564,
+              "none": 3420
+            },
+            "route_distribution": {
+              "shortest": 11984
+            },
+            "row_count": 11984,
+            "top_actions": [
+              [
+                "1",
+                8564
+              ],
+              [
+                "0",
+                3420
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 3169,
+              "1": 16123,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.006638876022850085,
+            "hold_rate": 0.9933611239771499,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 19384
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 16252,
+              "none": 3169
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 19302
+            },
+            "row_count": 19431,
+            "top_actions": [
+              [
+                "1",
+                16123
+              ],
+              [
+                "0",
+                3169
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "lateness_risk": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 4,
+              "1": 10567,
+              "2": 2,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.012053821715567183,
+            "hold_rate": 0.9879461782844328,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 10655
+            },
+            "reorder_distribution": {
+              "aggressive": 2,
+              "conservative": 10696,
+              "none": 4
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 10573
+            },
+            "row_count": 10702,
+            "top_actions": [
+              [
+                "1",
+                10567
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "0",
+                4
+              ],
+              [
+                "2",
+                2
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6585,
+              "1": 14120,
+              "2": 8
+            },
+            "dispatch_rate": 0.0,
+            "hold_rate": 1.0,
+            "mode_distribution": {
+              "secondary_fleet": 20713
+            },
+            "reorder_distribution": {
+              "aggressive": 8,
+              "conservative": 14120,
+              "none": 6585
+            },
+            "route_distribution": {
+              "shortest": 20713
+            },
+            "row_count": 20713,
+            "top_actions": [
+              [
+                "1",
+                14120
+              ],
+              [
+                "0",
+                6585
+              ],
+              [
+                "2",
+                8
+              ]
+            ]
+          }
+        },
+        "missingness": {
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6589,
+              "1": 24687,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.004106318637593506,
+            "hold_rate": 0.9958936813624065,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 31368
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 24816,
+              "none": 6589
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 31286
+            },
+            "row_count": 31415,
+            "top_actions": [
+              [
+                "1",
+                24687
+              ],
+              [
+                "0",
+                6589
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "overall": {
+          "all": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6589,
+              "1": 24687,
+              "2": 10,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.004106318637593506,
+            "hold_rate": 0.9958936813624065,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 31368
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 24816,
+              "none": 6589
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 31286
+            },
+            "row_count": 31415,
+            "top_actions": [
+              [
+                "1",
+                24687
+              ],
+              [
+                "0",
+                6589
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        },
+        "route_congestion_proxy": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 4,
+              "1": 10567,
+              "2": 2,
+              "41": 82,
+              "45": 47
+            },
+            "dispatch_rate": 0.012053821715567183,
+            "hold_rate": 0.9879461782844328,
+            "mode_distribution": {
+              "primary_fleet": 47,
+              "secondary_fleet": 10655
+            },
+            "reorder_distribution": {
+              "aggressive": 2,
+              "conservative": 10696,
+              "none": 4
+            },
+            "route_distribution": {
+              "high_resilience": 129,
+              "shortest": 10573
+            },
+            "row_count": 10702,
+            "top_actions": [
+              [
+                "1",
+                10567
+              ],
+              [
+                "41",
+                82
+              ],
+              [
+                "45",
+                47
+              ],
+              [
+                "0",
+                4
+              ],
+              [
+                "2",
+                2
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6585,
+              "1": 14120,
+              "2": 8
+            },
+            "dispatch_rate": 0.0,
+            "hold_rate": 1.0,
+            "mode_distribution": {
+              "secondary_fleet": 20713
+            },
+            "reorder_distribution": {
+              "aggressive": 8,
+              "conservative": 14120,
+              "none": 6585
+            },
+            "route_distribution": {
+              "shortest": 20713
+            },
+            "row_count": 20713,
+            "top_actions": [
+              [
+                "1",
+                14120
+              ],
+              [
+                "0",
+                6585
+              ],
+              [
+                "2",
+                8
+              ]
+            ]
+          }
+        },
+        "route_disruption_proxy": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 1,
+              "1": 109,
+              "41": 31,
+              "45": 15
+            },
+            "dispatch_rate": 0.2948717948717949,
+            "hold_rate": 0.7051282051282052,
+            "mode_distribution": {
+              "primary_fleet": 15,
+              "secondary_fleet": 141
+            },
+            "reorder_distribution": {
+              "conservative": 155,
+              "none": 1
+            },
+            "route_distribution": {
+              "high_resilience": 46,
+              "shortest": 110
+            },
+            "row_count": 156,
+            "top_actions": [
+              [
+                "1",
+                109
+              ],
+              [
+                "41",
+                31
+              ],
+              [
+                "45",
+                15
+              ],
+              [
+                "0",
+                1
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 6588,
+              "1": 24578,
+              "2": 10,
+              "41": 51,
+              "45": 32
+            },
+            "dispatch_rate": 0.002655235292235836,
+            "hold_rate": 0.9973447647077641,
+            "mode_distribution": {
+              "primary_fleet": 32,
+              "secondary_fleet": 31227
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 24661,
+              "none": 6588
+            },
+            "route_distribution": {
+              "high_resilience": 83,
+              "shortest": 31176
+            },
+            "row_count": 31259,
+            "top_actions": [
+              [
+                "1",
+                24578
+              ],
+              [
+                "0",
+                6588
+              ],
+              [
+                "41",
+                51
+              ],
+              [
+                "45",
+                32
+              ],
+              [
+                "2",
+                10
+              ]
+            ]
+          }
+        }
+      },
+      "source_info": {
+        "mapping": "same all-row LaDe mapping as large replay",
+        "path": "<PROJECT_ROOT>\\data\\public\\lade_20260614\\delivery_jl.parquet",
+        "row_count": 31415
+      }
+    },
+    "NYC_HVFHS": {
+      "confidence_distribution": {
+        "high": 100000
+      },
+      "mean_missingness_rate": 0.30136986301369856,
+      "overall": {
+        "action_24_rate": 0.00051,
+        "action_32_rate": 2e-05,
+        "action_distribution": {
+          "0": 13929,
+          "1": 79220,
+          "2": 2754,
+          "24": 51,
+          "25": 1007,
+          "27": 2,
+          "28": 1,
+          "29": 281,
+          "3": 5,
+          "31": 10,
+          "32": 2,
+          "40": 55,
+          "41": 2510,
+          "42": 2,
+          "43": 13,
+          "45": 157,
+          "47": 1
+        },
+        "dispatch_rate": 0.04092,
+        "hold_rate": 0.95908,
+        "mode_distribution": {
+          "primary_fleet": 450,
+          "secondary_fleet": 99550
+        },
+        "reorder_distribution": {
+          "aggressive": 2756,
+          "conservative": 83175,
+          "emergency": 31,
+          "none": 14038
+        },
+        "route_distribution": {
+          "high_resilience": 2738,
+          "low_congestion": 2,
+          "shortest": 97260
+        },
+        "row_count": 100000,
+        "top_actions": [
+          [
+            "1",
+            79220
+          ],
+          [
+            "0",
+            13929
+          ],
+          [
+            "2",
+            2754
+          ],
+          [
+            "41",
+            2510
+          ],
+          [
+            "25",
+            1007
+          ],
+          [
+            "29",
+            281
+          ],
+          [
+            "45",
+            157
+          ],
+          [
+            "40",
+            55
+          ],
+          [
+            "24",
+            51
+          ],
+          [
+            "43",
+            13
+          ]
+        ]
+      },
+      "pressure_summary": {
+        "demand_pressure": {
+          "high_dispatch_rate": 0.003802507278236587,
+          "high_rows": 16831,
+          "low_dispatch_rate": 0.048431506931669255,
+          "low_rows": 83169,
+          "missing_rows": 0
+        },
+        "dispatch_pressure": {
+          "high_dispatch_rate": 0.11395900153395622,
+          "high_rows": 35855,
+          "low_dispatch_rate": 9.353807779250136e-05,
+          "low_rows": 64145,
+          "missing_rows": 0
+        },
+        "fleet_pressure": {
+          "high_dispatch_rate": 0.020446540086164554,
+          "high_rows": 71259,
+          "low_dispatch_rate": 0.09168087401273442,
+          "low_rows": 28741,
+          "missing_rows": 0
+        },
+        "lateness_risk": {
+          "high_dispatch_rate": 0.11395900153395622,
+          "high_rows": 35855,
+          "low_dispatch_rate": 9.353807779250136e-05,
+          "low_rows": 64145,
+          "missing_rows": 0
+        },
+        "route_congestion_proxy": {
+          "high_dispatch_rate": 0.02929109965476135,
+          "high_rows": 64593,
+          "low_dispatch_rate": 0.06213460615132601,
+          "low_rows": 35407,
+          "missing_rows": 0
+        },
+        "route_disruption_proxy": {
+          "high_dispatch_rate": 0.11395900153395622,
+          "high_rows": 35855,
+          "low_dispatch_rate": 9.353807779250136e-05,
+          "low_rows": 64145,
+          "missing_rows": 0
+        }
+      },
+      "runtime_seconds": 119.321,
+      "segments": {
+        "confidence": {
+          "high": {
+            "action_24_rate": 0.00051,
+            "action_32_rate": 2e-05,
+            "action_distribution": {
+              "0": 13929,
+              "1": 79220,
+              "2": 2754,
+              "24": 51,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.04092,
+            "hold_rate": 0.95908,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 99550
+            },
+            "reorder_distribution": {
+              "aggressive": 2756,
+              "conservative": 83175,
+              "emergency": 31,
+              "none": 14038
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 97260
+            },
+            "row_count": 100000,
+            "top_actions": [
+              [
+                "1",
+                79220
+              ],
+              [
+                "0",
+                13929
+              ],
+              [
+                "2",
+                2754
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                51
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          }
+        },
+        "demand_pressure": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 1006,
+              "1": 14995,
+              "2": 766,
+              "25": 3,
+              "29": 61
+            },
+            "dispatch_rate": 0.003802507278236587,
+            "hold_rate": 0.9961974927217634,
+            "mode_distribution": {
+              "primary_fleet": 61,
+              "secondary_fleet": 16770
+            },
+            "reorder_distribution": {
+              "aggressive": 766,
+              "conservative": 15059,
+              "none": 1006
+            },
+            "route_distribution": {
+              "shortest": 16831
+            },
+            "row_count": 16831,
+            "top_actions": [
+              [
+                "1",
+                14995
+              ],
+              [
+                "0",
+                1006
+              ],
+              [
+                "2",
+                766
+              ],
+              [
+                "29",
+                61
+              ],
+              [
+                "25",
+                3
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0006132092486383148,
+            "action_32_rate": 2.404742151522803e-05,
+            "action_distribution": {
+              "0": 12923,
+              "1": 64225,
+              "2": 1988,
+              "24": 51,
+              "25": 1004,
+              "27": 2,
+              "28": 1,
+              "29": 220,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.048431506931669255,
+            "hold_rate": 0.9515684930683308,
+            "mode_distribution": {
+              "primary_fleet": 389,
+              "secondary_fleet": 82780
+            },
+            "reorder_distribution": {
+              "aggressive": 1990,
+              "conservative": 68116,
+              "emergency": 31,
+              "none": 13032
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 80429
+            },
+            "row_count": 83169,
+            "top_actions": [
+              [
+                "1",
+                64225
+              ],
+              [
+                "0",
+                12923
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "2",
+                1988
+              ],
+              [
+                "25",
+                1004
+              ],
+              [
+                "29",
+                220
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                51
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          }
+        },
+        "dispatch_pressure": {
+          "high": {
+            "action_24_rate": 0.001255055082973086,
+            "action_32_rate": 5.578022590991493e-05,
+            "action_distribution": {
+              "0": 261,
+              "1": 30886,
+              "2": 617,
+              "24": 45,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.11395900153395622,
+            "hold_rate": 0.8860409984660438,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 35405
+            },
+            "reorder_distribution": {
+              "aggressive": 619,
+              "conservative": 34841,
+              "emergency": 31,
+              "none": 364
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 33115
+            },
+            "row_count": 35855,
+            "top_actions": [
+              [
+                "1",
+                30886
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "2",
+                617
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "0",
+                261
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                45
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 9.353807779250136e-05,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 13668,
+              "1": 48334,
+              "2": 2137,
+              "24": 6
+            },
+            "dispatch_rate": 9.353807779250136e-05,
+            "hold_rate": 0.9999064619222074,
+            "mode_distribution": {
+              "secondary_fleet": 64145
+            },
+            "reorder_distribution": {
+              "aggressive": 2137,
+              "conservative": 48334,
+              "none": 13674
+            },
+            "route_distribution": {
+              "shortest": 64145
+            },
+            "row_count": 64145,
+            "top_actions": [
+              [
+                "1",
+                48334
+              ],
+              [
+                "0",
+                13668
+              ],
+              [
+                "2",
+                2137
+              ],
+              [
+                "24",
+                6
+              ]
+            ]
+          }
+        },
+        "fleet_pressure": {
+          "high": {
+            "action_24_rate": 0.0007156990695912095,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 11009,
+              "1": 56783,
+              "2": 2009,
+              "24": 51,
+              "25": 930,
+              "27": 2,
+              "28": 1,
+              "29": 277,
+              "3": 1,
+              "31": 10,
+              "41": 69,
+              "45": 116,
+              "47": 1
+            },
+            "dispatch_rate": 0.020446540086164554,
+            "hold_rate": 0.9795534599138355,
+            "mode_distribution": {
+              "primary_fleet": 405,
+              "secondary_fleet": 70854
+            },
+            "reorder_distribution": {
+              "aggressive": 2009,
+              "conservative": 58175,
+              "emergency": 14,
+              "none": 11061
+            },
+            "route_distribution": {
+              "high_resilience": 186,
+              "shortest": 71073
+            },
+            "row_count": 71259,
+            "top_actions": [
+              [
+                "1",
+                56783
+              ],
+              [
+                "0",
+                11009
+              ],
+              [
+                "2",
+                2009
+              ],
+              [
+                "25",
+                930
+              ],
+              [
+                "29",
+                277
+              ],
+              [
+                "45",
+                116
+              ],
+              [
+                "41",
+                69
+              ],
+              [
+                "24",
+                51
+              ],
+              [
+                "31",
+                10
+              ],
+              [
+                "27",
+                2
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 6.958700114818552e-05,
+            "action_distribution": {
+              "0": 2920,
+              "1": 22437,
+              "2": 745,
+              "25": 77,
+              "29": 4,
+              "3": 4,
+              "32": 2,
+              "40": 55,
+              "41": 2441,
+              "42": 2,
+              "43": 13,
+              "45": 41
+            },
+            "dispatch_rate": 0.09168087401273442,
+            "hold_rate": 0.9083191259872656,
+            "mode_distribution": {
+              "primary_fleet": 45,
+              "secondary_fleet": 28696
+            },
+            "reorder_distribution": {
+              "aggressive": 747,
+              "conservative": 25000,
+              "emergency": 17,
+              "none": 2977
+            },
+            "route_distribution": {
+              "high_resilience": 2552,
+              "low_congestion": 2,
+              "shortest": 26187
+            },
+            "row_count": 28741,
+            "top_actions": [
+              [
+                "1",
+                22437
+              ],
+              [
+                "0",
+                2920
+              ],
+              [
+                "41",
+                2441
+              ],
+              [
+                "2",
+                745
+              ],
+              [
+                "25",
+                77
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "45",
+                41
+              ],
+              [
+                "43",
+                13
+              ],
+              [
+                "3",
+                4
+              ],
+              [
+                "29",
+                4
+              ]
+            ]
+          }
+        },
+        "lateness_risk": {
+          "high": {
+            "action_24_rate": 0.001255055082973086,
+            "action_32_rate": 5.578022590991493e-05,
+            "action_distribution": {
+              "0": 261,
+              "1": 30886,
+              "2": 617,
+              "24": 45,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.11395900153395622,
+            "hold_rate": 0.8860409984660438,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 35405
+            },
+            "reorder_distribution": {
+              "aggressive": 619,
+              "conservative": 34841,
+              "emergency": 31,
+              "none": 364
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 33115
+            },
+            "row_count": 35855,
+            "top_actions": [
+              [
+                "1",
+                30886
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "2",
+                617
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "0",
+                261
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                45
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 9.353807779250136e-05,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 13668,
+              "1": 48334,
+              "2": 2137,
+              "24": 6
+            },
+            "dispatch_rate": 9.353807779250136e-05,
+            "hold_rate": 0.9999064619222074,
+            "mode_distribution": {
+              "secondary_fleet": 64145
+            },
+            "reorder_distribution": {
+              "aggressive": 2137,
+              "conservative": 48334,
+              "none": 13674
+            },
+            "route_distribution": {
+              "shortest": 64145
+            },
+            "row_count": 64145,
+            "top_actions": [
+              [
+                "1",
+                48334
+              ],
+              [
+                "0",
+                13668
+              ],
+              [
+                "2",
+                2137
+              ],
+              [
+                "24",
+                6
+              ]
+            ]
+          }
+        },
+        "missingness": {
+          "low": {
+            "action_24_rate": 0.00051,
+            "action_32_rate": 2e-05,
+            "action_distribution": {
+              "0": 13929,
+              "1": 79220,
+              "2": 2754,
+              "24": 51,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.04092,
+            "hold_rate": 0.95908,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 99550
+            },
+            "reorder_distribution": {
+              "aggressive": 2756,
+              "conservative": 83175,
+              "emergency": 31,
+              "none": 14038
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 97260
+            },
+            "row_count": 100000,
+            "top_actions": [
+              [
+                "1",
+                79220
+              ],
+              [
+                "0",
+                13929
+              ],
+              [
+                "2",
+                2754
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                51
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          }
+        },
+        "overall": {
+          "all": {
+            "action_24_rate": 0.00051,
+            "action_32_rate": 2e-05,
+            "action_distribution": {
+              "0": 13929,
+              "1": 79220,
+              "2": 2754,
+              "24": 51,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.04092,
+            "hold_rate": 0.95908,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 99550
+            },
+            "reorder_distribution": {
+              "aggressive": 2756,
+              "conservative": 83175,
+              "emergency": 31,
+              "none": 14038
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 97260
+            },
+            "row_count": 100000,
+            "top_actions": [
+              [
+                "1",
+                79220
+              ],
+              [
+                "0",
+                13929
+              ],
+              [
+                "2",
+                2754
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                51
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          }
+        },
+        "route_congestion_proxy": {
+          "high": {
+            "action_24_rate": 0.00027866796711717987,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 10887,
+              "1": 50667,
+              "2": 1143,
+              "24": 18,
+              "25": 241,
+              "28": 1,
+              "29": 138,
+              "3": 4,
+              "31": 6,
+              "40": 17,
+              "41": 1394,
+              "42": 1,
+              "43": 7,
+              "45": 68,
+              "47": 1
+            },
+            "dispatch_rate": 0.02929109965476135,
+            "hold_rate": 0.9707089003452386,
+            "mode_distribution": {
+              "primary_fleet": 214,
+              "secondary_fleet": 64379
+            },
+            "reorder_distribution": {
+              "aggressive": 1144,
+              "conservative": 52508,
+              "emergency": 18,
+              "none": 10923
+            },
+            "route_distribution": {
+              "high_resilience": 1488,
+              "shortest": 63105
+            },
+            "row_count": 64593,
+            "top_actions": [
+              [
+                "1",
+                50667
+              ],
+              [
+                "0",
+                10887
+              ],
+              [
+                "41",
+                1394
+              ],
+              [
+                "2",
+                1143
+              ],
+              [
+                "25",
+                241
+              ],
+              [
+                "29",
+                138
+              ],
+              [
+                "45",
+                68
+              ],
+              [
+                "24",
+                18
+              ],
+              [
+                "40",
+                17
+              ],
+              [
+                "43",
+                7
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.0009320190922698902,
+            "action_32_rate": 5.6486005592114554e-05,
+            "action_distribution": {
+              "0": 3042,
+              "1": 28553,
+              "2": 1611,
+              "24": 33,
+              "25": 766,
+              "27": 2,
+              "29": 143,
+              "3": 1,
+              "31": 4,
+              "32": 2,
+              "40": 38,
+              "41": 1116,
+              "42": 1,
+              "43": 6,
+              "45": 89
+            },
+            "dispatch_rate": 0.06213460615132601,
+            "hold_rate": 0.937865393848674,
+            "mode_distribution": {
+              "primary_fleet": 236,
+              "secondary_fleet": 35171
+            },
+            "reorder_distribution": {
+              "aggressive": 1612,
+              "conservative": 30667,
+              "emergency": 13,
+              "none": 3115
+            },
+            "route_distribution": {
+              "high_resilience": 1250,
+              "low_congestion": 2,
+              "shortest": 34155
+            },
+            "row_count": 35407,
+            "top_actions": [
+              [
+                "1",
+                28553
+              ],
+              [
+                "0",
+                3042
+              ],
+              [
+                "2",
+                1611
+              ],
+              [
+                "41",
+                1116
+              ],
+              [
+                "25",
+                766
+              ],
+              [
+                "29",
+                143
+              ],
+              [
+                "45",
+                89
+              ],
+              [
+                "40",
+                38
+              ],
+              [
+                "24",
+                33
+              ],
+              [
+                "43",
+                6
+              ]
+            ]
+          }
+        },
+        "route_disruption_proxy": {
+          "high": {
+            "action_24_rate": 0.001255055082973086,
+            "action_32_rate": 5.578022590991493e-05,
+            "action_distribution": {
+              "0": 261,
+              "1": 30886,
+              "2": 617,
+              "24": 45,
+              "25": 1007,
+              "27": 2,
+              "28": 1,
+              "29": 281,
+              "3": 5,
+              "31": 10,
+              "32": 2,
+              "40": 55,
+              "41": 2510,
+              "42": 2,
+              "43": 13,
+              "45": 157,
+              "47": 1
+            },
+            "dispatch_rate": 0.11395900153395622,
+            "hold_rate": 0.8860409984660438,
+            "mode_distribution": {
+              "primary_fleet": 450,
+              "secondary_fleet": 35405
+            },
+            "reorder_distribution": {
+              "aggressive": 619,
+              "conservative": 34841,
+              "emergency": 31,
+              "none": 364
+            },
+            "route_distribution": {
+              "high_resilience": 2738,
+              "low_congestion": 2,
+              "shortest": 33115
+            },
+            "row_count": 35855,
+            "top_actions": [
+              [
+                "1",
+                30886
+              ],
+              [
+                "41",
+                2510
+              ],
+              [
+                "25",
+                1007
+              ],
+              [
+                "2",
+                617
+              ],
+              [
+                "29",
+                281
+              ],
+              [
+                "0",
+                261
+              ],
+              [
+                "45",
+                157
+              ],
+              [
+                "40",
+                55
+              ],
+              [
+                "24",
+                45
+              ],
+              [
+                "43",
+                13
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 9.353807779250136e-05,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 13668,
+              "1": 48334,
+              "2": 2137,
+              "24": 6
+            },
+            "dispatch_rate": 9.353807779250136e-05,
+            "hold_rate": 0.9999064619222074,
+            "mode_distribution": {
+              "secondary_fleet": 64145
+            },
+            "reorder_distribution": {
+              "aggressive": 2137,
+              "conservative": 48334,
+              "none": 13674
+            },
+            "route_distribution": {
+              "shortest": 64145
+            },
+            "row_count": 64145,
+            "top_actions": [
+              [
+                "1",
+                48334
+              ],
+              [
+                "0",
+                13668
+              ],
+              [
+                "2",
+                2137
+              ],
+              [
+                "24",
+                6
+              ]
+            ]
+          }
+        }
+      },
+      "source_info": {
+        "mapping": "same deterministic first-100k mapping as large replay",
+        "path": "<PROJECT_ROOT>\\data\\public\\nyc_hvfhs_20260614\\fhvhv_tripdata_2023-01.parquet",
+        "row_count": 100000
+      }
+    },
+    "Olist": {
+      "confidence_distribution": {
+        "medium": 96476
+      },
+      "mean_missingness_rate": 0.5479511690607134,
+      "overall": {
+        "action_24_rate": 0.002062689166217505,
+        "action_32_rate": 0.0,
+        "action_distribution": {
+          "0": 38699,
+          "1": 52201,
+          "2": 871,
+          "24": 199,
+          "25": 21,
+          "27": 643,
+          "28": 103,
+          "29": 15,
+          "3": 1190,
+          "30": 1,
+          "31": 9,
+          "37": 1,
+          "41": 201,
+          "43": 1661,
+          "45": 578,
+          "47": 83
+        },
+        "dispatch_rate": 0.03643393175504789,
+        "hold_rate": 0.9635660682449522,
+        "mode_distribution": {
+          "primary_fleet": 790,
+          "secondary_fleet": 95686
+        },
+        "reorder_distribution": {
+          "aggressive": 872,
+          "conservative": 53017,
+          "emergency": 3586,
+          "none": 39001
+        },
+        "route_distribution": {
+          "high_resilience": 2523,
+          "low_congestion": 1,
+          "shortest": 93952
+        },
+        "row_count": 96476,
+        "top_actions": [
+          [
+            "1",
+            52201
+          ],
+          [
+            "0",
+            38699
+          ],
+          [
+            "43",
+            1661
+          ],
+          [
+            "3",
+            1190
+          ],
+          [
+            "2",
+            871
+          ],
+          [
+            "27",
+            643
+          ],
+          [
+            "45",
+            578
+          ],
+          [
+            "41",
+            201
+          ],
+          [
+            "24",
+            199
+          ],
+          [
+            "28",
+            103
+          ]
+        ]
+      },
+      "pressure_summary": {
+        "demand_pressure": {
+          "high_dispatch_rate": 0.15431560592850915,
+          "high_rows": 1147,
+          "low_dispatch_rate": 0.03501557763115107,
+          "low_rows": 95329,
+          "missing_rows": 0
+        },
+        "dispatch_pressure": {
+          "high_dispatch_rate": 0.046057437238091574,
+          "high_rows": 26011,
+          "low_dispatch_rate": 0.03288157241183566,
+          "low_rows": 70465,
+          "missing_rows": 0
+        },
+        "fleet_pressure": {
+          "high_dispatch_rate": null,
+          "high_rows": 0,
+          "low_dispatch_rate": null,
+          "low_rows": 0,
+          "missing_rows": 96476
+        },
+        "lateness_risk": {
+          "high_dispatch_rate": 0.5115397864278333,
+          "high_rows": 5806,
+          "low_dispatch_rate": 0.006010808426160803,
+          "low_rows": 90670,
+          "missing_rows": 0
+        },
+        "route_congestion_proxy": {
+          "high_dispatch_rate": null,
+          "high_rows": 0,
+          "low_dispatch_rate": null,
+          "low_rows": 0,
+          "missing_rows": 96476
+        },
+        "route_disruption_proxy": {
+          "high_dispatch_rate": 0.5115397864278333,
+          "high_rows": 5806,
+          "low_dispatch_rate": 0.006010808426160803,
+          "low_rows": 90670,
+          "missing_rows": 0
+        }
+      },
+      "runtime_seconds": 110.489,
+      "segments": {
+        "confidence": {
+          "medium": {
+            "action_24_rate": 0.002062689166217505,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 52201,
+              "2": 871,
+              "24": 199,
+              "25": 21,
+              "27": 643,
+              "28": 103,
+              "29": 15,
+              "3": 1190,
+              "30": 1,
+              "31": 9,
+              "37": 1,
+              "41": 201,
+              "43": 1661,
+              "45": 578,
+              "47": 83
+            },
+            "dispatch_rate": 0.03643393175504789,
+            "hold_rate": 0.9635660682449522,
+            "mode_distribution": {
+              "primary_fleet": 790,
+              "secondary_fleet": 95686
+            },
+            "reorder_distribution": {
+              "aggressive": 872,
+              "conservative": 53017,
+              "emergency": 3586,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 2523,
+              "low_congestion": 1,
+              "shortest": 93952
+            },
+            "row_count": 96476,
+            "top_actions": [
+              [
+                "1",
+                52201
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1190
+              ],
+              [
+                "2",
+                871
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "demand_pressure": {
+          "high": {
+            "action_24_rate": 0.010462074978204011,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "1": 945,
+              "2": 9,
+              "24": 12,
+              "28": 103,
+              "29": 15,
+              "3": 16,
+              "30": 1,
+              "31": 6,
+              "37": 1,
+              "45": 2,
+              "47": 37
+            },
+            "dispatch_rate": 0.15431560592850915,
+            "hold_rate": 0.8456843940714909,
+            "mode_distribution": {
+              "primary_fleet": 165,
+              "secondary_fleet": 982
+            },
+            "reorder_distribution": {
+              "aggressive": 10,
+              "conservative": 963,
+              "emergency": 59,
+              "none": 115
+            },
+            "route_distribution": {
+              "high_resilience": 39,
+              "low_congestion": 1,
+              "shortest": 1107
+            },
+            "row_count": 1147,
+            "top_actions": [
+              [
+                "1",
+                945
+              ],
+              [
+                "28",
+                103
+              ],
+              [
+                "47",
+                37
+              ],
+              [
+                "3",
+                16
+              ],
+              [
+                "29",
+                15
+              ],
+              [
+                "24",
+                12
+              ],
+              [
+                "2",
+                9
+              ],
+              [
+                "31",
+                6
+              ],
+              [
+                "45",
+                2
+              ],
+              [
+                "30",
+                1
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.001961627626430572,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 51256,
+              "2": 862,
+              "24": 187,
+              "25": 21,
+              "27": 643,
+              "3": 1174,
+              "31": 3,
+              "41": 201,
+              "43": 1661,
+              "45": 576,
+              "47": 46
+            },
+            "dispatch_rate": 0.03501557763115107,
+            "hold_rate": 0.964984422368849,
+            "mode_distribution": {
+              "primary_fleet": 625,
+              "secondary_fleet": 94704
+            },
+            "reorder_distribution": {
+              "aggressive": 862,
+              "conservative": 52054,
+              "emergency": 3527,
+              "none": 38886
+            },
+            "route_distribution": {
+              "high_resilience": 2484,
+              "shortest": 92845
+            },
+            "row_count": 95329,
+            "top_actions": [
+              [
+                "1",
+                51256
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1174
+              ],
+              [
+                "2",
+                862
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                576
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                187
+              ],
+              [
+                "47",
+                46
+              ]
+            ]
+          }
+        },
+        "dispatch_pressure": {
+          "high": {
+            "action_24_rate": 0.0,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "1": 23992,
+              "2": 266,
+              "27": 149,
+              "3": 555,
+              "31": 2,
+              "43": 1017,
+              "47": 30
+            },
+            "dispatch_rate": 0.046057437238091574,
+            "hold_rate": 0.9539425627619085,
+            "mode_distribution": {
+              "primary_fleet": 32,
+              "secondary_fleet": 25979
+            },
+            "reorder_distribution": {
+              "aggressive": 266,
+              "conservative": 23992,
+              "emergency": 1753
+            },
+            "route_distribution": {
+              "high_resilience": 1047,
+              "shortest": 24964
+            },
+            "row_count": 26011,
+            "top_actions": [
+              [
+                "1",
+                23992
+              ],
+              [
+                "43",
+                1017
+              ],
+              [
+                "3",
+                555
+              ],
+              [
+                "2",
+                266
+              ],
+              [
+                "27",
+                149
+              ],
+              [
+                "47",
+                30
+              ],
+              [
+                "31",
+                2
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 0.002824097069467111,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 28209,
+              "2": 605,
+              "24": 199,
+              "25": 21,
+              "27": 494,
+              "28": 103,
+              "29": 15,
+              "3": 635,
+              "30": 1,
+              "31": 7,
+              "37": 1,
+              "41": 201,
+              "43": 644,
+              "45": 578,
+              "47": 53
+            },
+            "dispatch_rate": 0.03288157241183566,
+            "hold_rate": 0.9671184275881644,
+            "mode_distribution": {
+              "primary_fleet": 758,
+              "secondary_fleet": 69707
+            },
+            "reorder_distribution": {
+              "aggressive": 606,
+              "conservative": 29025,
+              "emergency": 1833,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 1476,
+              "low_congestion": 1,
+              "shortest": 68988
+            },
+            "row_count": 70465,
+            "top_actions": [
+              [
+                "0",
+                38699
+              ],
+              [
+                "1",
+                28209
+              ],
+              [
+                "43",
+                644
+              ],
+              [
+                "3",
+                635
+              ],
+              [
+                "2",
+                605
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "27",
+                494
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "fleet_pressure": {
+          "missing": {
+            "action_24_rate": 0.002062689166217505,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 52201,
+              "2": 871,
+              "24": 199,
+              "25": 21,
+              "27": 643,
+              "28": 103,
+              "29": 15,
+              "3": 1190,
+              "30": 1,
+              "31": 9,
+              "37": 1,
+              "41": 201,
+              "43": 1661,
+              "45": 578,
+              "47": 83
+            },
+            "dispatch_rate": 0.03643393175504789,
+            "hold_rate": 0.9635660682449522,
+            "mode_distribution": {
+              "primary_fleet": 790,
+              "secondary_fleet": 95686
+            },
+            "reorder_distribution": {
+              "aggressive": 872,
+              "conservative": 53017,
+              "emergency": 3586,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 2523,
+              "low_congestion": 1,
+              "shortest": 93952
+            },
+            "row_count": 96476,
+            "top_actions": [
+              [
+                "1",
+                52201
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1190
+              ],
+              [
+                "2",
+                871
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "lateness_risk": {
+          "high": {
+            "action_24_rate": 0.03358594557354461,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "1": 1633,
+              "2": 48,
+              "24": 195,
+              "25": 7,
+              "27": 638,
+              "28": 103,
+              "29": 4,
+              "3": 1155,
+              "30": 1,
+              "31": 9,
+              "41": 112,
+              "43": 1660,
+              "45": 158,
+              "47": 83
+            },
+            "dispatch_rate": 0.5115397864278333,
+            "hold_rate": 0.48846021357216673,
+            "mode_distribution": {
+              "primary_fleet": 358,
+              "secondary_fleet": 5448
+            },
+            "reorder_distribution": {
+              "aggressive": 49,
+              "conservative": 1914,
+              "emergency": 3545,
+              "none": 298
+            },
+            "route_distribution": {
+              "high_resilience": 2013,
+              "shortest": 3793
+            },
+            "row_count": 5806,
+            "top_actions": [
+              [
+                "43",
+                1660
+              ],
+              [
+                "1",
+                1633
+              ],
+              [
+                "3",
+                1155
+              ],
+              [
+                "27",
+                638
+              ],
+              [
+                "24",
+                195
+              ],
+              [
+                "45",
+                158
+              ],
+              [
+                "41",
+                112
+              ],
+              [
+                "28",
+                103
+              ],
+              [
+                "47",
+                83
+              ],
+              [
+                "2",
+                48
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 4.4116025146134336e-05,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 50568,
+              "2": 823,
+              "24": 4,
+              "25": 14,
+              "27": 5,
+              "29": 11,
+              "3": 35,
+              "37": 1,
+              "41": 89,
+              "43": 1,
+              "45": 420
+            },
+            "dispatch_rate": 0.006010808426160803,
+            "hold_rate": 0.9939891915738392,
+            "mode_distribution": {
+              "primary_fleet": 432,
+              "secondary_fleet": 90238
+            },
+            "reorder_distribution": {
+              "aggressive": 823,
+              "conservative": 51103,
+              "emergency": 41,
+              "none": 38703
+            },
+            "route_distribution": {
+              "high_resilience": 510,
+              "low_congestion": 1,
+              "shortest": 90159
+            },
+            "row_count": 90670,
+            "top_actions": [
+              [
+                "1",
+                50568
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "2",
+                823
+              ],
+              [
+                "45",
+                420
+              ],
+              [
+                "41",
+                89
+              ],
+              [
+                "3",
+                35
+              ],
+              [
+                "25",
+                14
+              ],
+              [
+                "29",
+                11
+              ],
+              [
+                "27",
+                5
+              ],
+              [
+                "24",
+                4
+              ]
+            ]
+          }
+        },
+        "missingness": {
+          "high": {
+            "action_24_rate": 0.002062689166217505,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 52201,
+              "2": 871,
+              "24": 199,
+              "25": 21,
+              "27": 643,
+              "28": 103,
+              "29": 15,
+              "3": 1190,
+              "30": 1,
+              "31": 9,
+              "37": 1,
+              "41": 201,
+              "43": 1661,
+              "45": 578,
+              "47": 83
+            },
+            "dispatch_rate": 0.03643393175504789,
+            "hold_rate": 0.9635660682449522,
+            "mode_distribution": {
+              "primary_fleet": 790,
+              "secondary_fleet": 95686
+            },
+            "reorder_distribution": {
+              "aggressive": 872,
+              "conservative": 53017,
+              "emergency": 3586,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 2523,
+              "low_congestion": 1,
+              "shortest": 93952
+            },
+            "row_count": 96476,
+            "top_actions": [
+              [
+                "1",
+                52201
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1190
+              ],
+              [
+                "2",
+                871
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "overall": {
+          "all": {
+            "action_24_rate": 0.002062689166217505,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 52201,
+              "2": 871,
+              "24": 199,
+              "25": 21,
+              "27": 643,
+              "28": 103,
+              "29": 15,
+              "3": 1190,
+              "30": 1,
+              "31": 9,
+              "37": 1,
+              "41": 201,
+              "43": 1661,
+              "45": 578,
+              "47": 83
+            },
+            "dispatch_rate": 0.03643393175504789,
+            "hold_rate": 0.9635660682449522,
+            "mode_distribution": {
+              "primary_fleet": 790,
+              "secondary_fleet": 95686
+            },
+            "reorder_distribution": {
+              "aggressive": 872,
+              "conservative": 53017,
+              "emergency": 3586,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 2523,
+              "low_congestion": 1,
+              "shortest": 93952
+            },
+            "row_count": 96476,
+            "top_actions": [
+              [
+                "1",
+                52201
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1190
+              ],
+              [
+                "2",
+                871
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "route_congestion_proxy": {
+          "missing": {
+            "action_24_rate": 0.002062689166217505,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 52201,
+              "2": 871,
+              "24": 199,
+              "25": 21,
+              "27": 643,
+              "28": 103,
+              "29": 15,
+              "3": 1190,
+              "30": 1,
+              "31": 9,
+              "37": 1,
+              "41": 201,
+              "43": 1661,
+              "45": 578,
+              "47": 83
+            },
+            "dispatch_rate": 0.03643393175504789,
+            "hold_rate": 0.9635660682449522,
+            "mode_distribution": {
+              "primary_fleet": 790,
+              "secondary_fleet": 95686
+            },
+            "reorder_distribution": {
+              "aggressive": 872,
+              "conservative": 53017,
+              "emergency": 3586,
+              "none": 39001
+            },
+            "route_distribution": {
+              "high_resilience": 2523,
+              "low_congestion": 1,
+              "shortest": 93952
+            },
+            "row_count": 96476,
+            "top_actions": [
+              [
+                "1",
+                52201
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "43",
+                1661
+              ],
+              [
+                "3",
+                1190
+              ],
+              [
+                "2",
+                871
+              ],
+              [
+                "27",
+                643
+              ],
+              [
+                "45",
+                578
+              ],
+              [
+                "41",
+                201
+              ],
+              [
+                "24",
+                199
+              ],
+              [
+                "28",
+                103
+              ]
+            ]
+          }
+        },
+        "route_disruption_proxy": {
+          "high": {
+            "action_24_rate": 0.03358594557354461,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "1": 1633,
+              "2": 48,
+              "24": 195,
+              "25": 7,
+              "27": 638,
+              "28": 103,
+              "29": 4,
+              "3": 1155,
+              "30": 1,
+              "31": 9,
+              "41": 112,
+              "43": 1660,
+              "45": 158,
+              "47": 83
+            },
+            "dispatch_rate": 0.5115397864278333,
+            "hold_rate": 0.48846021357216673,
+            "mode_distribution": {
+              "primary_fleet": 358,
+              "secondary_fleet": 5448
+            },
+            "reorder_distribution": {
+              "aggressive": 49,
+              "conservative": 1914,
+              "emergency": 3545,
+              "none": 298
+            },
+            "route_distribution": {
+              "high_resilience": 2013,
+              "shortest": 3793
+            },
+            "row_count": 5806,
+            "top_actions": [
+              [
+                "43",
+                1660
+              ],
+              [
+                "1",
+                1633
+              ],
+              [
+                "3",
+                1155
+              ],
+              [
+                "27",
+                638
+              ],
+              [
+                "24",
+                195
+              ],
+              [
+                "45",
+                158
+              ],
+              [
+                "41",
+                112
+              ],
+              [
+                "28",
+                103
+              ],
+              [
+                "47",
+                83
+              ],
+              [
+                "2",
+                48
+              ]
+            ]
+          },
+          "low": {
+            "action_24_rate": 4.4116025146134336e-05,
+            "action_32_rate": 0.0,
+            "action_distribution": {
+              "0": 38699,
+              "1": 50568,
+              "2": 823,
+              "24": 4,
+              "25": 14,
+              "27": 5,
+              "29": 11,
+              "3": 35,
+              "37": 1,
+              "41": 89,
+              "43": 1,
+              "45": 420
+            },
+            "dispatch_rate": 0.006010808426160803,
+            "hold_rate": 0.9939891915738392,
+            "mode_distribution": {
+              "primary_fleet": 432,
+              "secondary_fleet": 90238
+            },
+            "reorder_distribution": {
+              "aggressive": 823,
+              "conservative": 51103,
+              "emergency": 41,
+              "none": 38703
+            },
+            "route_distribution": {
+              "high_resilience": 510,
+              "low_congestion": 1,
+              "shortest": 90159
+            },
+            "row_count": 90670,
+            "top_actions": [
+              [
+                "1",
+                50568
+              ],
+              [
+                "0",
+                38699
+              ],
+              [
+                "2",
+                823
+              ],
+              [
+                "45",
+                420
+              ],
+              [
+                "41",
+                89
+              ],
+              [
+                "3",
+                35
+              ],
+              [
+                "25",
+                14
+              ],
+              [
+                "29",
+                11
+              ],
+              [
+                "27",
+                5
+              ],
+              [
+                "24",
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "source_info": {
+        "mapping": "same all-feasible-delivered Olist mapping as large replay",
+        "path": "<PROJECT_ROOT>\\data\\public\\olist_20260614",
+        "row_count": 96476,
+        "source_order_rows": 99441
+      }
+    }
+  },
+  "diagnostic_scope": {
+    "causal_counterfactual_claim": false,
+    "company_data_validation_claim": false,
+    "fresh_non_protected_diagnostic_needed": true,
+    "no_training_eval_gate": true,
+    "production_policy_loaded_read_only": true,
+    "reason": "large replay reports store aggregate summaries with rows=[], so pressure-segment rates require recomputing aggregate segment counters from public data mappings",
+    "used_existing_large_reports": true
+  },
+  "generated_at_utc": "2026-06-14T04:57:43.680246+00:00",
+  "interpretation": {
+    "adapter_or_model_concern": "No immediate production-model concern is proven. The main adapter concern is semantic: public proxy features are not calibrated decision-time simulator observations. Company replay is needed before treating low dispatch/action24/action32 as a model behavior issue.",
+    "dispatch_opportunity_effect": "The adapter often maps waits/service/order-pressure proxies into conservative feasible-dispatch and route context; the policy therefore prefers hold-style actions on public rows. This is descriptive, not a rollout failure.",
+    "distinctions": {
+      "actual_env_rollout_performance": "measured only by internal simulator scenario/gate/equal-budget evals, not by this replay",
+      "company_historical_replay_needed": "required for stronger claims about real dispatch/fleet/reorder decisions and OPE",
+      "public_replay_descriptive_action_tendency": "what the production policy chooses on proxy states built from public rows"
+    },
+    "missingness_effect": "Olist has medium confidence and high missingness because route/fleet fields are absent; LaDe and NYC have high confidence by adapter rules but still proxy-only state reconstruction.",
+    "primary_explanation": "Low dispatch/action24/action32 is mostly expected because public rows are one-row proxy observations rather than full simulator decision-time states with current unassigned orders, feasible dispatch alternatives, secondary fleet availability, inventory state, route alternatives, and reward context."
+  },
+  "segment_thresholds": {
+    "high": "value >= 0.5",
+    "low": "value < 0.5",
+    "missing": "proxy unavailable"
+  }
+}

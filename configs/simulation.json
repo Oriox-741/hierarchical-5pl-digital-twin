@@ -1,0 +1,17 @@
+{
+  "time_unit": "seconds",
+  "default_action_mode": "joint",
+  "decision_interval_seconds": 300,
+  "max_steps": 288,
+  "random_seed": 42,
+  "rolling_demand_enabled": true,
+  "default_center": {
+    "latitude": 41.0082,
+    "longitude": 28.9784
+  },
+  "disruption_defaults": {
+    "node_failure_probability": 0.01,
+    "arc_delay_probability": 0.03,
+    "demand_shock_probability": 0.02
+  }
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5PL Dijital İkiz Karar Orkestrasyon Paneli</title>
+  <link rel="stylesheet" href="/styles.css?v=20260616v8">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <h1>5PL Dijital İkiz Karar Orkestrasyon Paneli</h1>
+        <p>Statik önizleme; canlı dashboard için start_control_room.bat çalıştırın.</p>
+      </div>
+      <div class="top-stats" aria-label="aktif durum">
+        <span><b>Senaryo</b><strong id="topScenario">yükleniyor</strong></span>
+        <span><b>Mod</b><strong id="topMode">Sunum Modu</strong></span>
+        <span><b>Zaman / adım</b><strong><i id="topTime">08:00</i> · <i id="topStep">0</i></strong></span>
+        <span><b>Model</b><strong id="topModel">hierarchical_v1_1m</strong></span>
+        <span><b>Kontrat</b><strong id="topContract">v5 / 73 / 48</strong></span>
+        <span><b>Durum</b><strong id="topStatus">Duraklatıldı</strong></span>
+        <span><b>Bağlantı</b><strong id="connectionStatus">Hazır</strong></span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <section class="control-section">
+        <h2>Kontroller</h2>
+        <label>Senaryo<select id="scenarioSelect"></select></label>
+        <label>Mod<select id="modeSelect">
+          <option value="SUNUM_MODU" selected>Sunum Modu</option>
+          <option value="CANLI_SIMULASYON_MODU">Canlı Simülasyon Modu</option>
+          <option value="KAMU_REPLAY_MODU">Kamu Replay Modu</option>
+        </select></label>
+        <label>Hız<select id="speedSelect">
+          <option>0.5x</option><option selected>1x</option><option>2x</option><option>5x</option>
+        </select></label>
+        <div class="control-grid">
+          <button id="startBtn">Oynat</button>
+          <button id="pauseBtn">Duraklat</button>
+          <button id="resetBtn">Baştan al</button>
+          <button id="stepBtn">Tek adım</button>
+        </div>
+        <div class="playback-strip" aria-label="zaman çizgisi">
+          <input id="timelineSlider" type="range" min="0" max="179" value="0">
+          <span id="traceProgress">0 / 179</span>
+        </div>
+      </section>
+      <section class="control-section">
+        <h2>Güvenli sınırlar</h2>
+        <label class="toggle"><input type="checkbox" id="policyToggle"> Üretim politikasını salt-okunur göster</label>
+        <p id="presentationNotice" class="boundary">Simülatör içi otonom orkestrasyon gösterimidir; canlı şirket dağıtımı iddiası değildir.</p>
+        <p class="boundary">Canlı TMS/WMS/ERP deployment, şirket verisi doğrulaması veya nedensel public replay üstünlüğü iddia edilmez.</p>
+        <p class="boundary warning hidden" id="tabWarning">Birden fazla sekme açık olabilir; sunum için tek sekme kullanın.</p>
+        <p class="boundary error hidden" id="errorPanel"></p>
+      </section>
+    </aside>
+
+    <main class="dashboard-grid">
+      <section id="operationSummaryPanel" class="panel panel-wide">
+        <div class="panel-head"><h2>Operasyon Özeti</h2><span id="operationPhase">Talep alımı</span></div>
+        <div id="summaryMetrics" class="metric-row"></div>
+        <div id="operationPipeline" class="pipeline"></div>
+        <div id="actionFamilyFlow" class="flow-row"></div>
+      </section>
+
+      <section id="ppoPanel" class="panel">
+        <div class="panel-head"><h2>PPO Sürekli Kontroller</h2><span id="ppoSource">Kaynak yükleniyor</span></div>
+        <p class="note">PPO çevrimiçi öğrenmez; karar anında mevcut gözleme göre beş sürekli kontrol çıktısı üretir.</p>
+        <div id="ppoBars" class="control-bars"></div>
+        <div id="ppoHistory" class="spark-list"></div>
+      </section>
+
+      <section id="dqnDecisionPanel" class="panel">
+        <div class="panel-head"><h2>DQN Karar Kartı</h2><span id="decisionEventId">DEC</span></div>
+        <article class="decision-card">
+          <strong id="dqnActionId">DQN 0</strong>
+          <h3 id="dqnInterpretation">yükleniyor</h3>
+          <p id="decisionStatusMessage">Yeni karar yok; önceki karar uygulanıyor.</p>
+          <div id="dqnComponents" class="component-grid"></div>
+          <span id="actionWatch" class="watch-badge">Normal aksiyon</span>
+        </article>
+      </section>
+
+      <section id="actionAnalyticsPanel" class="panel panel-wide">
+        <div class="panel-head"><h2>48 Aksiyon Dağılımı</h2><span id="actionCoverage">48 aksiyon</span></div>
+        <div class="filter-row">
+          <input id="actionSearch" placeholder="Aksiyon ara">
+          <select id="dispatchFilter"><option value="">Dispatch/Hold</option></select>
+          <select id="routeFilter"><option value="">Rota ailesi</option></select>
+          <select id="fleetFilter"><option value="">Filo modu</option></select>
+          <select id="reorderFilter"><option value="">İkmal modu</option></select>
+        </div>
+        <div id="actionCards" class="action-grid"></div>
+        <div class="split">
+          <div><h3>Top 10 public replay aksiyonu</h3><div id="topActions" class="rank-list"></div></div>
+          <div><h3>Sıfır-count aksiyonlar</h3><div id="zeroActions" class="chip-row"></div></div>
+        </div>
+        <p id="actionWatchExplanation" class="note"></p>
+      </section>
+
+      <section id="kpiTimelinePanel" class="panel panel-wide">
+        <div class="panel-head"><h2>KPI Zaman Çizgisi</h2><span id="kpiStepLabel">adım 0</span></div>
+        <div id="kpiCards" class="metric-row"></div>
+        <div id="kpiTimeline" class="timeline-chart"></div>
+      </section>
+
+      <section id="scenarioComparisonPanel" class="panel panel-wide">
+        <div class="panel-head"><h2>Senaryo Karşılaştırması</h2><span>config + dokümante alias</span></div>
+        <div id="scenarioComparison" class="scenario-grid"></div>
+      </section>
+
+      <section id="publicReplayPanel" class="panel">
+        <div class="panel-head"><h2>Public Replay Analizi</h2><span id="replayTotal">227.891</span></div>
+        <p class="warning-text">Kamu replay betimleyici proxy analizdir; nedensel OPE veya şirket verisi doğrulaması değildir.</p>
+        <div id="replayTotals" class="metric-row compact"></div>
+        <div id="replayDistribution" class="stack-list"></div>
+      </section>
+
+      <section id="evidenceScorecardPanel" class="panel">
+        <div class="panel-head"><h2>Benchmark / Kanıt Skor Kartı</h2><span>kanıt olgunluğu</span></div>
+        <p class="note">Bu skorlar kanıt olgunluğudur; global üstünlük skoru değildir.</p>
+        <div id="scorecardGrid" class="score-list"></div>
+      </section>
+
+      <section id="eventFlowPanel" class="panel">
+        <div class="panel-head"><h2>Olay Akışı</h2><span>karar ve hareket kareleri</span></div>
+        <ol id="eventLog" class="event-list"></ol>
+        <div id="decisionTimeline" class="chip-row"></div>
+      </section>
+
+      <section id="companyDataPanel" class="panel">
+        <div class="panel-head"><h2>Şirket Verisi Gereksinimleri</h2><span>gelecek doğrulama yolu</span></div>
+        <div id="companyRequirements" class="requirement-list"></div>
+      </section>
+
+      <section id="claimBoundaryPanel" class="panel">
+        <div class="panel-head"><h2>Sınırlar ve İddia Kontrolü</h2><span>advisor-safe</span></div>
+        <ul id="claimBoundaries" class="boundary-list"></ul>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js?v=20260616v8"></script>
+</body>
+</html>

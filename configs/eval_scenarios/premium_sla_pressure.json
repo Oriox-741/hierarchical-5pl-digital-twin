@@ -1,0 +1,34 @@
+{
+  "scenario_id": "premium_sla_pressure",
+  "name": "Premium SLA Pressure Scenario",
+  "description": "Tests whether faster or costlier tactical choices appear only when urgency justifies them.",
+  "seeds": [102, 103, 104],
+  "episode_count": 3,
+  "environment_overrides": {
+    "service_target": 0.98,
+    "premium_sla_ratio": 0.55,
+    "urgent_due_window_multiplier": 0.65,
+    "premium_lateness_penalty_multiplier": 1.8,
+    "primary_fleet_penalty": 0.08
+  },
+  "unsupported_environment_overrides": {},
+  "expected_override_effects": {
+    "premium_sla_ratio": "Maps premium SLA pressure to urgent order probability.",
+    "urgent_due_window_multiplier": "Tightens urgent due windows.",
+    "premium_lateness_penalty_multiplier": "Increases lateness/delay reward pressure.",
+    "service_target": "Raises service-level target."
+  },
+  "expected_behavior": "Primary fleet or faster route choices may increase when urgent work justifies cost, without emergency or fake-credit exploits.",
+  "pass_fail_thresholds": {
+    "fail_on_fake_dispatch_credit": true,
+    "fail_on_route_failure_positive_dispatch_credit": true,
+    "fail_on_customer_revisited": true,
+    "fail_on_nan_inf": true,
+    "min_service_level": 0.92,
+    "max_true_lateness_pressure": 0.08,
+    "min_dispatch_success_per_attempt": 0.50,
+    "max_action_24_25_concentration_warn": 0.40,
+    "max_action_24_25_concentration_fail": 0.40,
+    "require_operational_degradation_for_action_concentration_fail": true
+  }
+}

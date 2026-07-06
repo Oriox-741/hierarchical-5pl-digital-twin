@@ -1,0 +1,36 @@
+﻿{
+    "benchmark_metadata":  {
+                               "benchmark":  "fleetpy_example_dispatch",
+                               "source":  "TUM-VT FleetPy public source zip",
+                               "scenario":  "example_pool_irsonly_sc_1",
+                               "constant_config":  "data\\public\\fleetpy_20260613\\source\\FleetPy-main\\studies\\example_study\\scenarios\\constant_config_ir.csv",
+                               "scenario_config":  "data\\public\\fleetpy_20260613\\source\\FleetPy-main\\studies\\example_study\\scenarios\\example_ir_only.csv",
+                               "result_dir":  "data\\public\\fleetpy_20260613\\source\\FleetPy-main\\studies\\example_study\\results\\example_pool_irsonly_sc_1",
+                               "caveat":  "FleetPy validates public fleet/on-demand dispatch simulation behavior only; it is not a full 5PL inventory-route-reorder benchmark."
+                           },
+    "decision":  "FLEET_DISPATCH_BENCHMARK_READY",
+    "run_status":  "success",
+    "metrics":  {
+                    "number_users":  93,
+                    "modal_split":  0.93,
+                    "served_online_users_percent":  93,
+                    "created_offers_percent":  93,
+                    "average_waiting_time":  151.99637156199307,
+                    "median_waiting_time":  156.92598969631217,
+                    "waiting_time_90_percentile":  274.54530701775093,
+                    "travel_time":  206.7663722388773,
+                    "detour_time":  11.293453198156627,
+                    "fleet_utilization_percent":  74.578577308651035,
+                    "total_vkm":  227.06310738837598,
+                    "empty_vkm_percent":  34.433131561832759,
+                    "occupancy":  0.7236533450240038,
+                    "shared_rides_percent":  32.258064516129032,
+                    "mod_revenue":  17089,
+                    "mod_fix_costs":  12500,
+                    "mod_var_costs":  5677
+                },
+    "log_rows":  {
+                     "user_stats_rows":  100,
+                     "operator_stats_rows":  342
+                 }
+}

@@ -1,0 +1,217 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+CODEX PROJE Step 2 selected future-work goal.
+
+Objective:
+Implement the safest first Step 2 executable work item: a read-only hierarchical
+v1 artifact-health CLI/report. The CLI/report must verify current production
+registry, production manifest, artifact hashes, protected path profiles,
+dashboard links, process state, and runtime smoke without mutating protected
+artifacts.
+
+This goal is executable later with:
+/goal Read docs/goals/20260611_execute_step2_selected_future_work_goal.txt and execute it exactly.
+
+Current production state:
+- logical_model_id: joint_torch_v5_prod_hierarchical_v1_1m_20260611
+- architecture: hierarchical_v1
+- init: flat_teacher_distillation_v1
+- contract: physical_reality_v5_route_candidate_visibility
+- obs/action: 73/48
+- status: active registry + production promoted + final audit clean
+- residual watches: accepted for monitoring
+- equal-budget residual-watch gate: PASS
+- Amazon small-sample route proxy: READY
+- company data still required for secondary_fleet and reorder economics
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+- Do not read or write private company data.
+- Do not validate secondary_fleet or reorder economics from public route-only
+  data beyond documenting limitations.
+
+Allowed writes only:
+1. scripts/production_artifact_health_report.py
+2. tests/orchestration/test_production_artifact_health_report.py
+3. reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+4. docs/runs/20260611_step2_artifact_health_cli_report.md
+5. docs/00_PROJECT_DASHBOARD.md links/status only
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260611_step2_future_work_plan.md
+- docs/runbooks/20260611_hierarchical_v1_artifact_health_report_spec.md
+- docs/releases/20260611_hierarchical_v1_1m_production_handoff.md
+- docs/runs/20260611_final_production_state_readonly_audit.md
+- docs/runbooks/20260611_codex_model_lifecycle_governance_runbook.md
+- docs/runbooks/20260611_hierarchical_v1_monitoring_report_spec.md
+- src/orchestration/torch_joint_runtime.py
+- src/orchestration/policy_service.py
+- tests/orchestration/test_torch_joint_runtime.py
+- tests/orchestration/test_policy_service_torch_joint.py
+- models/registry/active_models.json
+- models/registry/models.jsonl
+- models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/production_manifest.json
+
+Implementation requirements:
+1. Create a read-only CLI at scripts/production_artifact_health_report.py.
+2. CLI must default to current hierarchical v1 production paths but accept
+   explicit path arguments for tests.
+3. CLI must produce JSON with:
+   - report metadata,
+   - expected production identity,
+   - active registry checks,
+   - models.jsonl candidate/active row checks,
+   - production manifest checks,
+   - expected production file hash checks,
+   - protected path profile checks,
+   - dashboard consistency checks,
+   - process scan result,
+   - optional runtime smoke result,
+   - final classification.
+4. CLI must never write to registry, production, baselines, DB, checkpoints, or
+   existing eval outputs.
+5. CLI may write only the explicitly provided output JSON path.
+6. Runtime smoke may load the production checkpoint read-only on CPU and verify:
+   - metadata dqn_architecture=hierarchical_v1,
+   - hierarchical_init_method=flat_teacher_distillation_v1,
+   - global_step/training_step=1000000,
+   - contract physical_reality_v5_route_candidate_visibility,
+   - obs/action 73/48,
+   - deterministic zero-observation continuous length 5,
+   - continuous finite/bounded,
+   - discrete action in 0..47.
+7. If runtime smoke is too slow or environment-blocked, implement
+   --skip-runtime-smoke and report SKIPPED explicitly, but the default should
+   attempt the read-only smoke.
+8. Classifications:
+   - ARTIFACT_HEALTH_CLEAN
+   - ARTIFACT_HEALTH_WARNINGS_ONLY
+   - ARTIFACT_HEALTH_ACTIVE_REGISTRY_MISMATCH
+   - ARTIFACT_HEALTH_MODELS_JSONL_MISMATCH
+   - ARTIFACT_HEALTH_PRODUCTION_MANIFEST_MISMATCH
+   - ARTIFACT_HEALTH_PRODUCTION_HASH_MISMATCH
+   - ARTIFACT_HEALTH_RUNTIME_SMOKE_FAILED
+   - ARTIFACT_HEALTH_PROTECTED_PATH_DRIFT
+   - ARTIFACT_HEALTH_FORBIDDEN_PROCESS_FOUND
+   - ARTIFACT_HEALTH_BLOCKED
+
+TDD requirements:
+1. Add focused tests before or alongside implementation in
+   tests/orchestration/test_production_artifact_health_report.py.
+2. Use temporary fixture registries/manifests/artifacts for unit tests.
+3. Tests must prove:
+   - active registry happy path passes,
+   - active registry mismatch is detected,
+   - models.jsonl candidate/active row checks work,
+   - manifest mismatch is detected,
+   - file hash mismatch is detected,
+   - protected path profile mismatch is detected,
+   - forbidden process result influences classification,
+   - CLI writes only the requested output JSON in fixture mode.
+
+Execution order:
+1. Read all required files.
+2. Record protected hashes for active_models.json, models.jsonl, production
+   joint checkpoint, and production manifest.
+3. Record protected path profiles for models/baselines, db, models/checkpoints,
+   models/production, and models/eval.
+4. Scan for train/eval/gate/AWS download processes.
+5. Write tests.
+6. Implement CLI.
+7. Run focused tests.
+8. Run py_compile on touched Python files.
+9. Run CLI against current production to fresh JSON output:
+   reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+10. Write docs/runs/20260611_step2_artifact_health_cli_report.md summarizing
+    results, classifications, protected no-mutation proof, tests, and reviewer
+    verdict placeholder.
+11. Update docs/00_PROJECT_DASHBOARD.md links/status only.
+12. Re-run protected hashes/path profiles/process scan.
+13. Spawn one gpt-5.5 read-only reviewer.
+14. Apply only reviewer-requested fixes, then re-run tests/verifications and
+    re-review if needed.
+
+Verification commands:
+
+Focused tests:
+python -m unittest tests.orchestration.test_production_artifact_health_report -v
+
+Py compile:
+python -m py_compile scripts/production_artifact_health_report.py tests/orchestration/test_production_artifact_health_report.py
+
+CLI run:
+python scripts/production_artifact_health_report.py --output reports/artifact_health/20260611_hierarchical_v1_artifact_health_report.json
+
+Protected hashes:
+Get-FileHash -Algorithm SHA256 -LiteralPath @(
+  'models\registry\active_models.json',
+  'models\registry\models.jsonl',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\joint_torch_latest.pt',
+  'models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\production_manifest.json'
+) | ForEach-Object { "$($_.Hash)  $($_.Path)" }
+
+Protected path profiles:
+$paths = @('models\baselines','db','models\checkpoints','models\production','models\eval')
+foreach ($path in $paths) {
+  $items = Get-ChildItem -LiteralPath $path -Recurse -File -Force
+  $bytes = ($items | Measure-Object -Property Length -Sum).Sum
+  "$path files=$($items.Count) bytes=$bytes"
+}
+
+Process scan:
+$self = $PID
+$matches = Get-CimInstance Win32_Process | Where-Object {
+  $_.ProcessId -ne $self -and $_.CommandLine -and ($_.CommandLine -match 'train_joint|evaluate_real_world_scenarios|check_long_run_gate|offline_scenarios|aws s3 sync|aws s3 cp')
+}
+if ($matches) { $matches | Select-Object ProcessId,Name,CommandLine | Format-List } else { 'NO_TRAIN_EVAL_GATE_OR_AWS_DOWNLOAD_PROCESS' }
+
+Independent review:
+Spawn one gpt-5.5 read-only reviewer after implementation and verification.
+Reviewer scope:
+- read the Step 2 plan and goal,
+- inspect the CLI, tests, JSON report, run report, and dashboard update,
+- inspect supporting production/registry/manifests as needed,
+- do not edit files,
+- do not train,
+- do not run offline eval,
+- do not run long-run gate,
+- do not download datasets,
+- do not mutate registry, production, baselines, DB, checkpoints, or existing
+  eval outputs.
+
+Reviewer verdict exactly one:
+STEP2_ARTIFACT_HEALTH_CLI_APPROVED
+STEP2_ARTIFACT_HEALTH_CLI_NEEDS_FIXES
+STEP2_ARTIFACT_HEALTH_CLI_BLOCKED
+
+Final output required:
+- files changed
+- tests/verifications run and results
+- CLI JSON output path
+- artifact-health final classification
+- reviewer verdict
+- protected no-mutation proof
+- exact statement that no training/eval/gate/download/protected mutation ran
+- final classification exactly one:
+  STEP2_ARTIFACT_HEALTH_CLI_READY
+  STEP2_ARTIFACT_HEALTH_CLI_NEEDS_FIXES
+  STEP2_ARTIFACT_HEALTH_CLI_BLOCKED

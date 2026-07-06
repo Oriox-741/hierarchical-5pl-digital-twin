@@ -1,0 +1,105 @@
+{
+  "decision": {
+    "classification": "PUBLIC_LARGE_REPLAY_READY_WITH_CAUSAL_LIMITATIONS",
+    "no_causal_counterfactual_claim": true,
+    "no_company_data_claim": true
+  },
+  "dry_run_preflight": {
+    "confidence_distribution": {
+      "high": 100000
+    },
+    "mean_missingness_rate": 0.3013698630136986,
+    "policy_loaded": false,
+    "row_count": 100000
+  },
+  "interpretation_limits": {
+    "counterfactual_reward_available": false,
+    "logged_propensities_available": false,
+    "logged_public_actions_available": false,
+    "safe_claim": "Action tendencies and proxy correlations only; no causal policy-value or optimality claim."
+  },
+  "mapping_notes": {
+    "pressure": "pickup-zone-hour and dispatch-base-hour normalized within sample",
+    "sample": "deterministic first 100000 parquet rows"
+  },
+  "report_metadata": {
+    "adapter_version": "public_historical_replay_adapter_v1",
+    "causal_counterfactual_claim": false,
+    "generated_at_utc": "2026-06-14T04:11:41.902120+00:00",
+    "policy_loaded": true,
+    "public_proxy_replay_only": true,
+    "row_count": 100000,
+    "source_name": "nyc_hvfhs_large"
+  },
+  "rows": [],
+  "runtime_seconds": 117.339,
+  "source_data": {
+    "actual_replay_rows": 100000,
+    "path": "<PROJECT_ROOT>\\data\\public\\nyc_hvfhs_20260614\\fhvhv_tripdata_2023-01.parquet",
+    "rows_skipped": {},
+    "target_rows": 100000
+  },
+  "summary": {
+    "action_24_rate": 0.00051,
+    "action_32_rate": 2e-05,
+    "action_distribution": {
+      "0": 13929,
+      "1": 79220,
+      "2": 2754,
+      "24": 51,
+      "25": 1007,
+      "27": 2,
+      "28": 1,
+      "29": 281,
+      "3": 5,
+      "31": 10,
+      "32": 2,
+      "40": 55,
+      "41": 2510,
+      "42": 2,
+      "43": 13,
+      "45": 157,
+      "47": 1
+    },
+    "aggregate_feature_status_counts": {
+      "imputed": 2700000,
+      "neutral": 100000,
+      "observed": 2300000,
+      "unavailable": 2200000
+    },
+    "confidence_distribution": {
+      "high": 100000
+    },
+    "dispatch_rate": 0.04092,
+    "hold_rate": 0.95908,
+    "mean_missingness_rate": 0.3013698630136986,
+    "mode_distribution": {
+      "primary_fleet": 450,
+      "secondary_fleet": 99550
+    },
+    "prediction_count": 100000,
+    "reorder_distribution": {
+      "aggressive": 2756,
+      "conservative": 83175,
+      "emergency": 31,
+      "none": 14038
+    },
+    "route_distribution": {
+      "high_resilience": 2738,
+      "low_congestion": 2,
+      "shortest": 97260
+    },
+    "row_count": 100000,
+    "service_proxy": {
+      "count": 100000,
+      "max": 1.0,
+      "mean": 0.5536019509981851,
+      "min": 0.0
+    },
+    "service_proxy_correlation": {
+      "action_24": -0.03525765583751783,
+      "action_32": -0.007891244936826736,
+      "dispatch": -0.4610341719753878
+    }
+  }
+}

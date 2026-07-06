@@ -1,0 +1,139 @@
+USESuperpowers:
+- using-superpowers
+- executing-plans
+- systematic-debugging
+- test-driven-development
+- verification-before-completion
+- requesting-code-review
+
+Objective:
+Implement the rule-based baseline skeleton only. Do not run scenario eval or benchmark. The skeleton should define transparent logistics rule policies that emit existing 48-action ids under the current v5 contract, with synthetic unit tests proving the decision logic.
+
+Exact invocation:
+/goal Read docs/goals/20260612_execute_rule_based_baseline_skeleton_goal.txt and execute it exactly.
+
+Read first:
+- docs/00_PROJECT_DASHBOARD.md
+- docs/plans/20260612_rule_based_baseline_benchmark_spec.md
+- docs/plans/20260612_rule_based_baseline_implementation_plan_no_run.md
+- docs/reports/20260612_tez_danismani_rule_based_baseline_aciklamasi.md
+- docs/plans/20260612_benchmark_protocol_v1_no_run.md
+- docs/plans/20260612_first_benchmark_recommendation_plan.md
+- src/act/discrete_action_mapper.py
+- src/act/env_5pl.py
+- src/eval/real_world_scenario_arena.py
+
+Hard constraints:
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not run benchmark.
+- Do not install dependencies.
+- Do not download datasets.
+- Do not update registry.
+- Do not mutate active_models.json or models.jsonl.
+- Do not mutate production.
+- Do not mutate baselines.
+- Do not mutate DB.
+- Do not mutate checkpoints.
+- Do not edit existing eval outputs.
+- Do not create training configs.
+- Do not ingest private company data.
+- Do not prepare/send firm-facing data request email.
+- Do not start 1.5M/2M/3M/5M/10M/100M.
+- Keep contract physical_reality_v5_route_candidate_visibility, observation 73, action 48.
+
+Allowed writes only:
+- src/eval/rule_based_baselines.py
+- tests/eval/test_rule_based_baselines.py
+- docs/runs/20260613_rule_based_baseline_skeleton_report.md
+- docs/00_PROJECT_DASHBOARD.md only to add links/status if useful.
+
+TDD requirements:
+1. Write failing tests first for pure helper/rule behavior.
+2. Implement only enough code to pass the tests.
+3. Use synthetic fixtures only.
+4. Do not instantiate a full eval run.
+5. Do not load model checkpoints.
+6. Do not read private data or existing eval outputs for tests.
+
+Required tests:
+- action encode/decode table covers action 24 and action 32.
+- FIFO picks the oldest eligible order.
+- Earliest due date picks the earliest due order.
+- Premium-first picks premium/urgent work before normal work.
+- Low-congestion rule emits action 32 or action 36 under route disruption/congestion pressure.
+- Conservative stock-threshold reorder emits action 29 under moderate inventory pressure.
+- Emergency stockout prevention emits action 31 under severe stockout risk.
+- Vehicle scarcity rule emits action 28 when primary is available and action 24 when only secondary is useful.
+- High-holding no-overstock keeps reorder none.
+- Invalid/no-work state returns canonical hold action 0.
+- Same synthetic context returns deterministic action.
+
+Execution order:
+1. Read the required docs/source.
+2. Capture protected hashes and process baseline.
+3. Add failing unit tests.
+4. Implement src/eval/rule_based_baselines.py as pure deterministic policy logic.
+5. Run focused tests.
+6. Run py_compile on touched Python files.
+7. Verify no train/eval/gate/AWS/private-data process is running.
+8. Verify protected hashes unchanged.
+9. Write the skeleton report.
+10. Spawn one gpt-5.5 read-only reviewer.
+11. Apply only requested fixes with tests if reviewer returns NEEDS_FIXES.
+
+Verification commands:
+
+```powershell
+python -m unittest tests.eval.test_rule_based_baselines -v
+python -m py_compile src/eval/rule_based_baselines.py tests/eval/test_rule_based_baselines.py
+```
+
+Protected hash checks:
+
+```powershell
+Get-FileHash -Algorithm SHA256 models\registry\active_models.json
+Get-FileHash -Algorithm SHA256 models\registry\models.jsonl
+Get-FileHash -Algorithm SHA256 models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\joint_torch_latest.pt
+Get-FileHash -Algorithm SHA256 models\production\joint_torch_v5_prod_hierarchical_v1_1m_20260611\production_manifest.json
+```
+
+Process scan:
+
+```powershell
+Get-CimInstance Win32_Process | Where-Object {
+  $_.CommandLine -match '(train_joint|evaluate_real_world_scenarios|check_long_run_gate|aws\s+s3|run_benchmark|benchmark_eval|private_data|company_data_intake)'
+}
+```
+
+Independent reviewer:
+Spawn one gpt-5.5 read-only reviewer after the skeleton patch and tests.
+
+Reviewer scope:
+- Read this goal.
+- Read the rule-based baseline spec and implementation plan.
+- Inspect the patch and tests.
+- Do not train.
+- Do not run offline eval.
+- Do not run long-run gate.
+- Do not run benchmark.
+- Do not mutate registry, production, baselines, DB, checkpoints, or existing eval outputs.
+- Do not ingest private company data.
+
+Reviewer verdict exactly one:
+- RULE_BASED_BASELINE_SKELETON_APPROVED
+- RULE_BASED_BASELINE_SKELETON_NEEDS_FIXES
+- RULE_BASED_BASELINE_SKELETON_BLOCKED
+
+Final output:
+- files changed;
+- tests run/results;
+- whether skeleton is ready;
+- proof no benchmark/eval/training was run;
+- protected no-mutation proof;
+- reviewer verdict;
+- final classification exactly one:
+  - RULE_BASED_BASELINE_SKELETON_READY
+  - RULE_BASED_BASELINE_SKELETON_NEEDS_FIXES
+  - RULE_BASED_BASELINE_SKELETON_BLOCKED

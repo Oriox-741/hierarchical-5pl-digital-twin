@@ -1,0 +1,17 @@
+﻿{
+    "benchmark_metadata":  {
+                               "benchmark":  "svrpbench_stochastic_routing_preflight",
+                               "output_dir":  "reports\\benchmarks\\sota_pathway_20260613\\stochastic_routing_svrpbench",
+                               "attempted_package":  "svrpbench",
+                               "install_log":  "reports\\benchmarks\\sota_pathway_20260613\\stochastic_routing_svrpbench\\pip_install_svrpbench.log",
+                               "web_evidence":  "SVRPBench paper found on arXiv, but no installable PyPI package or directly discoverable source URL was available from bounded search.",
+                               "caveat":  "No SVRPBench dataset or evaluation suite was downloaded."
+                           },
+    "decision":  "SVRPBENCH_STOCHASTIC_ROUTING_BLOCKED",
+    "blocker":  {
+                    "type":  "dependency_or_source_unavailable",
+                    "exact_reason":  "pip install svrpbench returned: No matching distribution found for svrpbench; bounded web search found the paper but no runnable source/package path.",
+                    "next_step":  "Use an explicitly supplied SVRPBench source/data URL or approve a separate source-specific integration plan."
+                },
+    "metrics":  null
+}
