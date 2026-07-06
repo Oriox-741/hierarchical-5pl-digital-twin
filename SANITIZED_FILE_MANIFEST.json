@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-07-06T20:25:02.399543+00:00",
+  "generated_utc": "2026-07-06T20:25:37.177376+00:00",
   "repo_name": "codex-proje-sanitized",
   "files": [
     {
@@ -1734,8 +1734,8 @@
     },
     {
       "path": "GITHUB_REPO_PREP_REPORT.md",
-      "size": 6232,
-      "sha256": "E85BDBACB05D72A0A095926C997E2EB8FBE2FCC7CFF1BE47AEA792EFF8A73B03"
+      "size": 6281,
+      "sha256": "32C7383055B756CD687A9516715CC137A73274DE46665B899DC1C1C2093D7CB2"
     },
     {
       "path": "GOVERNANCE.md",
@@ -2584,8 +2584,8 @@
     },
     {
       "path": "SANITIZED_FILE_MANIFEST.json",
-      "size": 133705,
-      "sha256": "E0E96C286F7C87B3F4F492AE883AA532DB08E39244A1D23A651EF6EE2F049D9E"
+      "size": 133544,
+      "sha256": "BCB07C41004D9D4507B43908B92F141EF7B323B50EB6A8AEB3949C4C937A2F76"
     },
     {
       "path": "sanitized_validation_summary.json",

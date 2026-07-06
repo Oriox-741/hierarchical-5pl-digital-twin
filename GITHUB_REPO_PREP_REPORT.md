@@ -75,7 +75,9 @@ The sanitized repository does not include checkpoint binaries, production model 
 
 Remote publishing was not performed because GitHub CLI is unavailable and the request provided placeholder owner/repository values. A local Git repository will be initialized and committed inside this sanitized directory only. Use `PUSH_INSTRUCTIONS.md` after selecting the private GitHub owner/repository.
 
-Commit hash: recorded in final assistant response after local commit. Embedding the final commit hash inside this committed file would change the commit itself.
+Initial sanitized repository commit hash: `ceb2e8472f3344bfa6359703aaad67b4a52efe66`
+
+Note: a later metadata-only commit may update this report and manifest. Use `git rev-parse HEAD` for the current local HEAD.
 
 ## Commands Used
 
