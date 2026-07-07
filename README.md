@@ -17,7 +17,8 @@ The project models a 5PL operating environment as a digital twin and evaluates a
 
 For a concise research overview, see [ADVISOR_QUICK_READ.md](ADVISOR_QUICK_READ.md).
 
-For the planned ablation protocol, see [ablation_protocol_for_repo.md](ablation_protocol_for_repo.md).
+
+For the planned ablation protocol, see [docs/thesis/ablation_protocol.md](docs/thesis/ablation_protocol.md).
 
 ## Architecture Boundary
 
