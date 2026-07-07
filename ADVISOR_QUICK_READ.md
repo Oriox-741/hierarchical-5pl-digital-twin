@@ -15,7 +15,7 @@ This project studies hybrid continuous-discrete control for simulated 5PL logist
 3. `REPRODUCIBILITY.md` for safe verification and excluded artifacts.
 4. `reports/thesis_handoff/` for method evidence truth tables.
 5. `reports/benchmarks/` for selected benchmark summaries.
-6. `docs/ablation_protocol.md` after it is added.
+6. `docs/thesis/ablation_protocol.md` for the planned ablation protocol.
 
 ## What is intentionally not claimed
 

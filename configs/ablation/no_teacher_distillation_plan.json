@@ -1,0 +1,25 @@
+{
+  "name": "no_teacher_distillation_plan",
+  "type": "training_time_plan",
+  "purpose": "Plan a future cold/random hierarchical initialization ablation against flat-teacher-distilled initialization.",
+  "ablation_family": "A4",
+  "required_artifacts": [
+    "future gated training approval",
+    "fresh training configuration",
+    "private checkpoint storage"
+  ],
+  "expected_outputs": [
+    "future training report",
+    "future offline evaluation summary",
+    "future ablation comparison report"
+  ],
+  "claim_status": "planned",
+  "safety_notes": [
+    "Future work only.",
+    "Requires retraining from cold/random hierarchical initialization.",
+    "Do not run from the public sanitized repository by default."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/no_teacher_distillation_plan/",
+  "implementation_status": "future_plan"
+}

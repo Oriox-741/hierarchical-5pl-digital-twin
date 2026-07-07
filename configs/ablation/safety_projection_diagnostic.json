@@ -1,0 +1,23 @@
+{
+  "name": "safety_projection_diagnostic",
+  "type": "evaluation_time",
+  "purpose": "Measure safety-projection counts, blocked actions, projection reasons, and outcome changes without disabling the safety layer by default.",
+  "ablation_family": "A2",
+  "required_artifacts": [
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt"
+  ],
+  "expected_outputs": [
+    "reports/ablation/safety_projection_diagnostic/run_metadata.json",
+    "reports/ablation/safety_projection_diagnostic/README.md"
+  ],
+  "claim_status": "planned",
+  "default_disables_safety": false,
+  "safety_notes": [
+    "Do not disable safety by default.",
+    "Default mode is a diagnostic that records projection behavior while preserving safety controls.",
+    "The CLI exposes --allow-unsafe-diagnostic only as an explicit guardrail flag; normal use should leave it false."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/safety_projection_diagnostic/",
+  "implementation_status": "scaffolded"
+}

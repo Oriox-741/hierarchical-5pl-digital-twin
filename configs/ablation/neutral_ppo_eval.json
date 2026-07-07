@@ -1,0 +1,22 @@
+{
+  "name": "neutral_ppo_eval",
+  "type": "evaluation_time",
+  "purpose": "Evaluate the hierarchical DQN tactical policy while replacing PPO raw normalized continuous outputs with a neutral five-control vector.",
+  "ablation_family": "A0",
+  "required_artifacts": [
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt"
+  ],
+  "expected_outputs": [
+    "reports/ablation/neutral_ppo_eval/run_metadata.json",
+    "reports/ablation/neutral_ppo_eval/README.md"
+  ],
+  "claim_status": "planned",
+  "safety_notes": [
+    "Evaluation-time ablation only.",
+    "Do not change the DQN tactical policy.",
+    "Neutral raw PPO vector [0, 0, 0, 0, 0] maps to reorder_fraction=0.50, dispatch_intensity=0.50, speed_multiplier=1.00, safety_stock_multiplier=1.50, capacity_buffer_fraction=0.25."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/neutral_ppo_eval/",
+  "implementation_status": "scaffolded"
+}

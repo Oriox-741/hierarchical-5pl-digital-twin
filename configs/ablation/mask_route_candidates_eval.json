@@ -1,0 +1,23 @@
+{
+  "name": "mask_route_candidates_eval",
+  "type": "evaluation_time",
+  "purpose": "Mask route-candidate observation features to neutral values to test how much tactical routing depends on route-candidate visibility.",
+  "ablation_family": "A1",
+  "required_artifacts": [
+    "models/production/joint_torch_v5_prod_hierarchical_v1_1m_20260611/joint_torch_latest.pt",
+    "src/act/observation_builder.py"
+  ],
+  "expected_outputs": [
+    "reports/ablation/mask_route_candidates_eval/run_metadata.json",
+    "reports/ablation/mask_route_candidates_eval/README.md"
+  ],
+  "claim_status": "planned",
+  "safety_notes": [
+    "Evaluation-time ablation only.",
+    "Do not hard-code route-candidate feature indices; discover them from OBSERVATION_FEATURE_INDEX and ROUTE_CANDIDATE_OBSERVATION_FEATURES.",
+    "If route-candidate indices cannot be confirmed, fail with a clear missing-index message and generate no metrics."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/mask_route_candidates_eval/",
+  "implementation_status": "scaffolded"
+}

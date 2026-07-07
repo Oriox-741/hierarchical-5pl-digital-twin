@@ -31,6 +31,16 @@ Exact-resume evidence is documented in:
 
 Checkpoint bodies are intentionally excluded.
 
+## Ablation Scaffolding
+
+The repository includes public-safe ablation configuration scaffolding under `configs/ablation/` and a dry-run CLI:
+
+```powershell
+python scripts\run_ablation_matrix.py --dry-run --all
+```
+
+The dry run validates planned ablation definitions without requiring private checkpoints or running evaluation. Actual ablation execution may require checkpoint artifacts and episode outputs that are intentionally excluded from this sanitized public repository. No ablation results are claimed by default; results should be claimed only when generated reports are present and intentionally reviewed.
+
 ## Known Missing or Ambiguous Fields
 
 Human-dependent thesis and publication fields remain in:

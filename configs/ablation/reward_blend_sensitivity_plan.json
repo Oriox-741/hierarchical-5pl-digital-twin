@@ -1,0 +1,25 @@
+{
+  "name": "reward_blend_sensitivity_plan",
+  "type": "training_time_plan",
+  "purpose": "Plan future reward-blend sensitivity experiments for service, lateness, dispatch quality, route reliability, fleet, and replenishment tradeoffs.",
+  "ablation_family": "A5",
+  "required_artifacts": [
+    "future gated training approval",
+    "fresh reward configuration variants",
+    "private checkpoint storage"
+  ],
+  "expected_outputs": [
+    "future training report",
+    "future offline evaluation summary",
+    "future sensitivity comparison report"
+  ],
+  "claim_status": "planned",
+  "safety_notes": [
+    "Future work only.",
+    "Requires retraining or controlled re-evaluation under reward variants.",
+    "Do not run from the public sanitized repository by default."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/reward_blend_sensitivity_plan/",
+  "implementation_status": "future_plan"
+}
