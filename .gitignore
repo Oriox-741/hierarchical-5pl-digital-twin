@@ -42,3 +42,25 @@ automation/agent_loop/state/
 *.zip
 *.7z
 *.rar
+
+# Private application / admissions materials
+Egemen_GRA_Applications/
+private_application_materials/
+application_materials/
+00_Master_Files/
+01_Email_Texts/
+02_Professor_Targets/
+03_Portals/
+04_Recommenders/
+05_Notes/
+99_Backup_From_Repo_Extraction/
+*transcript*
+*transkrpit*
+*Transcript*
+*Academic_CV*
+*Research_Summary_GRA*
+*Working_Paper_Version*
+*Ablation_Addendum*
+*GRA_Outreach_Pack*
+*Implementation_Playbook*
+*.docx

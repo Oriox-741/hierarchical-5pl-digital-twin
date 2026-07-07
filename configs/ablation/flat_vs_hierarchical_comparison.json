@@ -1,0 +1,23 @@
+{
+  "name": "flat_vs_hierarchical_comparison",
+  "type": "evaluation_time",
+  "purpose": "Compare flat predecessor outputs against hierarchical_v1 outputs when predecessor artifacts and matching scenario summaries are available.",
+  "ablation_family": "A3",
+  "required_artifacts": [
+    "reports/benchmarks/",
+    "models/eval/"
+  ],
+  "expected_outputs": [
+    "reports/ablation/flat_vs_hierarchical_comparison/run_metadata.json",
+    "reports/ablation/flat_vs_hierarchical_comparison/README.md"
+  ],
+  "claim_status": "planned",
+  "safety_notes": [
+    "Reporting comparison only.",
+    "If predecessor artifacts are missing, write a missing-artifacts note and do not fabricate comparison metrics.",
+    "Use equal-budget scenario outputs when available."
+  ],
+  "scenario_config_reference": "configs/eval_scenarios/",
+  "output_dir": "reports/ablation/flat_vs_hierarchical_comparison/",
+  "implementation_status": "scaffolded"
+}
