@@ -13,6 +13,12 @@ The project models a 5PL operating environment as a digital twin and evaluates a
 - the `physical_reality_v5_route_candidate_visibility` simulator contract;
 - protected exact-resume training evidence and governance reports.
 
+## Prospective Advisor Quick Read
+
+For a concise research overview, see [ADVISOR_QUICK_READ.md](ADVISOR_QUICK_READ.md).
+
+For the planned ablation protocol, see [docs/thesis/ablation_protocol.md](docs/thesis/ablation_protocol.md).
+
 ## Architecture Boundary
 
 This repository does not claim live deployment into a TMS, WMS, ERP, carrier marketplace, or production operations stack. Autonomy is bounded to simulator/runtime decisioning and offline evidence. Public replay artifacts are descriptive proxy evidence only; they are not causal off-policy evaluation and do not prove real-world superiority.
