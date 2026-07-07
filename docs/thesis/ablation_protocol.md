@@ -6,12 +6,12 @@ This protocol isolates architectural and control components of the 5PL digital-t
 
 | ID | Variant | Implementation | Question | Metrics |
 | --- | --- | --- | --- | --- |
-| A1 | Neutral-PPO continuous controls | Replace PPO outputs with neutral projected values during evaluation | Does PPO add value beyond DQN? | service, lateness, dispatch success, stockout, cost |
-| A2 | Flat vs hierarchical DQN | Compare preceding flat model under same scenarios/seeds/budget | Does factorization help? | service delta, hard blockers, action concentration |
-| A3 | No teacher distillation | Train hierarchical model from cold start under same budget | Does distillation improve sample efficiency? | pass rate, early blockers, stability |
-| A4 | Masked route-candidate visibility | Neutralize 16 route-candidate features | Does route visibility help route disruption? | route failures, lateness, route-family use |
-| A5 | Safety-projection diagnostic | Log-only or disabled safety layer in sandbox | How often does safety projection rescue policy output? | projection/block rates, hard blockers |
-| A6 | Reward-blend sensitivity | Vary PPO/DQN local-global reward weights | Is performance robust to reward shaping? | service, cost, stockout, action diversity |
+| A0 | Neutral PPO evaluation | Replace PPO outputs with neutral projected values during evaluation | Does PPO add value beyond DQN? | service, lateness, dispatch success, stockout, cost |
+| A1 | Route-candidate masking | Neutralize 16 route-candidate features | Does route visibility help route disruption? | route failures, lateness, route-family use |
+| A2 | Safety-projection diagnostic | Record projection counts and reasons while safety remains enabled by default | How often does safety projection rescue policy output? | projection/block rates, hard blockers |
+| A3 | Flat-vs-hierarchical comparison | Compare preceding flat model under same scenarios/seeds/budget | Does factorization help? | service delta, hard blockers, action concentration |
+| A4 | No-teacher-distillation training-time plan | Train hierarchical model from cold start under same budget in a future approved run | Does distillation improve sample efficiency? | pass rate, early blockers, stability |
+| A5 | Reward-blend sensitivity training-time plan | Vary PPO/DQN local-global reward weights in future approved runs | Is performance robust to reward shaping? | service, cost, stockout, action diversity |
 
 ## Required Controls
 
@@ -19,11 +19,11 @@ This protocol isolates architectural and control components of the 5PL digital-t
 - Same episode count and deterministic inference mode.
 - Same seed policy; use seeds 42-46 if compute allows.
 - Separate inference-only ablations from retraining ablations.
-- Unsafe diagnostics must never be described as deployable behavior.
+- Any unsafe sandbox-only diagnostic must require an explicit guardrail flag, remain outside normal use, and never be described as deployable behavior.
 
 ## Output Artifacts
 
-Recommended output folder: `reports/ablations/YYYYMMDD_<run_name>/`
+Recommended output folder: `reports/ablation/YYYYMMDD_<run_name>/`
 
 Required files:
 

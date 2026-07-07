@@ -69,7 +69,7 @@ class AblationConfigTests(unittest.TestCase):
     def test_safety_projection_diagnostic_keeps_safety_enabled_by_default(self) -> None:
         data = _load_config(CONFIG_DIR / "safety_projection_diagnostic.json")
         notes = " ".join(data["safety_notes"]).lower()
-        self.assertIn("do not disable safety", notes)
+        self.assertIn("safety remains enabled by default", notes)
         self.assertIs(data.get("default_disables_safety"), False)
 
 
