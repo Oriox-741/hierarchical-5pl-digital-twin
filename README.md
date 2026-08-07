@@ -105,6 +105,12 @@ models, registry state, or data.
 
 Do not run training, offline evaluation gates, registry activation, production promotion, dataset downloads, or dashboard servers unless a separate approval explicitly authorizes that action.
 
+The repository ships `start_control_room.bat` and `start_control_room.ps1` as
+Windows launchers for the control room dashboard. No shell-script equivalent is
+provided and none is required: both scripts locate an interpreter and then
+invoke `python scripts/control_room_server.py`, which is the same command on
+Linux and macOS. Launching it remains subject to the approval rule above.
+
 ## Thesis and Citation Note
 
 Official project title: **Multi-Layered Digital Twin Framework for Autonomous Supply Chain Orchestration**. The repository is a thesis-supporting software and evidence artifact. It should be cited using `CITATION.cff` once the human owner confirms final publication metadata.
