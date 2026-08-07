@@ -6,14 +6,28 @@ on:
 
 jobs:
   compile:
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
       - name: Compile Python sources only
+        if: runner.os == 'Windows'
         shell: pwsh
         run: |
           $files = Get-ChildItem -Recurse src,scripts,tests -Filter *.py | ForEach-Object { $_.FullName }
           if ($files.Count -gt 0) { python -m py_compile $files }
+      - name: Verify documented Linux quickstart
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install -r requirements.txt
+          find src scripts tests -name '*.py' -exec python -m py_compile {} +
