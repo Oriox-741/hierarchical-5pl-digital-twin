@@ -176,7 +176,14 @@ The compile step is intentionally lightweight. Some tests need optional research
 
 ## What Is Intentionally Excluded
 
-This sanitized repository excludes model checkpoints, production model binaries, registry state, baseline artifacts, evaluation episode bodies, databases, raw public/private datasets, environment files, DevSpace/tunnel material, and local automation state. See `.gitignore`, `EXCLUDED_AMBIGUOUS_FILES.md`, and `GITHUB_REPO_PREP_REPORT.md` for details.
+This sanitized repository excludes model checkpoints, production model binaries, registry state, baseline artifacts, evaluation episode bodies, databases, raw public/private datasets, environment files, DevSpace/tunnel material, and local automation state. See `.gitignore`, [`docs/governance/EXCLUDED_AMBIGUOUS_FILES.md`](docs/governance/EXCLUDED_AMBIGUOUS_FILES.md), and [`docs/governance/GITHUB_REPO_PREP_REPORT.md`](docs/governance/GITHUB_REPO_PREP_REPORT.md) for details.
+
+The build-time artifacts of the sanitization pass — the file manifest, the
+secret and artifact scan, the build and validation summaries, and the original
+push instructions — now live under
+[`docs/governance/`](docs/governance/). Paths recorded *inside* those documents
+describe the tree as it stood when the snapshot was produced and were not
+rewritten, so that the audit trail stays intact.
 
 ## Lightweight Reproduction Checks
 
