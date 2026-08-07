@@ -133,6 +133,7 @@ what may be run, and how the artifact should be cited.
 | [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) | Safe verification path, what is excluded from the snapshot, exact-resume evidence pointers, and the list of operations not to run by default. |
 | [`SECURITY.md`](SECURITY.md) | Private vulnerability reporting, the sanitization boundary, and secret-handling rules. |
 | [`CITATION.cff`](CITATION.cff) | Machine-readable citation metadata used by GitHub and reference managers. |
+| [`docs/governance/known_issues.md`](docs/governance/known_issues.md) | Documented defects found during packaging review, each with evidence and remediation options. Documentation only; no code was changed to record them. |
 
 ## Requirements
 
