@@ -6,6 +6,6 @@ authors:
   - family-names: "Aktaş"
     given-names: "Egemen"
 year: 2026
-repository-code: "TO_BE_FILLED_AFTER_PRIVATE_GITHUB_REPO_CREATION"
+repository-code: "https://github.com/Oriox-741/hierarchical-5pl-digital-twin"
 abstract: "Sanitized software and evidence artifact for a multi-layered digital twin framework for autonomous supply chain orchestration."
 license: "MIT"
