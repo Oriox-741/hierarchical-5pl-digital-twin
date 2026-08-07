@@ -209,12 +209,89 @@ and evidence artifacts.
 
 ---
 
+## Issue 4 — statistical test naming inconsistency
+
+**Severity:** labelling and provenance — the reported values carry a test name
+that does not match the implementation in this repository.
+
+Three run reports, and the thesis text drawn from them, refer to an *"exact
+paired sign-flip test"* and report p = 0.7597 and p = 0.2997. This repository
+implements `exact_sign_test_two_sided` in `src/eval/benchmark_statistics.py`, a
+two-sided exact binomial sign test.
+
+**These are different tests.** A sign-flip permutation test uses the magnitudes
+of the paired differences; the sign test uses only their signs. The
+implementation makes that explicit — it counts `positive`, `negative` and
+`ties`, then evaluates a `math.comb` tail over the non-tie count:
+
+```python
+non_ties = positive + negative
+observed = min(positive, negative)
+tail_probability = sum(math.comb(non_ties, k) for k in range(observed + 1)) / (2**non_ties)
+p_value = min(1.0, 2.0 * tail_probability)
+```
+
+No magnitude ever enters the computation.
+
+### The reported values were not produced by this function
+
+Because the function consumes only counts, its p-values fall on a sparse
+discrete grid. For n = 20 non-tie pairs the complete attainable set is:
+
+```
+0.0000, 0.0004, 0.0026, 0.0118, 0.0414, 0.1153, 0.2632, 0.5034, 0.8238, 1.0000
+```
+
+Neither 0.7597 nor 0.2997 is attainable for any n from 1 to 60. The closest
+values the sign test can produce are 0.7608 at n = 43 and 0.3018 at n = 15 —
+mutually inconsistent, and inconsistent with the 20-episodes-per-scenario design
+the source documents describe.
+
+Empirically, the sign-test blocks the code did produce land exactly on that
+grid. All 64 blocks in
+`reports/benchmarks/full_completion_20260613/rule_based_full_20ep/rule_based_full_report.json`
+report one of four values — 0.000002, 0.000061, 0.041389, 1.000000 — each a
+grid point, for example `{"n": 15, "positive": 15, "negative": 0, "ties": 5,
+"p_value": 6.103515625e-05}`, which is exactly `2 * C(15, 0) / 2**15`.
+
+### What this does and does not establish
+
+The computing implementation is unidentified. The reported values are
+inconsistent with the sign test implemented here, but consistent with any
+magnitude-based test — sign-flip permutation, Wilcoxon signed-rank, paired
+t-test, or a bootstrap p-value are all compatible with the observed
+granularity. Nothing in the evidence selects among them.
+
+### Separate observation — a granularity lead
+
+Both reported values are exact multiples of 1/10000 (0.7597 = 7597/10000,
+0.2997 = 2997/10000). Neither is an integer multiple of 1/2^20, the grid of a
+full sign-flip enumeration over 20 paired differences. This is consistent with a
+Monte Carlo permutation test using 10,000 resamples; if so, the "exact"
+qualifier in the source documents would also be inaccurate. Recorded as a lead,
+not a conclusion — rounding could produce the same appearance.
+
+### Affected files
+
+Historical records. Not edited; see the note at the end of Issue 5.
+
+- `docs/runs/20260611_hierarchical_v1_equal_budget_residual_watch_eval.md` (L115, L155)
+- `docs/runs/20260613_benchmark_scorecard_audit.md` (L44)
+- `reports/thesis_handoff/chapter3_method_evidence/docs/runs/20260611_hierarchical_v1_equal_budget_residual_watch_eval.md` (L115, L155)
+
+The related "exact label-permutation" values (p = 0.085, p = 0.177) in
+`docs/runs/20260611_hierarchical_v1_residual_watch_statistical_assurance.md`
+are covered by Issue 5.
+
+**Status: open.** Resolving this requires identifying which implementation
+produced the reported values, which cannot be determined from this repository.
+
+---
+
 ## Issue 5 — statistical results are not traceable to a generating command
 
 **Severity:** provenance — the reported numbers may well be correct, but nothing
 in this repository shows how they were produced.
-
-*(Issue 4 is reserved for a separate finding still under review.)*
 
 The p-values quoted in the run reports are not linked to any command, script, or
 function invocation:
