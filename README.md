@@ -34,7 +34,31 @@ This repository does not claim live deployment into a TMS, WMS, ERP, carrier mar
 - `docs/`: selected runbooks, release notes, plans, and bounded claim documentation.
 - `reports/`: selected lightweight summaries, thesis handoff metadata, dashboard assets, and final benchmark scorecard artifacts.
 
+## Requirements
+
+**Python 3.11 or newer.** Two independent constraints set that floor:
+
+- The source imports runtime APIs added in 3.11: `enum.StrEnum`
+  (`src/act/discrete_action_mapper.py`), `datetime.UTC`
+  (`src/learn/joint_metrics.py`), and `typing.Self` (`src/sense/db_pool.py`).
+- Pinned dependencies require it: `numpy==2.4.4` and `pandas==3.0.2` each
+  declare `Requires-Python >=3.11`.
+
+Continuous integration builds against Python 3.12 on Windows
+(`.github/workflows/ci.yml`), so 3.12 is the version with automated coverage.
+
 ## Safe Quickstart
+
+### Linux and macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+find src scripts tests -name '*.py' -exec python -m py_compile {} +
+```
+
+### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
@@ -43,7 +67,11 @@ pip install -r requirements.txt
 python -m py_compile (Get-ChildItem -Recurse src,scripts,tests -Filter *.py | ForEach-Object FullName)
 ```
 
-The compile command above is intentionally lightweight. Some tests need optional research dependencies or local artifacts and should be selected deliberately.
+Both compile commands cover the same set of source files. If you prefer one
+invocation that is identical on every platform, `python -m compileall -q src
+scripts tests` does the same job.
+
+The compile step is intentionally lightweight. Some tests need optional research dependencies or local artifacts and should be selected deliberately.
 
 ## What Is Intentionally Excluded
 
@@ -51,7 +79,19 @@ This sanitized repository excludes model checkpoints, production model binaries,
 
 ## Lightweight Reproduction Checks
 
-Recommended safe checks are:
+Recommended safe checks are shown below. Run them from an activated virtual
+environment, where `python` resolves to the interpreter inside `.venv`.
+
+### Linux and macOS
+
+```bash
+find src scripts tests -name '*.py' -exec python -m py_compile {} +
+python scripts/production_artifact_health_report.py --help
+python scripts/monitoring_report_generator.py --help
+python scripts/company_data_intake_validator.py --help
+```
+
+### Windows (PowerShell)
 
 ```powershell
 python -m py_compile (Get-ChildItem -Recurse src,scripts,tests -Filter *.py | ForEach-Object FullName)
@@ -59,6 +99,9 @@ python scripts\production_artifact_health_report.py --help
 python scripts\monitoring_report_generator.py --help
 python scripts\company_data_intake_validator.py --help
 ```
+
+Each `--help` call prints the argument contract and exits without touching
+models, registry state, or data.
 
 Do not run training, offline evaluation gates, registry activation, production promotion, dataset downloads, or dashboard servers unless a separate approval explicitly authorizes that action.
 
