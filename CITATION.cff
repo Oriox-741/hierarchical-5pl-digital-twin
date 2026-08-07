@@ -8,4 +8,4 @@ authors:
 year: 2026
 repository-code: "TO_BE_FILLED_AFTER_PRIVATE_GITHUB_REPO_CREATION"
 abstract: "Sanitized software and evidence artifact for a multi-layered digital twin framework for autonomous supply chain orchestration."
-license: "NOASSERTION"
+license: "MIT"
