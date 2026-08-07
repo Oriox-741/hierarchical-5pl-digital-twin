@@ -3,9 +3,18 @@ title: "Multi-Layered Digital Twin Framework for Autonomous Supply Chain Orchest
 message: "If you use this thesis-supporting research artifact, please cite it using this metadata."
 type: software
 authors:
-  - family-names: "Akta?"
+  - family-names: "Aktaş"
     given-names: "Egemen"
-year: 2026
-repository-code: "TO_BE_FILLED_AFTER_PRIVATE_GITHUB_REPO_CREATION"
+    affiliation: "Istanbul University, Faculty of Transportation and Logistics"
+version: "0.1.0"
+date-released: "2026-08-08"
+repository-code: "https://github.com/Oriox-741/hierarchical-5pl-digital-twin"
 abstract: "Sanitized software and evidence artifact for a multi-layered digital twin framework for autonomous supply chain orchestration."
-license: "NOASSERTION"
+license: "MIT"
+keywords:
+  - "fifth-party logistics"
+  - "digital twin"
+  - "supply chain orchestration"
+  - "reinforcement learning"
+  - "hierarchical reinforcement learning"
+  - "safe reinforcement learning"
