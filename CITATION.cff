@@ -5,7 +5,16 @@ type: software
 authors:
   - family-names: "Aktaş"
     given-names: "Egemen"
+    affiliation: "Istanbul University, Faculty of Transportation and Logistics"
+version: "0.1.0"
 date-released: "2026-08-08"
 repository-code: "https://github.com/Oriox-741/hierarchical-5pl-digital-twin"
 abstract: "Sanitized software and evidence artifact for a multi-layered digital twin framework for autonomous supply chain orchestration."
 license: "MIT"
+keywords:
+  - "fifth-party logistics"
+  - "digital twin"
+  - "supply chain orchestration"
+  - "reinforcement learning"
+  - "hierarchical reinforcement learning"
+  - "safe reinforcement learning"
