@@ -209,6 +209,79 @@ and evidence artifacts.
 
 ---
 
+## Issue 5 — statistical results are not traceable to a generating command
+
+**Severity:** provenance — the reported numbers may well be correct, but nothing
+in this repository shows how they were produced.
+
+*(Issue 4 is reserved for a separate finding still under review.)*
+
+The p-values quoted in the run reports are not linked to any command, script, or
+function invocation:
+
+| Value | Reported in | Described as |
+| --- | --- | --- |
+| `0.760`, `0.300` | `docs/runs/20260611_hierarchical_v1_equal_budget_residual_watch_eval.md` (L115, L155) | "exact paired sign-flip p-value" |
+| `0.085`, `0.177` | `docs/runs/20260611_hierarchical_v1_residual_watch_statistical_assurance.md` (L88, L120) | "exact permutation p over existing samples" |
+
+The equal-budget document does carry a `## Commands Run` section, but those
+commands — `python -m src.eval.evaluate_real_world_scenarios` and
+`python -m src.eval.check_long_run_gate` — generate the *evaluation data*. They
+do not compute the statistics. The residual-watch document names no command at
+all; a search of it for `.py`, `script`, `command`, `python` and
+`benchmark_statistics` returns nothing.
+
+This is not a claim that the implementation is missing. It exists:
+`exact_sign_test_two_sided` and `bootstrap_mean_ci` in
+`src/eval/benchmark_statistics.py`, invoked from
+`scripts/full_completion_rule_based_benchmark.py`, with tests in
+`tests/eval/test_benchmark_statistics.py`. What is missing is the link from a
+specific reported number back to a specific run of that code.
+
+The inputs cannot close the gap from inside this snapshot either. Both documents
+compute over `episode_metrics.jsonl` files under `models/eval/...`, and `models/`
+is excluded from the sanitized repository by design, so the values cannot be
+recomputed here.
+
+### On the two designs being different
+
+The residual-watch comparison is **unpaired** — 3 episodes per scenario for the
+production comparator against 20 for the hierarchical model. A paired test is
+structurally inapplicable to that shape, so reaching for a permutation test
+there is design-appropriate rather than a mistake.
+
+Two gaps remain around it. No permutation implementation exists anywhere in this
+repository. And the test is not defined in the document: the phrase "exact
+label-permutation tests over the existing samples" (L52) is the whole of the
+description, with no null hypothesis, test statistic, tail convention, or tie
+handling stated.
+
+### Remediation path A — record provenance at run time
+
+Capture the exact command, input paths and input digests for each statistic
+alongside the value, in the same way the equal-budget document already records
+`episode_metrics.jsonl` SHA-256 digests for its evaluation inputs.
+
+*Impact:* future runs become auditable end to end. Does nothing for the values
+already reported, which would remain traceable only through the authors' own
+records.
+
+### Remediation path B — document the reproduction path
+
+Add a section to `REPRODUCIBILITY.md` describing how these statistics are
+computed and from which inputs, stating plainly that the inputs are excluded
+from the public snapshot.
+
+*Impact:* a reader can follow the method and audit the code even without being
+able to re-run it, and the exclusion becomes an explicit documented boundary
+rather than a silent gap. It records the intended path rather than proving the
+historical numbers came from it.
+
+Historical run documents under `docs/runs/` are point-in-time records and are
+not edited to resolve this.
+
+---
+
 ## Scan methodology
 
 Audit record of how the findings above, and the related character-corruption
